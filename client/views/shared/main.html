@@ -9,12 +9,8 @@
 
   <body>
     {{> header}}
-    <div style='height:700px'>
     {{> yield}}
-  </div>
-    <footer>
-        {{> footer}}
-    </footer>
+    {{> footer}}
   </body>
 
 </template>
@@ -47,23 +43,82 @@
 </template> -->
 
 <template name="footer">
-  <footer class="page-footer ee-yellow">
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
       <div class="container">
-        <p>Equal Education Social Audit App 2.0</p>
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
     </div>
   </footer>
 </template>
 
 <template name="sideNav">
     <nav>
-      <ul id="slide-out" class="side-nav">
-          <li><a href="/audit/school">School</a></li>
-          <li><a href="/audit/formA">Form A</a></li>
-          <li><a href="/audit/formB">Form B</a></li>
-          <li><a href="/audit/formC">Form C</a></li>
-        </ul>
 
-        <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+      <ul id="slide-out" class="side-nav collapsible black-text" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header">Form A</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>General</li>
+              <li>Number of Students</li>
+              <li>Staff</li>
+              <li>Security Infrastructure</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Form B</div>
+          <div class="collapsible-body">
+              <ul>
+                <li>General</li>
+                <li>Number of Students</li>
+                <li>Staff</li>
+                <li>Security Infrastructure</li>
+              </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Form C</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>General</li>
+              <li>Number of Students</li>
+              <li>Staff</li>
+              <li>Security Infrastructure</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+      <ul class="right hide-on-med-and-down">
+            <li><a href="/schools">Schools</a></li>
+            <li><a href="/audits">Audits</a></li>
+            {{#if currentUser}}
+              <li><a href="/logout">Log Out</a></li>
+            {{else}}
+                <li><a href="/accounts">Sign in</a></li>
+            {{/if}}
 
-  </nav>
+          </ul>
+
+        </nav>
 </template>

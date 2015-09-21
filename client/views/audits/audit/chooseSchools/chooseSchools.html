@@ -1,0 +1,10 @@
+<template name="chooseSchool">
+  <div class="container">
+    <h1>Choose School </h1>
+    {{> searchSchools}}
+</div>
+</template>
+
+<template name="searchSchools">
+  {{> reactiveTable settings=settings class="highlight"}}
+</template>

@@ -1,2 +1,30 @@
 <template name="formA">
+    <h1>{{this.school.schoolDetails.INSTITUTION_NAME}} Form A: Administrator Interview</h1>
+</template>
+
+<template name="general">
+  <div class="container">
+    {{> formA}}
+    <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="auditor_name" type="text" class="validate">
+          <label for="auditor_name">Auditor Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="date" type="text" class="validate">
+          <label for="date">Date</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="learner_grade" type="text" class="validate">
+          <label for="learner_grade">Grade of learner being interviewed</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  </div>
 </template>
