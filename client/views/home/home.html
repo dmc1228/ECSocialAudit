@@ -1,0 +1,20 @@
+<template name="home">
+  <div class="container">
+    {{> accounts}}
+  </div>
+</template>
+
+<template name="accounts">
+    {{#if currentUser}}
+        {{> dashboard}}
+    {{else}}
+        {{> login}}
+    {{/if}}
+</template>
+
+<template name="dashboard">
+  <!-- <a href="/schools" class="btn">Schools</a> -->
+  <!-- <a href="/audits" class="btn">Audits</a> -->
+  {{> audits}}
+
+</template>

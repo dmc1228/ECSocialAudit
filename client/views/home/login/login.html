@@ -1,0 +1,28 @@
+<template name="login">
+  <div class="container">
+       <div class="accounts card">
+          <div class="card-content black-text">
+            <span class="card-title black-text">Staff Log In</span>
+            <p>Please use your Equal Education email address to log in</p>
+            <form id="login-form" action="action">
+              <div class="input-field col s12">
+                <input type="email" id="login-email" class="validate" />
+                <label for="login-email">Email</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="password" id="login-password" class="validate" />
+                <label for="login-password">Password</label>
+              </div>
+              <div class="col s6">
+                <input type="submit" class="waves-effect waves-light btn" id="login-button" value="Sign in" />
+              </div>
+              <div class="col s6">
+                <a href="/accounts/register">Register as a new user</a>
+              </div>
+              <div class="input-field col s12">
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+</template>

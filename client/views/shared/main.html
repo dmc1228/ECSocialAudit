@@ -1,0 +1,53 @@
+
+<template name="main">
+  <header>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Western Cape Social Audit</title>
+  </header>
+
+
+  <body>
+    {{> header}}
+    {{> yield}}
+    <footer>
+        {{> footer}}
+    </footer>
+  </body>
+
+</template>
+
+
+<template name="header">
+  <div id="nav_container">
+    <div id="nav_bar">{{> navbar }}</div>
+    {{> flashMessages}}
+  </div>
+</template>
+
+<template name="navbar">
+  <nav class="nav-bar-color" role="navigation">
+    <div class="nav-wrapper container">
+      <!-- <a id="logo-container" href="/"><img class="brand-logo" src="logo.png"></a> -->
+
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Schools</a></li>
+        <li><a href="#">Audits</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Schools</a></li>
+        <li><a href="#">Audits</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </div>
+  </nav>
+</template>
+
+<template name="footer">
+  <footer class="page-footer ee-yellow">
+      <div class="container">
+        <p>Equal Education Social Audit App 2.0</p>
+    </div>
+  </footer>
+</template>

@@ -1,0 +1,13 @@
+<template name="audits">
+  <div class="container">
+  <span><h1>My Audits</h1>
+  <a class="btn" href="/audit/new">New Audit</a></span>
+  <table>
+    <th>School</th>
+  {{#each audits}}
+    <td>this.school.name</td>
+  {{/each}}
+</table>
+
+</div>
+</template>

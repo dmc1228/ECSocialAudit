@@ -1,0 +1,37 @@
+<template name="register">
+  <div class="container">
+
+  <div class="background accounts_background">
+    <div class="accounts">
+      {{#if currentUser}}
+          {{> dashboard}}
+      {{else}}
+      <div class="accounts card">
+          <div class="card-content black-text">
+              <span class="card-title black-text">Staff Register</span>
+              <p>Please use your Equal Education email address to register as a new user</p>
+              <form id="register-form" action="action">
+                <div class="input-field col s12">
+                  <input id="register-email" type="email" class="validate" name="registerEmail">
+                  <label for="register-email">Email</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="register-password" type="password" class="validate" name="registerPassword">
+                  <label for="register-password">Password</label>
+                </div>
+                <div class="col s6">
+                  <input class="btn waves-effect waves-light" type="submit" value="Register">
+                </div>
+                <div class="col s6">
+                  <a href="/accounts/login">Login as an existing user</a>
+                </div>
+                <div class="input-field col s12"></div>
+              </form>
+            </div>
+          </div>
+          {{/if}}
+
+        </div>
+  </div>
+</div>
+</template>

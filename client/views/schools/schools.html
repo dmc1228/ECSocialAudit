@@ -1,0 +1,10 @@
+<template name="schools">
+  <div class="container">
+  <a href="/upload" class="btn">Upload Schools</a>
+    <ul>
+      {{#each schools}}
+      <li>{{this.schoolDetails.INSTITUTION_NAME}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

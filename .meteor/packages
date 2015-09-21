@@ -8,3 +8,11 @@ meteor-platform
 autopublish
 insecure
 fourseven:scss
+appcache
+ground:db
+iron:router
+mrt:flash-messages
+mrt:jquery-csv
+mrt:jquery-ui
+accounts-password
+accounts-ui
