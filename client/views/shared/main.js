@@ -1,6 +1,11 @@
 Template.header.onRendered(function() {
   // Initialize collapse button
-  $(".button-collapse").sideNav();
+  // $(".button-collapse").sideNav();
   // Initialize collapsible (uncomment the line below if you use the dropdown variation)
   //$('.collapsible').collapsible();
+  $('.button-collapse').sideNav({
+      // menuWidth: 300, // Default is 240
+      // closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
 });

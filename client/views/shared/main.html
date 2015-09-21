@@ -9,7 +9,9 @@
 
   <body>
     {{> header}}
+    <div style='height:700px'>
     {{> yield}}
+  </div>
     <footer>
         {{> footer}}
     </footer>
@@ -20,15 +22,15 @@
 
 <template name="header">
   <div id="nav_container">
-    <div id="nav_bar">{{> navbar }}</div>
+    {{> sideNav}}
     {{> flashMessages}}
   </div>
 </template>
 
-<template name="navbar">
+<!-- <template name="navbar">
   <nav class="nav-bar-color" role="navigation">
     <div class="nav-wrapper container">
-      <!-- <a id="logo-container" href="/"><img class="brand-logo" src="logo.png"></a> -->
+      <a id="logo-container" href="/"><img class="brand-logo" src="logo.png"></a>
 
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Schools</a></li>
@@ -42,7 +44,7 @@
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </div>
   </nav>
-</template>
+</template> -->
 
 <template name="footer">
   <footer class="page-footer ee-yellow">
@@ -50,4 +52,15 @@
         <p>Equal Education Social Audit App 2.0</p>
     </div>
   </footer>
+</template>
+
+<template name="sideNav">
+    <nav>
+      <ul id="slide-out" class="side-nav">
+          <li><a href="#!">First Sidebar Link</a></li>
+          <li><a href="#!">Second Sidebar Link</a></li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+
+  </nav>
 </template>
