@@ -6,10 +6,17 @@ Template.general.onRendered(function() {
    selectYears: 15 // Creates a dropdown of 15 years to control year
  });
  $('select').material_select();
-
 });
 
 Template.general.events({
+  'click .next' : function() {
+    console.log(this)
+    Router.go('audit.formA', {_id: this._id, _section: 'students'});
+  },
+  'click .previous' : function() {
+    console.log(this)
+    Router.go('audit.school');
+  },
   'submit #general' : function(event, template) {
     event.preventDefault();
     var audit = this;
