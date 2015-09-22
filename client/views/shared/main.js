@@ -1,14 +1,3 @@
-// Template.header.onRendered(function() {
-//   // Initialize collapse button
-//   // $(".button-collapse").sideNav();
-//   // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-//   //$('.collapsible').collapsible();
-//   $('.button-collapse').sideNav({
-//       menuWidth: 300, // Default is 240
-//       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-//     }
-//   );
-// });
 
 Template.sideNav.onRendered(function() {
   $('.collapsible').collapsible({
@@ -19,4 +8,14 @@ Template.sideNav.onRendered(function() {
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
   );
+});
+
+
+Template.header.helpers({
+  'shouldShowSideNav' : function() {
+    console.log('ShouldShowSideNav');
+    var isViewingAnAudit = (Router.current().url.indexOf("/audit/") > -1);
+    console.log(Router.current().url)
+    return isViewingAnAudit;
+  }
 });

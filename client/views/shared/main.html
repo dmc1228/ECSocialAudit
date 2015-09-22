@@ -17,30 +17,24 @@
 
 
 <template name="header">
-  <div id="nav_container">
-    {{> sideNav}}
+  <nav>
+    {{#if shouldShowSideNav}}
+      {{> sideNav}}
+    {{/if}}
+    <ul class="right hide-on-med-and-down">
+          <li><a href="/schools">Schools</a></li>
+          <li><a href="/audits">Audits</a></li>
+          {{#if currentUser}}
+            <li><a href="/logout">Log Out</a></li>
+          {{else}}
+              <li><a href="/accounts">Sign in</a></li>
+          {{/if}}
+
+        </ul>
+      </nav>
     {{> flashMessages}}
-  </div>
 </template>
 
-<!-- <template name="navbar">
-  <nav class="nav-bar-color" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="/"><img class="brand-logo" src="logo.png"></a>
-
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Schools</a></li>
-        <li><a href="#">Audits</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Schools</a></li>
-        <li><a href="#">Audits</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-    </div>
-  </nav>
-</template> -->
 
 <template name="footer">
   <footer class="page-footer">
@@ -54,8 +48,6 @@
 </template>
 
 <template name="sideNav">
-    <nav>
-
       <ul id="slide-out" class="side-nav collapsible black-text" data-collapsible="accordion">
         <li>
           <div class="collapsible-header">A. Administrator Interview</div>
@@ -96,16 +88,4 @@
         </li>
       </ul>
       <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
-      <ul class="right hide-on-med-and-down">
-            <li><a href="/schools">Schools</a></li>
-            <li><a href="/audits">Audits</a></li>
-            {{#if currentUser}}
-              <li><a href="/logout">Log Out</a></li>
-            {{else}}
-                <li><a href="/accounts">Sign in</a></li>
-            {{/if}}
-
-          </ul>
-
-        </nav>
 </template>
