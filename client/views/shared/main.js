@@ -13,9 +13,17 @@ Template.sideNav.onRendered(function() {
 
 Template.header.helpers({
   'shouldShowSideNav' : function() {
-    console.log('ShouldShowSideNav');
     var isViewingAnAudit = (Router.current().url.indexOf("/audit/") > -1);
-    console.log(Router.current().url)
     return isViewingAnAudit;
   }
 });
+
+Template.title.helpers({
+  'currentSchoolName': function(){
+    var isViewingAnAudit = (Router.current().url.indexOf("/audit/") > -1);
+    if (isViewingAnAudit) {
+        schoolName = Session.get('schoolName')
+        return schoolName;
+      }
+    }
+  })
