@@ -1,15 +1,11 @@
 <template name="audits">
   <div class="container">
-  <span><h1>My Audits</h1>
-  <a class="btn" href="/audit/new">New Audit</a></span>
-  <table>
-    <th>School</th>
-  {{#each audits}}
-  <tr>
-    <td>{{this.school.schoolDetails.INSTITUTION_NAME}}</td>
-  </tr>
-  {{/each}}
-</table>
+    <h2>Manage My Audits</h2>
+    <a class="btn" href="/audit/new">New Audit</a>
+    {{> manageAudits}}
+  </div>
+</template>
 
-</div>
+<template name="manageAudits">
+  {{> reactiveTable settings=settings class="highlight"}}
 </template>
