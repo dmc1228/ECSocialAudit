@@ -6,7 +6,11 @@ formA = function (){
         staff: staff
       },
       security: {
-
+        infrastructure: infrastructure,
+        planning: planning,
+        // violence: violence,
+        // staff: security_staff
+        // sense: sense
       }
 
     }
@@ -118,3 +122,33 @@ var staff = [
     id: 'number_of_maintenance_staff',
     name: 'Number of maintenance staff'
   }]
+
+var infrastructure = [
+  {
+    id: 'cctv',
+    type: 'dropdown',
+    label: 'Does the school have CCTV?',
+    options: ['Yes, and it works', 'Yes, but it doesn\'t work', 'No', 'Don\'t know']
+  },
+  {
+    id: 'alarm',
+    type: 'dropdown',
+    label: 'Does the school have an alarm?',
+    options: ['Yes, and it works', 'Yes, but it doesn\'t work', 'No', 'Don\'t know']
+  }
+]
+
+var planning = [
+  {
+    id: 'safety_committee',
+    type: 'dropdown',
+    label: 'Does the school have a safety committee?',
+    options: ['Yes', 'No', 'Don\'t know']
+  },
+  {
+    id: 'active_safety_committee',
+    type: 'dropdown',
+    label: 'Is the Safety Committee active at the school?',
+    options: ['Yes (please describe in comments)', 'No, no committee exists', 'I don\'t know what they do']
+  }
+]

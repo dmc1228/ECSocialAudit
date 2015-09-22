@@ -1,0 +1,14 @@
+<template name="infrastructure">
+  <div class="container">
+    {{> formA section="2 Security" subsection="2.1 Security Infrastructure"}}
+    <div class="row">
+    <form id="infrastructure" class="col s12">
+      {{#each this.formA.security.infrastructure}}
+        {{> chooseTemplate data=this}}
+      {{/each}}
+      <button type='submit' class="btn previous">Previous</button>
+      <button type='submit' class="btn next">Next</button>
+    </form>
+  </div>
+  </div>
+</template>

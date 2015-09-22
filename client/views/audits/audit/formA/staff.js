@@ -13,7 +13,7 @@ Template.staff.events({
       item.total = total;
     })
     Audits.update({_id : audit._id}, {$set: {formA: audit.formA}});
-    Router.go('audit.formA', {_id: this._id, _section: 'security'});
+    Router.go('audit.formA', {_id: this._id, _section: 'infrastructure'});
   },
   'click .previous' : function(event, template) {
     event.preventDefault();
