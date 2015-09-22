@@ -19,6 +19,7 @@ Template.chooseSchool.events({
     var post = this;
     var audit = new Object();
     audit.school = this;
+    audit.formA = formA();
     console.log(audit)
 
     var auditID = Audits.insert(audit);

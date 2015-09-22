@@ -1,8 +1,8 @@
 <template name="text_input">
   <div class="row">
     <div class="input-field col {{col}}">
-      <input id={{data.id}} type="text" class="validate">
-      <label for={{data.id}}>{{data.label}}</label>
+      <input id={{data.id}} type="text" class="validate" value={{data.value}}>
+      <label for={{data.id}} class={{isActive data.value}}>{{data.label}}</label>
     </div>
   </div>
 </template>
@@ -10,7 +10,7 @@
 <template name="date_input">
   <div class="row">
     <div class="input-field col {{col}}">
-      <input id={{data.id}} type="date" class="datepicker">
+      <input id={{data.id}} type="date" class="datepicker" value={{data.value}}>
       <label for={{data.id}}>{{data.label}}</label>
     </div>
   </div>
