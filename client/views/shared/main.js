@@ -26,14 +26,10 @@ Template.title.helpers({
         var paramsId = Router.current().params._id;
         var schoolName = Session.get('schoolName')
         if (schoolName == undefined || auditId != paramsId) {
-          console.log('finding school name');
           var audit = Audits.findOne({_id : paramsId}, {'school.schoolDetails.INSTITUTION_NAME' : 1, _id : 0});
           schoolName = audit.school.schoolDetails.INSTITUTION_NAME
           Session.set('auditId', paramsId);
           Session.set('schoolName', schoolName);
-
-          console.log(schoolName);
-
         }
         return schoolName;
       }

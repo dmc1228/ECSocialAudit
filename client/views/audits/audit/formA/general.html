@@ -1,0 +1,12 @@
+<template name="general">
+  <div class="container">
+    {{> formA section="1 School Demographics" subsection="1.1 General"}}
+    <div class="row">
+    <form class="col s12">
+      {{#each general_questions}}
+        {{> chooseTemplate data=this}}
+      {{/each}}
+    </form>
+  </div>
+  </div>
+</template>

@@ -1,0 +1,46 @@
+<template name="text_input">
+  <div class="row">
+    <div class="input-field col {{col}}">
+      <input id={{data.id}} type="text" class="validate">
+      <label for={{data.id}}>{{data.label}}</label>
+    </div>
+  </div>
+</template>
+
+<template name="date_input">
+  <div class="row">
+    <div class="input-field col {{col}}">
+      <input id={{data.id}} type="date" class="datepicker">
+      <label for={{data.id}}>{{data.label}}</label>
+    </div>
+  </div>
+</template>
+
+<template name="dropdown_input">
+  <div class="row">
+      <div class="input-field col {{col}}">
+      <select>
+        <option value="" disabled selected>Please select...</option>
+        {{#each data.options}}
+        {{this}}
+          <option value={{this}}>{{this}}</option>
+        {{/each}}
+      </select>
+      <label>{{data.label}}</label>
+    </div>
+  </div>
+</template>
+
+<template name="chooseTemplate">
+  {{#if stringsAreEqual 'text' data.type}}
+    {{> text_input data=data col="s12"}}
+  {{else}}
+    {{#if stringsAreEqual 'dropdown' data.type}}
+      {{> dropdown_input data=data col="s12"}}
+    {{else}}
+      {{#if stringsAreEqual 'date' data.type}}
+        {{> date_input data=data col="s12"}}
+      {{/if}}
+    {{/if}}
+  {{/if}}
+</template>

@@ -1,71 +1,12 @@
 <template name="formA">
-    <h2>{{this.school.schoolDetails.INSTITUTION_NAME}} Form A: Administrator Interview</h2>
+    <h4 class="center-align">{{this.school.schoolDetails.INSTITUTION_NAME}} Form A: Administrator Interview</h4>
+    <h4 class="center-align">{{section}}</h4>
+    <!-- 1 School Demographics</h4> -->
+    <h3 class="teal-text">{{subsection}}</h3>
+      <!-- 1.1 General</h3> -->
 </template>
 
-<template name="general">
-  <div class="container">
-    {{> formA}}
-    <h3>1. School Demographics</h3>
-    <h3>1.1 General</h3>
 
-    <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="auditor_name" type="text" class="validate">
-          <label for="auditor_name">Auditor Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="date" type="text" class="validate">
-          <label for="date">Date of Survey</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="position" type="text" class="validate">
-          <label for="position">Position of person being interviewed</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="type" type="text" class="validate">
-          <label for="type">Type of School</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="disabilities" type="text" class="validate">
-          <label for="disabilities">Does the school have learners with disabilities?</label>
-        </div>
-      </div>
-    </form>
-  </div>
-  </div>
-</template>
-
-<template name="students">
-  <div class="container">
-    {{> formA}}
-    <h3>1. School Demographics</h3>
-    <h3>1.2 Number of Students</h3>
-    <ul class="collection">
-      <li class="collection-item">Grade 1</li>
-      <li class="collection-item">Grade 2</li>
-      <li class="collection-item">Grade 3</li>
-      <li class="collection-item">Grade 4</li>
-      <li class="collection-item">Grade 5</li>
-      <li class="collection-item">Grade 6</li>
-      <li class="collection-item">Grade 7</li>
-      <li class="collection-item">Grade 8</li>
-      <li class="collection-item">Grade 9</li>
-      <li class="collection-item">Grade 10</li>
-      <li class="collection-item">Grade 11</li>
-      <li class="collection-item">Grade 12</li>
-
-    </ul>
-
-  </div>
-</template>
 
 <template name="staff">
   <div class="container">
