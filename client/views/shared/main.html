@@ -25,9 +25,9 @@
           <li><a href="/schools">Schools</a></li>
           <li><a href="/audits">Audits</a></li>
           {{#if currentUser}}
-            <li><a href="/logout">Log Out</a></li>
+            <li><a href="/account">Account</a></li>
           {{else}}
-              <li><a href="/accounts">Sign in</a></li>
+              <li><a href="/account/login">Not logged in</a></li>
           {{/if}}
 
         </ul>
@@ -50,7 +50,7 @@
 <template name="sideNav">
       <ul id="slide-out" class="side-nav collapsible black-text" data-collapsible="accordion">
         <li>
-          <div class="collapsible-header">A. Administrator Interview</div>
+          <div class="collapsible-header">Form A: Administrator Interview</div>
           <div class="collapsible-body">
             <ul>
               <li><a href="{{pathFor route='audit.formA' _section='general' _id=_id}}">1.1 General</a></li>
