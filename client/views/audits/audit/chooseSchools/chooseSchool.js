@@ -8,7 +8,6 @@ Template.searchSchools.helpers({
             rowsPerPage: 10,
             showFilter: true,
             fields: [{ key: 'schoolDetails.INSTITUTION_NAME', label: 'Name' },{ key: 'schoolDetails.DISTRICT_NAME', label: 'Disctrict' }]
-
         };
     }
 });
@@ -20,6 +19,7 @@ Template.chooseSchool.events({
     var audit = new Object();
     audit.school = this;
     audit.formA = formA();
+    audit.userId = Meteor.userId();
     console.log(audit)
 
     var auditID = Audits.insert(audit);

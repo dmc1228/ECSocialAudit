@@ -3,7 +3,7 @@ Template.manageAudits.helpers({
     settings: function ()
     {
       return {
-          collection: Audits,
+          collection: "user-audits",
           rowsPerPage: 10,
           showFilter: true,
           fields: [
@@ -11,9 +11,7 @@ Template.manageAudits.helpers({
             { key: 'school.schoolDetails.DISTRICT_NAME', label: 'District' },
             { key: 'update', label: '', fn: function () { return new Spacebars.SafeString('<button type="button" class="editbtn">Update</button>') } },
             { key: 'delete', label: '', fn: function () { return new Spacebars.SafeString('<button type="button" class="deletebtn">Delete</button>') } }
-
           ]
-
       };
     }
 });
