@@ -10,29 +10,29 @@ Template.general.onRendered(function() {
 
 var generalQuestions = [
   {
-    id: 'general_q1',
+    id: 'name_of_auditor',
     type: 'text',
     label: 'Name of Auditor'
   },
   {
-    id: 'general_q2',
+    id: 'survey_date',
     type: 'date',
     label: 'Date of Survey'
   },
   {
-    id: 'general_q3',
+    id: 'interviewee_position',
     type: 'dropdown',
     label: 'Position of person being interviewed',
     options: ['Principal', 'Dep. Principal', 'Secretary', 'Other']
   },
   {
-    id: 'general_q4',
+    id: 'school_type',
     type: 'dropdown',
     label: 'Type of school',
     options: ['Primary', 'Secondary', 'Combined']
   },
   {
-    id: 'general_q5',
+    id: 'school_has_disabeled_learners',
     type: 'dropdown',
     label: 'Does the school have learners with disabilities?',
     options: ['Yes', 'No']
@@ -42,5 +42,34 @@ var generalQuestions = [
 Template.general.helpers({
   'general_questions' : function() {
     return generalQuestions;
+  },
+});
+
+Template.general.events({
+  'submit #general' : function(event, template) {
+    event.preventDefault();
+    var audit = this.audit;
+    console.log(audit);
+
+    var formA = new Object();
+    var general =  new Object();
+    var school_demographics = new Object();
+    var userValues = [];
+
+    generalQuestions.forEach(function(item){
+      var value = template.find('#' + item.id).value
+      var question = new Object();
+      question.id = item.id
+      question.value = value;
+      userValues.push(question);
+    })
+
+    general.values = userValues;
+    school_demographics.general = general;
+    formA.school_demographics = school_demographics;
+    // audit.formA = formA;
+    console.log(audit);
+    Audits.update({_id : audit._id}, {$set: {formA: formA}});
+
   },
 });

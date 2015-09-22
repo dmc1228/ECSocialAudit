@@ -2,10 +2,12 @@
   <div class="container">
     {{> formA section="1 School Demographics" subsection="1.1 General"}}
     <div class="row">
-    <form class="col s12">
+    <form id="general" class="col s12">
       {{#each general_questions}}
         {{> chooseTemplate data=this}}
       {{/each}}
+      <button type="submit" class="btn previous">Previous</button>
+      <button type="submit" class="btn next">Next</button>
     </form>
   </div>
   </div>

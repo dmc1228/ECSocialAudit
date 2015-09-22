@@ -19,10 +19,9 @@
 <template name="dropdown_input">
   <div class="row">
       <div class="input-field col {{col}}">
-      <select>
+      <select id={{data.id}}>
         <option value="" disabled selected>Please select...</option>
         {{#each data.options}}
-        {{this}}
           <option value={{this}}>{{this}}</option>
         {{/each}}
       </select>

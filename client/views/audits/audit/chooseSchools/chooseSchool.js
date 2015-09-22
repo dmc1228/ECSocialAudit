@@ -17,10 +17,12 @@ Template.chooseSchool.events({
   'click .reactive-table tbody tr': function (event) {
     // set the blog post we'll display details and news for
     var post = this;
-    var Audit = new Object();
-    Audit.school = this;
-    var auditID = Audits.insert(Audit);
-    // Router.go('/audit/formA', {_id: auditID});
+    var audit = new Object();
+    audit.school = this;
+    console.log(audit)
+
+    var auditID = Audits.insert(audit);
+
     Session.set('schoolName', this.schoolDetails.INSTITUTION_NAME)
     Session.set('auditId', auditID)
 
