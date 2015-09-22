@@ -22,7 +22,7 @@
       <select id={{data.id}}>
         <option value="" disabled selected>Please select...</option>
         {{#each data.options}}
-          <option value={{this}}>{{this}}</option>
+            <option selected={{isSelected this ../data.value}} value={{this}}>{{this}}</option>
         {{/each}}
       </select>
       <label>{{data.label}}</label>

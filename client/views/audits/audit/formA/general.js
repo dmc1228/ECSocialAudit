@@ -9,12 +9,6 @@ Template.general.onRendered(function() {
 
 });
 
-Template.general.helpers({
-  'print' : function(thingToPrint) {
-    console.log(thingToPrint);
-  },
-});
-
 Template.general.events({
   'submit #general' : function(event, template) {
     event.preventDefault();

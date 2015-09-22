@@ -5,14 +5,17 @@ Template.chooseTemplate.helpers({
 });
 
 Template.registerHelper('isActive', function(val) {
-  console.log(val)
   var classes = "";
   if (val != undefined) {
     classes = "active"
   }
-  console.log(classes)
-
   return classes;
+})
+
+Template.registerHelper('isSelected', function(option, val) {
+  if (val == option) {
+    return "selected";
+  }
 })
 
 // Template.registerHelper('setDate', function(date) {

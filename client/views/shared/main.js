@@ -35,3 +35,7 @@ Template.title.helpers({
       }
     }
   })
+
+  Template.registerHelper('print', function(thingToPrint){
+      console.log(thingToPrint);
+  });
