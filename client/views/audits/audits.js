@@ -28,9 +28,11 @@ Template.audits.events({
     }
     else if (event.target.className == "editbtn") {
       Session.set('schoolName', this.school.schoolDetails.INSTITUTION_NAME)
+      Session.set('auditId', this._id)
       Router.go('audit.formA', {_id: this._id, _section: 'general'});
     } else {
       Session.set('schoolName', this.school.schoolDetails.INSTITUTION_NAME)
+      Session.set('auditId', this._id)
       Router.go('audit.formA', {_id: this._id, _section: 'general'});
     }
   }
