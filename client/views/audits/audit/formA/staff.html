@@ -1,0 +1,21 @@
+<template name="staff">
+  <div class="container">
+    {{> formA section="1 School Demographics" subsection="1.3 Staff"}}
+    <table>
+      <th>Position</th>
+      <th>Male</th>
+      <th>Femlae</th>
+      <th>Total</th>
+      {{#each this.formA.school_demographics.staff}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td><input type="text" id='numberOfMales_{{this.id}}' value={{this.numberOfMales}}></td>
+        <td><input type="text" id='numberOfFemales_{{this.id}}' value={{this.numberOfFemales}}></td>
+        <td><input type="text" id='total_{{this.id}}' value={{this.total}}></td>
+      </tr>
+      {{/each}}
+    </table>
+    <button class="btn previous">Previous</button>
+    <button class="btn next">Next</button>
+  </div>
+</template>

@@ -1,12 +1,21 @@
 <template name="students">
   <div class="container">
-    {{> formA section="1 School Demographics" subsection="1.2 Number of Studets"}}
-    <div class="row">
-    <form class="col s12">
-      {{#each general_questions}}
-        {{> chooseTemplate data=this}}
+    {{> formA section="1 School Demographics" subsection="1.2 Number of Students"}}
+    <table>
+      <th>Grade</th>
+      <th>Boys</th>
+      <th>Girls</th>
+      <th>Total</th>
+      {{#each this.formA.school_demographics.grades}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td><input type="text" id='numberOfBoys_{{this.id}}' value={{this.numberOfBoys}}></td>
+        <td><input type="text" id='numberOfGirls_{{this.id}}' value={{this.numberOfGirls}}></td>
+        <td><input type="text" id='total_{{this.id}}' value={{this.total}}></td>
+      </tr>
       {{/each}}
-    </form>
-  </div>
+    </table>
+    <button class="btn previous">Previous</button>
+    <button class="btn next">Next</button>
   </div>
 </template>

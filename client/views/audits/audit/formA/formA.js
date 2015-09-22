@@ -1,6 +1,14 @@
 formA = function (){
     return {
-      general: generalQuestions
+      school_demographics : {
+        general: generalQuestions,
+        grades: grades,
+        staff: staff
+      },
+      security: {
+
+      }
+
     }
 }
 
@@ -34,3 +42,79 @@ var generalQuestions = [
     options: ['Yes', 'No']
   }
 ];
+
+var grades = [
+  {
+    id: 'gradeR',
+    name: 'Grade R'
+  },
+  {
+    id: 'grade1',
+    name: 'Grade 1'
+  },
+  {
+    id: 'grade2',
+    name: 'Grade 2'
+  },
+  {
+    id: 'grade3',
+    name: 'Grade 3'
+  },
+  {
+    id: 'grade4',
+    name: 'Grade 4'
+  },
+  {
+    id: 'grade5',
+    name: 'Grade 5'
+  },
+  {
+    id: 'grade6',
+    name: 'Grade 6'
+  },
+  {
+    id: 'grade7',
+    name: 'Grade 7'
+  },
+  {
+    id: 'grade8',
+    name: 'Grade 8'
+  },
+  {
+    id: 'grade9',
+    name: 'Grade 9'
+  },
+  {
+    id: 'grade10',
+    name: 'Grade 10'
+  },
+  {
+      id: 'grade11',
+      name: 'Grade 11'
+  },
+  {
+      id: 'grade12',
+      name: 'Grade 12'
+  }]
+
+var staff = [
+  {
+    id: 'total_number_of_teachers',
+    name: 'Total number of teachers'
+  },
+  {
+    id: 'number_of_permanent_teachers',
+    name: 'Number of permanent teachers'
+  },
+  {
+    id: 'number_of_administrative_staff',
+    name: 'Number of adminstrative staff'
+  },
+  {
+    id: 'number_of_security_guards',
+    name: 'Number of security guards'
+  },
+  {
+    id: 'number_of_maintenance_staff',
+    name: 'Number of maintenance staff'
+  }]

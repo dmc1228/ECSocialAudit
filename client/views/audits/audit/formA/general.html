@@ -3,7 +3,7 @@
     {{> formA section="1 School Demographics" subsection="1.1 General"}}
     <div class="row">
     <form id="general" class="col s12">
-      {{#each this.formA.general}}
+      {{#each this.formA..school_demographics.general}}
         {{> chooseTemplate data=this}}
       {{/each}}
       <button type='submit' class="btn previous">Previous</button>

@@ -20,7 +20,7 @@ Template.general.events({
   'submit #general' : function(event, template) {
     event.preventDefault();
     var audit = this;
-    audit.formA.general.forEach(function(question){
+    audit.formA.school_demographics.general.forEach(function(question){
       var value = template.find('#' + question.id).value
       question.value = value;
     })
