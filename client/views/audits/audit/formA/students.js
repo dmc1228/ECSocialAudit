@@ -12,6 +12,7 @@ Template.students.events({
       var total = template.find('#total_' + grade.id).value
       grade.total = total;
     })
+    audit.formA.school_demographics.grades.hasChanges = true;
     Audits.update({_id : audit._id}, {$set: {formA: audit.formA}});
     Router.go('audit.formA', {_id: this._id, _section: 'staff'});
   },
@@ -28,6 +29,7 @@ Template.students.events({
       var total = template.find('#total_' + grade.id).value
       grade.total = total;
     })
+    audit.formA.school_demographics.grades.hasChanges = true;
     Audits.update({_id : audit._id}, {$set: {formA: audit.formA}});
     Router.go('audit.formA', {_id: this._id, _section: 'general'});
   },

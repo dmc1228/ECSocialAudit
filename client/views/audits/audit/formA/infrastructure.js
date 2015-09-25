@@ -19,6 +19,7 @@ Template.infrastructure.events({
       var value = template.find('#' + question.id).value
       question.value = value;
     })
+    audit.formA.security.infrastructure.hasChanges = true;
     Audits.update({_id : audit._id}, {$set: {formA: audit.formA}});
 
   },

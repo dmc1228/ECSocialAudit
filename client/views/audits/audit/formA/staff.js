@@ -12,6 +12,7 @@ Template.staff.events({
       var total = template.find('#total_' + item.id).value
       item.total = total;
     })
+    audit.formA.school_demographics.staff.hasChanges = true;
     Audits.update({_id : audit._id}, {$set: {formA: audit.formA}});
     Router.go('audit.formA', {_id: this._id, _section: 'infrastructure'});
   },
@@ -28,6 +29,7 @@ Template.staff.events({
       var total = template.find('#total_' + item.id).value
       item.total = total;
     })
+    audit.formA.school_demographics.staff.hasChanges = true;
     Audits.update({_id : audit._id}, {$set: {formA: audit.formA}});
     Router.go('audit.formA', {_id: this._id, _section: 'students'});
   },

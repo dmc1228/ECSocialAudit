@@ -24,6 +24,9 @@ Template.general.events({
       var value = template.find('#' + question.id).value
       question.value = value;
     })
+    audit.formA.school_demographics.general.hasChanges = true;
+    console.log(audit.formA.school_demographics.general.hasChanges);
+
     Audits.update({_id : audit._id}, {$set: {formA: audit.formA}});
 
   },

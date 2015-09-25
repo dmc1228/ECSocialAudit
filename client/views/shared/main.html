@@ -3,6 +3,7 @@
   <header>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Western Cape Social Audit</title>
   </header>
 
@@ -54,13 +55,13 @@
           <div class="collapsible-header">Form A: Administrator Interview</div>
           <div class="collapsible-body">
             <ul>
-              <li><a href="{{pathFor route='audit.formA' _section='general' _id=_id}}">1.1 General</a></li>
-              <li><a href="{{pathFor route='audit.formA' _section='students' _id=_id}}">1.2 Number of Students</a></li>
-              <li><a href="{{pathFor route='audit.formA' _section='staff' _id=_id}}">1.3 Staff</a></li>
-              <li><a href="{{pathFor route='audit.formA' _section='infrastructure' _id=_id}}">2.1 Security Infrastructure</a></li>
-              <li><a href="{{pathFor route='audit.formA' _section='infrastructure' _id=_id}}">2.2 Security Planning</a></li>
-              <li><a href="{{pathFor route='audit.formA' _section='infrastructure' _id=_id}}">2.4 Security Staff</a></li>
-              <li><a href="{{pathFor route='audit.formA' _section='infrastructure' _id=_id}}">2.5 Sense of Security</a></li>
+              <li><a href="{{pathFor route='audit.formA' _section='general' _id=_id}}">1.1 General <i class="green-text material-icons" visibility={{hasChanges _id 'formA.school_demographics.general.hasChanges'}}>done</i></a></li>
+              <li><a href="{{pathFor route='audit.formA' _section='students' _id=_id}}">1.2 Number of Students <i class="green-text material-icons" visibility={{hasChanges _id 'formA.school_demographics.grades.hasChanges'}}>done</i></a></li>
+              <li><a href="{{pathFor route='audit.formA' _section='staff' _id=_id}}">1.3 Staff <i class="green-text material-icons" visibility={{hasChanges _id 'formA.school_demographics.staff.hasChanges'}}>done</i></a></li>
+              <li><a href="{{pathFor route='audit.formA' _section='infrastructure' _id=_id}}">2.1 Security Infrastructure <i class="green-text material-icons" visibility={{hasChanges _id 'formA.security.infrastructure.hasChanges'}}>done</i></a></li>
+              <li><a href="{{pathFor route='audit.formA' _section='planning' _id=_id}}">2.2 Security Planning <i class="green-text material-icons" visibility={{hasChanges _id 'formA.security.planning.hasChanges'}}>done</i></a></li>
+              <li><a href="{{pathFor route='audit.formA' _section='infrastructure' _id=_id}}">2.4 Security Staff <i class="green-text material-icons" visibility={{hasChanges _id 'formA.security.infrastructure.hasChanges'}}>done</i></a></li>
+              <li><a href="{{pathFor route='audit.formA' _section='infrastructure' _id=_id}}">2.5 Sense of Security <i class="green-text material-icons" visibility={{hasChanges _id 'formA.security.infrastructure.hasChanges'}}>done</i></a></li>
 
             </ul>
           </div>

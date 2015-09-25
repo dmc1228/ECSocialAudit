@@ -39,3 +39,11 @@ Template.title.helpers({
   Template.registerHelper('print', function(thingToPrint){
       console.log(thingToPrint);
   });
+
+  Template.registerHelper('hasChanges', function(id, section) {
+
+    var a = Audits.findOne({_id : id}, {section : 1})
+
+console.log(a)
+    console.log(a.formA.school_demographics.general.hasChanges);
+  });
