@@ -1,0 +1,14 @@
+<template name="violence">
+  <div class="container">
+    {{> formA section="2 Security" subsection="2.3 Violence and Crime in the School"}}
+    <div class="row">
+    <form id="infrastructure" class="col s12">
+      {{#each this.formA.security.planning}}
+        {{> chooseTemplate data=this}}
+      {{/each}}
+      <button type='submit' class="btn previous">Previous</button>
+      <button type='submit' class="btn next">Next</button>
+    </form>
+  </div>
+  </div>
+</template>
