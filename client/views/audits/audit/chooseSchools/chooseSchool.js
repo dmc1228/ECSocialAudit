@@ -18,7 +18,7 @@ Template.chooseSchool.events({
     var post = this;
     var audit = new Object();
     audit.school = this;
-    audit.formA = formA();
+    audit.forms = forms();
     audit.userId = Meteor.userId();
     console.log(audit)
 
@@ -27,7 +27,7 @@ Template.chooseSchool.events({
     Session.set('schoolName', this.schoolDetails.INSTITUTION_NAME)
     Session.set('auditId', auditID)
 
-    Router.go('audit.formA', {_id: auditID, _section: 'general'});
+    Router.go('audit.edit', {_id: auditID, _formIndex:0, _sectionIndex: 0, _subSectionIndex: 0 });
 
   }
 });

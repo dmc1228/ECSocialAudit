@@ -1,5 +1,4 @@
-formC = function (){
-    return {
+formC = {
       school_demographics : {
         general: generalQuestions,
       },
@@ -16,7 +15,7 @@ formC = function (){
       },
 
     }
-}
+
 
 var generalQuestions = [
   {

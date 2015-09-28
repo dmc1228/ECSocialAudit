@@ -13,14 +13,14 @@ Template.sideNav.onRendered(function() {
 
 Template.header.helpers({
   'shouldShowSideNav' : function() {
-    var isViewingAnAudit = (Router.current().url.indexOf("/audit/") > -1);
+    var isViewingAnAudit = (Router.current().url.indexOf("/audit/edit") > -1);
     return isViewingAnAudit;
   }
 });
 
 Template.title.helpers({
   'currentSchoolName': function(){
-    var isViewingAnAudit = (Router.current().url.indexOf("/audit/") > -1);
+    var isViewingAnAudit = (Router.current().url.indexOf("/audit/edit") > -1);
     if (isViewingAnAudit) {
         var auditId = Session.get('auditId');
         var paramsId = Router.current().params._id;
