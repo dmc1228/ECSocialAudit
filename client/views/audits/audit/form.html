@@ -1,5 +1,27 @@
-<template name="form">
+<template name="form_header">
     <h4 class="center-align">{{this.school.schoolDetails.INSTITUTION_NAME}} </h4>
     <h4 class="center-align">{{section}}</h4>
     <h3 class="teal-text">{{subsection}}</h3>
+</template>
+
+
+<template name="form">
+  <div class="container">
+    {{#with currentFormAndSection}}
+      {{> subsection data=this}}
+    {{/with}}
+  </div>
+</template>
+
+<template name="subsection">
+  {{> form_header section="1 School Demographics" subsection=data.display_name}}
+  <div class="row">
+  <form id={{data.name}} class="col s12">
+    {{#each data.questions}}
+      {{> chooseTemplate data=this}}
+    {{/each}}
+    <button type='submit' class="btn previous">Previous</button>
+    <button type='submit' class="btn next">Next</button>
+  </form>
+</div>
 </template>

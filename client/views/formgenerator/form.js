@@ -1,3 +1,15 @@
+Template.chooseTemplate.onRendered(function() {
+   this.autorun(function() {
+      // this.data.options; //autorun trigger goes here
+      $('.datepicker').pickadate({
+       autoclose: true,
+       selectMonths: true, // Creates a dropdown to control month
+       selectYears: 15 // Creates a dropdown of 15 years to control year
+     });
+     $('select').material_select();
+  });
+});
+
 Template.chooseTemplate.helpers({
   'stringsAreEqual' : function(string1, string2) {
     return string1 == string2;

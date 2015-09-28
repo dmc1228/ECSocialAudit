@@ -31,6 +31,7 @@
 </template>
 
 <template name="chooseTemplate">
+  {{print data}}
   {{#if stringsAreEqual 'text' data.type}}
     {{> text_input data=data col="s12"}}
   {{else}}
