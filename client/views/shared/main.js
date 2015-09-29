@@ -40,10 +40,14 @@ Template.title.helpers({
       console.log(thingToPrint);
   });
 
+  Template.registerHelper('stringsAreEqual', function(string1, string2){
+      return string1 == string2;
+  });
+
   Template.registerHelper('hasChanges', function(id, section) {
 
     var a = Audits.findOne({_id : id}, {section : 1})
 
-console.log(a)
+    console.log(a)
     console.log(a.formA.school_demographics.general.hasChanges);
   });

@@ -10,7 +10,8 @@ Template.form.helpers({
     var formIndex = Session.get('formIndex');
     var sectionIndex = Session.get('sectionIndex');
     var subsectionIndex = Session.get('subsectionIndex');
-
+    console.log(formIndex + '.' + sectionIndex + '.' + subsectionIndex)
+    console.log(audit);
     var audit = this.audit;
     var subsectionToDisplay = audit.forms[formIndex].sections[sectionIndex].sub_sections[subsectionIndex];
 

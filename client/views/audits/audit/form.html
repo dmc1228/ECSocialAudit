@@ -16,12 +16,16 @@
 <template name="subsection">
   {{> form_header section="1 School Demographics" subsection=data.display_name}}
   <div class="row">
-  <form id={{data.name}} class="col s12">
-    {{#each data.questions}}
-      {{> chooseTemplate data=this}}
-    {{/each}}
-    <button type='submit' class="btn previous">Previous</button>
-    <button type='submit' class="btn next">Next</button>
-  </form>
+    {{#if stringsAreEqual 'static_table' data.subtype}}
+      {{> staticTable data=data}}
+    {{else}}
+      <form id={{data.name}} class="col s12">
+        {{#each data.questions}}
+          {{> chooseTemplate data=this}}
+        {{/each}}
+        <button type='submit' class="btn previous">Previous</button>
+        <button type='submit' class="btn next">Next</button>
+      </form>
+    {{/if}}
 </div>
 </template>

@@ -25,9 +25,9 @@ Template.chooseSchool.events({
     var auditID = Audits.insert(audit);
 
     Session.set('schoolName', this.schoolDetails.INSTITUTION_NAME)
-    Session.set('auditId', auditID)
+    Session.set('auditId', auditID);
 
-    Router.go('audit.edit', {_id: auditID, _formIndex:0, _sectionIndex: 0, _subSectionIndex: 0 });
+    Router.go('audit.edit', {_id: auditID});
 
   }
 });

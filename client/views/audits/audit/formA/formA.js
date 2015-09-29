@@ -39,73 +39,100 @@ var school_demographics_general =  {
 
 var grades = {
   type: 'sub_section',
+  subtype: 'static_table',
   name: 'formA.school_demographics.grades',
   display_name: 'Grades',
   index: 1,
-  questions:
-           [
+  columns: [
             {
-              type: 'custom',
-              id: 'gradeR',
-              name: 'Grade R'
+              id: 'grade',
+              name: 'Grade',
+              index: 0,
+              type: 'label'
             },
             {
-              type: 'custom',
+              id: 'numberOfBoys',
+              name: 'Boys',
+              index: 1,
+              type: 'number'
+            },
+            {
+              id: 'numberOfGirls',
+              name: 'Girls',
+              index: 2,
+              type: 'number'
+            },
+            {
+              id: 'total',
+              name: 'Total',
+              index: 3,
+              type: 'number'
+            },
+  ],
+  rows:
+           [
+            {
+              type: 'label',
+              id: 'gradeR',
+              name: 'Grade R',
+            },
+            {
+              type: 'label',
               id: 'grade1',
               name: 'Grade 1'
             },
             {
-              type: 'custom',
+              type: 'label',
               id: 'grade2',
               name: 'Grade 2'
             },
             {
-              type: 'custom',
+              type: 'label',
               id: 'grade3',
               name: 'Grade 3'
             },
             {
-              type: 'custom',
+              type: 'label',
               id: 'grade4',
               name: 'Grade 4'
             },
             {
-              type: 'custom',
+              type: 'label',
               id: 'grade5',
               name: 'Grade 5'
             },
             {
-              type: 'custom',
+              type: 'label',
               id: 'grade6',
               name: 'Grade 6'
             },
             {
-              type: 'custom',
+              type: 'label',
               id: 'grade7',
               name: 'Grade 7'
             },
             {
-              type: 'custom',
+              type: 'label',
               id: 'grade8',
               name: 'Grade 8'
             },
             {
-              type: 'custom',
+              type: 'label',
               id: 'grade9',
               name: 'Grade 9'
             },
             {
-              type: 'custom',
+              type: 'label',
               id: 'grade10',
               name: 'Grade 10'
             },
             {
-              type: 'custom',
+              type: 'label',
                 id: 'grade11',
                 name: 'Grade 11'
             },
             {
-              type: 'custom',
+              type: 'label',
                 id: 'grade12',
                 name: 'Grade 12'
             }
@@ -114,35 +141,62 @@ var grades = {
 
 var staff = {
   type: 'sub_section',
+  subtype: 'static_table',
   name: 'formA.school_demographics.staff',
   display_name: 'Staff',
   index: 2,
-  questions:
+  columns: [
+            {
+              id: 'position',
+              name: 'Position',
+              index: 0,
+              type: 'label'
+            },
+            {
+              id: 'male',
+              name: 'Male',
+              index: 1,
+              type: 'number'
+            },
+            {
+              id: 'female',
+              name: 'Female',
+              index: 2,
+              type: 'number'
+            },
+            {
+              id: 'total',
+              name: 'Total',
+              index: 3,
+              type: 'number'
+            },
+  ],
+  rows:
             [
               {
-                type: 'number',
+                type: 'label',
                 id: 'total_number_of_teachers',
-                label: 'Total number of teachers'
+                name: 'Total number of teachers'
               },
               {
-                type: 'number',
+                type: 'label',
                 id: 'number_of_permanent_teachers',
-                label: 'Number of permanent teachers'
+                name: 'Number of permanent teachers'
               },
               {
-                type: 'number',
+                type: 'label',
                 id: 'number_of_administrative_staff',
-                label: 'Number of adminstrative staff'
+                name: 'Number of adminstrative staff'
               },
               {
-                type: 'number',
+                type: 'label',
                 id: 'number_of_security_guards',
-                label: 'Number of security guards'
+                name: 'Number of security guards'
               },
               {
-                type: 'number',
+                type: 'label',
                 id: 'number_of_maintenance_staff',
-                label: 'Number of maintenance staff'
+                name: 'Number of maintenance staff'
               }
             ]
 }

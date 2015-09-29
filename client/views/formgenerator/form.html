@@ -30,8 +30,31 @@
   </div>
 </template>
 
+<template name="staticTable">
+    <div class="container">
+      <table>
+        {{#each data.columns}}
+          <th>{{this.name}}</th>
+        {{/each}}
+        {{#each data.rows}}
+          <tr>
+            {{#each ../data.columns}}
+              {{#if stringsAreEqual 'label' this.type}}
+                <td>{{../name}}</td>
+              {{/if}}
+              {{#if stringsAreEqual 'number' this.type}}
+                <td><input type="text" id='{{this._id}}_{{../_id}}'></td>
+              {{/if}}
+            {{/each}}
+          </tr>
+          {{/each}}
+      </table>
+      <button class="btn previous">Previous</button>
+      <button class="btn next">Next</button>
+    </div>
+</template>
+
 <template name="chooseTemplate">
-  {{print data}}
   {{#if stringsAreEqual 'text' data.type}}
     {{> text_input data=data col="s12"}}
   {{else}}

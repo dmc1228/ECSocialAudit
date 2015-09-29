@@ -10,11 +10,7 @@ Template.chooseTemplate.onRendered(function() {
   });
 });
 
-Template.chooseTemplate.helpers({
-  'stringsAreEqual' : function(string1, string2) {
-    return string1 == string2;
-  }
-});
+
 
 Template.registerHelper('isActive', function(val) {
   var classes = "";
@@ -29,6 +25,10 @@ Template.registerHelper('isSelected', function(option, val) {
     return "selected";
   }
 })
+
+Handlebars.registerHelper('myHelper', function (outItem, inItem) {
+  // can access outerCollection via outerItem
+});
 
 // Template.registerHelper('setDate', function(date) {
 //   // Using a string along with the parsing format (defaults to `format` option).
