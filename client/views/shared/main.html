@@ -51,43 +51,20 @@
 
 <template name="sideNav">
       <ul id="slide-out" class="side-nav collapsible black-text" data-collapsible="accordion">
-        <li>
-          <div class="collapsible-header">Form A: Administrator Interview</div>
-          <div class="collapsible-body">
-            <!-- <ul>
-              <li><a href="{{pathFor route='audit.edit' _section='general' _id=_id}}">1.1 General <i class="green-text material-icons" visibility={{hasChanges _id 'formA.school_demographics.general.hasChanges'}}>done</i></a></li>
-              <li><a href="{{pathFor route='audit.edit' _section='students' _id=_id}}">1.2 Number of Students <i class="green-text material-icons" visibility={{hasChanges _id 'formA.school_demographics.grades.hasChanges'}}>done</i></a></li>
-              <li><a href="{{pathFor route='audit.edit' _section='staff' _id=_id}}">1.3 Staff <i class="green-text material-icons" visibility={{hasChanges _id 'formA.school_demographics.staff.hasChanges'}}>done</i></a></li>
-              <li><a href="{{pathFor route='audit.edit' _section='infrastructure' _id=_id}}">2.1 Security Infrastructure <i class="green-text material-icons" visibility={{hasChanges _id 'formA.security.infrastructure.hasChanges'}}>done</i></a></li>
-              <li><a href="{{pathFor route='audit.edit' _section='planning' _id=_id}}">2.2 Security Planning <i class="green-text material-icons" visibility={{hasChanges _id 'formA.security.planning.hasChanges'}}>done</i></a></li>
-              <li><a href="{{pathFor route='audit.edit' _section='infrastructure' _id=_id}}">2.4 Security Staff <i class="green-text material-icons" visibility={{hasChanges _id 'formA.security.infrastructure.hasChanges'}}>done</i></a></li>
-              <li><a href="{{pathFor route='audit.edit' _section='infrastructure' _id=_id}}">2.5 Sense of Security <i class="green-text material-icons" visibility={{hasChanges _id 'formA.security.infrastructure.hasChanges'}}>done</i></a></li>
-
-            </ul> -->
-          </div>
-        </li>
-        <li>
-          <div class="collapsible-header">Form B</div>
-          <div class="collapsible-body">
+        {{#each this.audit.forms}}
+          <li>
+            <div class="collapsible-header">{{this.display_name}}</div>
+            <div class="collapsible-body">
               <ul>
-                <li>General</li>
-                <li>Number of Students</li>
-                <li>Staff</li>
-                <li>Security Infrastructure</li>
+                {{#each this.sections}}
+                    {{#each this.sub_sections}}
+                      <li><a class='changeIndex'>{{this.display_name}}</a></li>
+                    {{/each}}
+                {{/each}}
               </ul>
-          </div>
-        </li>
-        <li>
-          <div class="collapsible-header">Form C</div>
-          <div class="collapsible-body">
-            <ul>
-              <li>General</li>
-              <li>Number of Students</li>
-              <li>Staff</li>
-              <li>Security Infrastructure</li>
-            </ul>
-          </div>
-        </li>
+            </div>
+          </li>
+        {{/each}}
       </ul>
       <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
 </template>

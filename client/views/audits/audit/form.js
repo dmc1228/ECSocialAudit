@@ -16,10 +16,7 @@ Template.form.helpers({
     var subsectionToDisplay = section.sub_sections[subsectionIndex];
     ret.sectionName = section.display_name;
     ret.subsection = subsectionToDisplay;
-    console.log(formIndex + '.' + sectionIndex + '.' + subsectionIndex)
-    console.log(audit);
-    console.log('finding sectin')
-    console.log(ret);
+    console.log('Currently displaying: ' + formIndex + '.' + sectionIndex + '.' + subsectionIndex)
     return ret;
   }
 });
