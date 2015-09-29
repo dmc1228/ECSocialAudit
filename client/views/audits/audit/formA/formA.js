@@ -314,11 +314,17 @@ var security_staff = {
       id: 'teacher_training',
       type: 'dropdown',
       label: 'When did teachers last receive safety training?',
-      options: ['In the last 6 months', 'In the last year', 'In the last 2 years', 'More than 2 years ago', 'Never', 'Don\'t know']
+      options: ['In the last 6 months',
+                'In the last year',
+                'In the last 2 years',
+                'More than 2 years ago',
+                'Never',
+                'Don\'t know'
+              ]
     },
     {
       id: 'hired_guards',
-      type: 'dropbox',
+      type: 'dropdown',
       label: 'Who hires the security guard(s)?',
       options: ['There is no security guard', 'WCED', 'SGB', 'Principal', 'Don\'t know', 'Other']
     },

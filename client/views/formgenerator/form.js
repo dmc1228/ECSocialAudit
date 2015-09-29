@@ -26,10 +26,6 @@ Template.registerHelper('isSelected', function(option, val) {
   }
 })
 
-Handlebars.registerHelper('myHelper', function (outItem, inItem) {
-  // can access outerCollection via outerItem
-});
-
 // Template.registerHelper('setDate', function(date) {
 //   // Using a string along with the parsing format (defaults to `format` option).
 //   // $('.datepicker').pickadate().set('select', '2016-04-20', { format: 'yyyy-mm-dd' })

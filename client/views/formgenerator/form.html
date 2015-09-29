@@ -30,6 +30,19 @@
   </div>
 </template>
 
+<template name="checkbox_input">
+  <div class="row">
+    <p>{{data.label}}</p>
+        {{#each key_value data.options}}
+             <p>
+              <input type="checkbox" id={{../data.id}}_{{key}} />
+              <label for={{../data.id}}_{{key}}>{{value}}</label>
+            </p>
+        {{/each}}
+  </div>
+</template>
+
+
 <template name="staticTable">
     <div class="container">
       <table>
@@ -63,7 +76,11 @@
     {{else}}
       {{#if stringsAreEqual 'date' data.type}}
         {{> date_input data=data col="s12"}}
-      {{/if}}
+        {{else}}
+          {{#if stringsAreEqual 'checkbox' data.type}}
+            {{> checkbox_input data=data col="s12"}}
+          {{/if}}
+        {{/if}}
     {{/if}}
   {{/if}}
 </template>

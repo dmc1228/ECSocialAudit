@@ -34,10 +34,11 @@ var isValidPassword = function(val, field) {
             return;
 
           }
+          console.log(Router.current().route.name)
           if (Router.current().route.name === 'accounts') {
             console.log("User logged in");
             FlashMessages.sendSuccess("Successfully logged in");
-            return Router.go("/staff");
+            return Router.go("/audits");
           }
         });
            return false;

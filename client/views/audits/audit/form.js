@@ -6,16 +6,21 @@ forms = function() {
 
 
 Template.form.helpers({
-  'currentFormAndSection' : function() {
+  'currentSectionNameAndSubsection' : function() {
     var formIndex = Session.get('formIndex');
     var sectionIndex = Session.get('sectionIndex');
     var subsectionIndex = Session.get('subsectionIndex');
+    var audit = this.audit;
+    var ret = new Object();
+    var section = audit.forms[formIndex].sections[sectionIndex];
+    var subsectionToDisplay = section.sub_sections[subsectionIndex];
+    ret.sectionName = section.display_name;
+    ret.subsection = subsectionToDisplay;
     console.log(formIndex + '.' + sectionIndex + '.' + subsectionIndex)
     console.log(audit);
-    var audit = this.audit;
-    var subsectionToDisplay = audit.forms[formIndex].sections[sectionIndex].sub_sections[subsectionIndex];
-
-    return subsectionToDisplay;
+    console.log('finding sectin')
+    console.log(ret);
+    return ret;
   }
 });
 
@@ -85,6 +90,12 @@ function decrementFormSubsection() {
   var formIndex = Session.get('formIndex');
   var sectionIndex = Session.get('sectionIndex');
   var subsectionIndex = Session.get('subsectionIndex')
+  var audit = this.audit;
+  var totalNumberOfForms = audit.forms.length;
+  var totalNumberOfSectionsInCurrentForm = audit.forms[formIndex].sections.length;
+  var totalNumberOfSubsectionsInCurrentSection = audit.forms[formIndex].sections[sectionIndex].sub_sections.length;
+
+
   if (subsectionIndex > 0)
   {
     subsectionIndex--;

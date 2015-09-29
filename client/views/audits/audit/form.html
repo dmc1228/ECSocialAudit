@@ -7,14 +7,14 @@
 
 <template name="form">
   <div class="container">
-    {{#with currentFormAndSection}}
-      {{> subsection data=this}}
+    {{#with currentSectionNameAndSubsection}}
+      {{> subsection data=this.subsection sectionName=this.sectionName}}
     {{/with}}
   </div>
 </template>
 
 <template name="subsection">
-  {{> form_header section="1 School Demographics" subsection=data.display_name}}
+  {{> form_header section=sectionName subsection=data.display_name}}
   <div class="row">
     {{#if stringsAreEqual 'static_table' data.subtype}}
       {{> staticTable data=data}}

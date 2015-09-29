@@ -51,3 +51,11 @@ Template.title.helpers({
     console.log(a)
     console.log(a.formA.school_demographics.general.hasChanges);
   });
+
+  Handlebars.registerHelper('key_value', function(context, options) {
+  var result = [];
+  _.each(context, function(value, key, list){
+    result.push({key:key, value:value});
+  })
+  return result;
+});
