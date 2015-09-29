@@ -35,7 +35,7 @@
     <p>{{data.label}}</p>
         {{#each key_value data.options}}
              <p>
-              <input type="checkbox" id={{../data.id}}_{{key}} />
+              <input type="checkbox" checked={{isSelected ../data.values key}} id={{../data.id}}_{{key}} value={{value}}/>
               <label for={{../data.id}}_{{key}}>{{value}}</label>
             </p>
         {{/each}}

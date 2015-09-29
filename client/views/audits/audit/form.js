@@ -1,5 +1,5 @@
 forms = function() {
-  var all_forms = [formA];
+  var all_forms = [formA, formB];
   return all_forms;
 }
 
@@ -30,18 +30,47 @@ Template.form.events({
 
     // Router.go('audit.edit', {_id: auditID, _formIndex:formIndex, _sectionIndex: sectionIndex, _subSectionIndex: subSectionIndex});
   },
-  'submit #general' : function(event, template) {
+  'submit' : function(event, template) {
     event.preventDefault();
-    // var audit = this;
-    // audit.formA.school_demographics.general.forEach(function(question){
-    //   var value = template.find('#' + question.id).value
-    //   question.value = value;
-    // })
-    // audit.formA.school_demographics.general.hasChanges = true;
-    // console.log(audit.formA.school_demographics.general.hasChanges);
-    //
-    // Audits.update({_id : audit._id}, {$set: {formA: audit.formA}});
+    var subsection = this.data;
 
+    subsection.questions.forEach(function(question){
+      var value;
+      if (question.type == 'checkbox') {
+        var selected = template.findAll( "input[type=checkbox]:checked");
+        var values = [];
+        selected.forEach(function(selection) {
+          var idx = selection.id.indexOf(question.id);
+          if (idx > -1) {
+            values.push(selection.id);
+          }
+
+        });
+        console.log(values);
+        question.value = values;
+      } else {
+        value = template.find('#' + question.id).value
+      }
+      question.value = value;
+    })
+
+    var str = subsection.name;
+    var names = str.split(".");
+    var audit = template.data.audit;
+    var form = audit.forms.filter(function( form ) {
+      return form.name == names[0];
+    });
+
+    var section = form[0].sections.filter(function( section ) {
+      return section.name == names[0]+'.'+names[1];
+    });
+
+    subsection.hasChanges = true;
+
+    var audit = template.data.audit;
+    audit.forms[form[0].index].sections[section[0].index].sub_sections[subsection.index] = subsection;
+
+    Audits.update({_id: audit._id}, {$set: {forms: audit.forms} });
   },
 });
 

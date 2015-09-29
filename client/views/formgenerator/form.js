@@ -20,10 +20,10 @@ Template.registerHelper('isActive', function(val) {
   return classes;
 })
 
-Template.registerHelper('isSelected', function(option, val) {
-  if (val == option) {
-    return "selected";
-  }
+Template.registerHelper('isSelected', function(values, val) {
+  console.log(values);
+  console.log(val)
+
 })
 
 // Template.registerHelper('setDate', function(date) {
