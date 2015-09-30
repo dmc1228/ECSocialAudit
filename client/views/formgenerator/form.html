@@ -1,24 +1,14 @@
 <template name="text_input">
-  <div class="row">
-    <div class="input-field col {{col}}">
       <input id={{data.id}} type="text" class="validate" value={{data.value}}>
       <label for={{data.id}} class={{isActive data.value}}>{{data.label}}</label>
-    </div>
-  </div>
 </template>
 
 <template name="date_input">
-  <div class="row">
-    <div class="input-field col {{col}}">
       <input id={{data.id}} type="date" class="datepicker" data-value={{data.value}}>
       <label for={{data.id}} class={{isActive data.value}}>{{data.label}}</label>
-    </div>
-  </div>
 </template>
 
 <template name="dropdown_input">
-  <div class="row">
-      <div class="input-field col {{col}}">
       <select id={{data.id}}>
         <option value="" disabled selected>Please select...</option>
         {{#each data.options}}
@@ -26,12 +16,9 @@
         {{/each}}
       </select>
       <label>{{data.label}}</label>
-    </div>
-  </div>
 </template>
 
 <template name="checkbox_input">
-  <div class="row">
     <p>{{data.label}}</p>
         {{#each key_value data.options}}
              <p>
@@ -39,7 +26,6 @@
               <label for={{../data.id}}_{{key}}>{{value}}</label>
             </p>
         {{/each}}
-  </div>
 </template>
 
 
@@ -56,14 +42,12 @@
                 <td>{{../name}}</td>
               {{/if}}
               {{#if stringsAreEqual 'number' this.type}}
-                <td><input type="text" id='{{this._id}}_{{../_id}}'></td>
+                <td><input id={{this.id}}_{{../id}} type="text" value={{getValue this.id ../values}}></td>
               {{/if}}
             {{/each}}
           </tr>
           {{/each}}
       </table>
-      <button class="btn previous">Previous</button>
-      <button class="btn next">Next</button>
     </div>
 </template>
 
@@ -75,29 +59,31 @@
           <th>{{this.name}}</th>
         {{/each}}
       </table>
-      <button class="btn previous">Previous</button>
-      <button class="btn next">Next</button>
     </div>
 </template>
 
 <template name="chooseTemplate">
-  {{#if stringsAreEqual 'text' data.type}}
-    {{> text_input data=data col="s12"}}
-  {{else}}
-    {{#if stringsAreEqual 'dropdown' data.type}}
-      {{> dropdown_input data=data col="s12"}}
-    {{else}}
-      {{#if stringsAreEqual 'date' data.type}}
-        {{> date_input data=data col="s12"}}
+  <div class="row">
+    <div class="input-field col {{col}}">
+      {{#if stringsAreEqual 'text' data.type}}
+        {{> text_input data=data}}
+      {{else}}
+        {{#if stringsAreEqual 'dropdown' data.type}}
+          {{> dropdown_input data=data}}
         {{else}}
-          {{#if stringsAreEqual 'checkbox' data.type}}
-            {{> checkbox_input data=data col="s12"}}
-              {{else}}
-                {{#if stringsAreEqual 'number' data.type}}
-                {{> text_input data=data col="s12"}}
+          {{#if stringsAreEqual 'date' data.type}}
+            {{> date_input data=data}}
+            {{else}}
+              {{#if stringsAreEqual 'checkbox' data.type}}
+                {{> checkbox_input data=data}}
+                  {{else}}
+                    {{#if stringsAreEqual 'number' data.type}}
+                    {{> text_input data=data}}
+                  {{/if}}
               {{/if}}
-          {{/if}}
+            {{/if}}
         {{/if}}
-    {{/if}}
-  {{/if}}
+      {{/if}}
+      </div>
+    </div>
 </template>

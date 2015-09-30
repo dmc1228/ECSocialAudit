@@ -19,6 +19,17 @@ Template.registerHelper('isActive', function(val) {
   return classes;
 })
 
+Template.registerHelper('getValue', function(columnId, values) {
+  var ret;
+  values.forEach(function(value) {
+    if (value.id == columnId)
+      if (value.value != "" && value.value != undefined) {
+        ret = value.value;
+      }
+  })
+  return ret;
+})
+
 Template.registerHelper('isSelected', function(values, val) {
   console.log(values);
   console.log(val)
