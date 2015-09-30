@@ -20,13 +20,15 @@ Template.registerHelper('isActive', function(val) {
 })
 
 Template.registerHelper('getValue', function(columnId, values) {
-  var ret;
-  values.forEach(function(value) {
-    if (value.id == columnId)
-      if (value.value != "" && value.value != undefined) {
-        ret = value.value;
-      }
-  })
+  var ret  = "";
+  if (values != undefined && values.length > 0 ) {
+    values.forEach(function(value) {
+      if (value.id == columnId)
+        if (value.value != undefined) {
+          ret = value.value;
+        }
+    })
+  }
   return ret;
 })
 

@@ -45,7 +45,6 @@ Template.form.events({
             rowValues.push(item);
           }
         })
-        console.log(rowValues)
         row.values = rowValues;
       })
     } else {
