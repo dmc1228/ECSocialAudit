@@ -2,7 +2,7 @@
 var school_demographics_general =  {
   type: 'sub_section',
   name: 'formA.school_demographics.general',
-  display_name: 'General',
+  display_name: '1.1 General',
   index: 0,
   questions:
             [
@@ -41,7 +41,7 @@ var grades = {
   type: 'sub_section',
   subtype: 'static_table',
   name: 'formA.school_demographics.grades',
-  display_name: 'Grades',
+  display_name: '1.2 Grades',
   index: 1,
   columns: [
             {
@@ -143,7 +143,7 @@ var staff = {
   type: 'sub_section',
   subtype: 'static_table',
   name: 'formA.school_demographics.staff',
-  display_name: 'Staff',
+  display_name: '1.3 Staff',
   index: 2,
   columns: [
             {
@@ -204,7 +204,7 @@ var staff = {
 var infrastructure =  {
   type: 'sub_section',
   name: 'formA.security.infrastructure',
-  display_name: 'Infrastructure',
+  display_name: '2.1 Security Infrastructure',
   index: 0,
   questions: [
               {
@@ -224,7 +224,7 @@ var infrastructure =  {
 var planning = {
   type: 'sub_section',
   name: 'formA.security.planning',
-  display_name: 'Planning',
+  display_name: '2.2 Security Planning',
   index: 1,
   questions:
             [
@@ -281,7 +281,7 @@ var planning = {
 var violence = {
   type: 'sub_section',
   name: 'formA.security.violence',
-  display_name: 'Violence',
+  display_name: '2.3 Violence and Crime in the School',
   index: 2,
   questions: [
     {
@@ -307,7 +307,7 @@ var violence = {
 var security_staff = {
   type: 'sub_section',
   name: 'formA.security.security_staff',
-  display_name: 'Security Staff',
+  display_name: '2.4 Security Staff',
   index: 3,
   questions:[
     {
@@ -363,7 +363,7 @@ var security_staff = {
 var sense_of_security = {
   type: 'sub_section',
   name: 'formA.security.sense_of_security',
-  display_name: 'Sense of Security',
+  display_name: '2.5 Sense of Security',
   index: 4,
   questions: [
     {
@@ -384,14 +384,14 @@ var school_demographics = {
   type: 'section',
   name: 'formA.school_demographics',
   index: 0,
-  display_name: 'School Demographics',
+  display_name: '1. School Demographics',
   sub_sections: [school_demographics_general, grades, staff]
 };
 
 var security = {
   type: 'section',
   name: 'formA.security',
-  display_name: 'Security',
+  display_name: '2. Security',
   index: 1,
   sub_sections: [infrastructure, planning, violence, security_staff, sense_of_security]
 };

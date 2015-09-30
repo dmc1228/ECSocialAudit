@@ -1,15 +1,14 @@
-Template.chooseTemplate.onRendered(function() {
-   this.autorun(function() {
-      // this.data.options; //autorun trigger goes here
+Template.date_input.onRendered(function() {
       $('.datepicker').pickadate({
        autoclose: true,
        selectMonths: true, // Creates a dropdown to control month
        selectYears: 15 // Creates a dropdown of 15 years to control year
      });
-     $('select').material_select();
-  });
 });
 
+Template.dropdown_input.onRendered(function() {
+  $('select').material_select();
+});
 
 
 Template.registerHelper('isActive', function(val) {

@@ -1,12 +1,12 @@
 forms = function() {
-  var all_forms = [formA, formB];
+  var all_forms = [formA, formB, formC];
   return all_forms;
 }
 
 
 
 Template.form.helpers({
-  'currentSectionNameAndSubsection' : function() {
+  'currentContext' : function() {
     var formIndex = Session.get('formIndex');
     var sectionIndex = Session.get('sectionIndex');
     var subsectionIndex = Session.get('subsectionIndex');
@@ -16,6 +16,7 @@ Template.form.helpers({
     var subsectionToDisplay = section.sub_sections[subsectionIndex];
     ret.sectionName = section.display_name;
     ret.subsection = subsectionToDisplay;
+    ret.formName = audit.forms[formIndex].displayName;
     console.log('Currently displaying: ' + formIndex + '.' + sectionIndex + '.' + subsectionIndex)
     return ret;
   }

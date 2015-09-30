@@ -2,7 +2,7 @@
 var school_demographics_general =  {
   type: 'sub_section',
   name: 'formB.general_information.school_demographics_general',
-  display_name: 'General',
+  display_name: '1.1 General',
   index: 0,
   questions:[
             {
@@ -26,7 +26,7 @@ var school_demographics_general =  {
 var transport = {
   type: 'sub_section',
   name: 'formB.safety.transport',
-  display_name: 'Transport',
+  display_name: '2.1 Transport',
   index: 0,
   questions:[
               {
@@ -71,7 +71,7 @@ var transport = {
 var school = {
   type: 'sub_section',
   name: 'formB.safety.school',
-  display_name: 'School',
+  display_name: '2.2 At School',
   index: 1,
   questions:[
          {
@@ -145,7 +145,7 @@ var school = {
 var educational_support = {
   type: 'sub_section',
   name: 'formB.infrastructure.educational_support',
-  display_name: 'Educational Support',
+  display_name: '3.1 Educational Support Facilities',
   index: 0,
   questions:[
               {
@@ -171,7 +171,7 @@ var educational_support = {
 var sanitation = {
   type: 'sub_section',
   name: 'formB.infrastructure.sanitation',
-  display_name: 'Sanitation',
+  display_name: '3.2 Sanitation',
   index: 1,
   questions:[
             {
@@ -224,14 +224,14 @@ var general_information = {
   type: 'section',
   name: 'formB.general_information',
   index: 0,
-  display_name: 'General Information',
+  display_name: '1. General Information',
   sub_sections: [school_demographics_general]
 };
 
 var safety = {
   type: 'section',
   name: 'formB.safety',
-  display_name: 'Safety',
+  display_name: '2. Safety',
   index: 1,
   sub_sections: [transport, school]
 };
@@ -239,7 +239,7 @@ var safety = {
 var infrastructure = {
   type: 'section',
   name: 'formB.infrastructure',
-  display_name: 'Infrastructure',
+  display_name: '3. Infrastructure',
   index: 2,
   sub_sections: [educational_support, sanitation]
 };

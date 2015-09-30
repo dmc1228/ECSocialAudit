@@ -67,6 +67,19 @@
     </div>
 </template>
 
+<template name="dynamicTable">
+    <div class="container">
+      <button class="btn add">Add</button>
+      <table>
+        {{#each data.columns}}
+          <th>{{this.name}}</th>
+        {{/each}}
+      </table>
+      <button class="btn previous">Previous</button>
+      <button class="btn next">Next</button>
+    </div>
+</template>
+
 <template name="chooseTemplate">
   {{#if stringsAreEqual 'text' data.type}}
     {{> text_input data=data col="s12"}}
@@ -79,6 +92,10 @@
         {{else}}
           {{#if stringsAreEqual 'checkbox' data.type}}
             {{> checkbox_input data=data col="s12"}}
+              {{else}}
+                {{#if stringsAreEqual 'number' data.type}}
+                {{> text_input data=data col="s12"}}
+              {{/if}}
           {{/if}}
         {{/if}}
     {{/if}}
