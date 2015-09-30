@@ -1,29 +1,29 @@
 <template name="text_input">
-      <input id={{data.id}} type="text" class="validate" value={{data.value}}>
-      <label for={{data.id}} class={{isActive data.value}}>{{data.label}}</label>
+      <input id={{question.id}} type="text" class="validate" value={{question.value}}>
+      <label for={{question.id}} class={{isActive question.value}}>{{question.label}}</label>
 </template>
 
 <template name="date_input">
-      <input id={{data.id}} type="date" class="datepicker" data-value={{data.value}}>
-      <label for={{data.id}} class={{isActive data.value}}>{{data.label}}</label>
+      <input id={{question.id}} type="date" class="datepicker" data-value={{question.value}}>
+      <label for={{question.id}} class={{isActive question.value}}>{{question.label}}</label>
 </template>
 
 <template name="dropdown_input">
-      <select id={{data.id}}>
+      <select id={{question.id}}>
         <option value="" disabled selected>Please select...</option>
-        {{#each data.options}}
-            <option selected={{isSelected this ../data.value}} value={{this}}>{{this}}</option>
+        {{#each question.options}}
+            <option selected={{isSelected this ../question.value}} value={{this}}>{{this}}</option>
         {{/each}}
       </select>
-      <label>{{data.label}}</label>
+      <label>{{question.label}}</label>
 </template>
 
 <template name="checkbox_input">
-    <p>{{data.label}}</p>
-        {{#each key_value data.options}}
+    <p>{{question.label}}</p>
+        {{#each key_value question.options}}
              <p>
-              <input type="checkbox" checked={{isSelected ../data.values key}} id={{../data.id}}_{{key}} value={{value}}/>
-              <label for={{../data.id}}_{{key}}>{{value}}</label>
+              <input type="checkbox" checked={{isSelected ../question.values key}} id={{../question.id}}_{{key}} value={{value}}/>
+              <label for={{../question.id}}_{{key}}>{{value}}</label>
             </p>
         {{/each}}
 </template>
@@ -32,12 +32,12 @@
 <template name="staticTable">
     <div class="container">
       <table>
-        {{#each data.columns}}
+        {{#each subsection.columns}}
           <th>{{this.name}}</th>
         {{/each}}
-        {{#each data.rows}}
+        {{#each subsection.rows}}
           <tr>
-            {{#each ../data.columns}}
+            {{#each ../subsection.columns}}
               {{#if stringsAreEqual 'label' this.type}}
                 <td>{{../name}}</td>
               {{/if}}
@@ -55,7 +55,7 @@
     <div class="container">
       <button class="btn add">Add</button>
       <table>
-        {{#each data.columns}}
+        {{#each subsection.columns}}
           <th>{{this.name}}</th>
         {{/each}}
       </table>
@@ -65,20 +65,20 @@
 <template name="chooseTemplate">
   <div class="row">
     <div class="input-field col {{col}}">
-      {{#if stringsAreEqual 'text' data.type}}
-        {{> text_input data=data}}
+      {{#if stringsAreEqual 'text' question.type}}
+        {{> text_input question=question}}
       {{else}}
-        {{#if stringsAreEqual 'dropdown' data.type}}
-          {{> dropdown_input data=data}}
+        {{#if stringsAreEqual 'dropdown' question.type}}
+          {{> dropdown_input question=question}}
         {{else}}
-          {{#if stringsAreEqual 'date' data.type}}
-            {{> date_input data=data}}
+          {{#if stringsAreEqual 'date' question.type}}
+            {{> date_input question=question}}
             {{else}}
-              {{#if stringsAreEqual 'checkbox' data.type}}
-                {{> checkbox_input data=data}}
+              {{#if stringsAreEqual 'checkbox' question.type}}
+                {{> checkbox_input question=question}}
                   {{else}}
-                    {{#if stringsAreEqual 'number' data.type}}
-                    {{> text_input data=data}}
+                    {{#if stringsAreEqual 'number' question.type}}
+                    {{> text_input question=question}}
                   {{/if}}
               {{/if}}
             {{/if}}

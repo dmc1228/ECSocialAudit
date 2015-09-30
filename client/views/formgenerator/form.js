@@ -10,6 +10,10 @@ Template.dropdown_input.onRendered(function() {
   $('select').material_select();
 });
 
+Template.chooseTemplate.onRendered(function() {
+  console.log('choose template rendered')
+});
+
 
 Template.registerHelper('isActive', function(val) {
   var classes = "";
@@ -20,16 +24,18 @@ Template.registerHelper('isActive', function(val) {
 })
 
 Template.registerHelper('getValue', function(columnId, values) {
-  var ret  = "";
-  if (values != undefined && values.length > 0 ) {
-    values.forEach(function(value) {
-      if (value.id == columnId)
-        if (value.value != undefined) {
-          ret = value.value;
-        }
-    })
-  }
-  return ret;
+  // console.log('getting value');
+    var ret  = "";
+    if (values != undefined && values.length > 0 ) {
+      values.forEach(function(value) {
+        if (value.id == columnId)
+          if (value.value != undefined) {
+            // console.log('setting value: ' + value.value)
+            ret = value.value;
+          }
+      })
+    }
+    return ret;
 })
 
 Template.registerHelper('isSelected', function(values, val) {
@@ -38,11 +44,8 @@ Template.registerHelper('isSelected', function(values, val) {
 
 })
 
-// Template.registerHelper('setDate', function(date) {
-//   // Using a string along with the parsing format (defaults to `format` option).
-//   // $('.datepicker').pickadate().set('select', '2016-04-20', { format: 'yyyy-mm-dd' })
-//   console.log(new Date(2008,9,03))
-//   $('.datepicker').datepicker("setDate", new Date(2008,9,03) );
-//   console.log($('.datepicker').datepicker())
-//
-// })
+Tracker.autorun(function () {
+    var num = this;
+    console.log(num);
+    console.log('Tracker autorunning');
+});

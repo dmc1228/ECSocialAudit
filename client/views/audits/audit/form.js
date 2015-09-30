@@ -30,7 +30,7 @@ Template.form.events({
   },
   'submit' : function(event, template) {
     event.preventDefault();
-    var subsection = this.data;
+    var subsection = this.subsection;
     if (subsection.subtype == 'static_table'){
       subsection.rows.forEach(function(row){
         var rowValues = [];

@@ -20,7 +20,6 @@ Template.chooseSchool.events({
     audit.school = this;
     audit.forms = forms();
     audit.userId = Meteor.userId();
-    console.log(audit)
 
     var auditID = Audits.insert(audit);
 

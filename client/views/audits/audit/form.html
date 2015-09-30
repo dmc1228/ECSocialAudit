@@ -9,29 +9,28 @@
 <template name="form">
   <div class="container">
     {{#with currentContext}}
-      {{> subsection data=this.subsection formName=this.formName sectionName=this.sectionName}}
+      {{> subsection subsection=this.subsection formName=this.formName sectionName=this.sectionName}}
     {{/with}}
   </div>
 </template>
 
 <template name="subsection">
-  {{> form_header section=this.sectionName form=this.formName subsection=data.display_name}}
+  {{> form_header section=this.sectionName form=this.formName subsection=this.subsection.display_name}}
   <div class="row">
-        <form id={{data.name}} class="col s12">
-          {{#if stringsAreEqual 'static_table' data.subtype}}
-              {{> staticTable data=data}}
+        <form id={{subsection.name}} class="col s12">
+          {{#if stringsAreEqual 'static_table' subsection.subtype}}
+              {{> staticTable subsection=subsection}}
             {{else}}
-              {{#if stringsAreEqual 'dynamic_table' data.subtype}}
-                {{> dynamicTable data=data}}
+              {{#if stringsAreEqual 'dynamic_table' subsection.subtype}}
+                {{> dynamicTable subsection=subsection}}
               {{else}}
-                {{#each data.questions}}
-                  {{> chooseTemplate data=this col="s12"}}
+                {{#each subsection.questions}}
+                  {{> chooseTemplate question=this col="s12"}}
                 {{/each}}
             {{/if}}
           {{/if}}
           <button type='submit' class="btn previous">Previous</button>
           <button type='submit' class="btn next">Next</button>
         </form>
-
-</div>
+    </div>
 </template>
