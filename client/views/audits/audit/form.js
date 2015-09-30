@@ -3,8 +3,6 @@ forms = function() {
   return all_forms;
 }
 
-
-
 Template.form.helpers({
   'currentContext' : function() {
     var formIndex = Session.get('formIndex');
@@ -16,8 +14,9 @@ Template.form.helpers({
     var subsectionToDisplay = section.sub_sections[subsectionIndex];
     ret.sectionName = section.display_name;
     ret.subsection = subsectionToDisplay;
-    ret.formName = audit.forms[formIndex].displayName;
-    console.log('Currently displaying: ' + formIndex + '.' + sectionIndex + '.' + subsectionIndex)
+    ret.formName = audit.forms[formIndex].display_name;
+    console.log('Currently Context: ' + formIndex + '.' + sectionIndex + '.' + subsectionIndex)
+    console.log(ret);
     return ret;
   }
 });
@@ -28,8 +27,6 @@ Template.form.events({
   },
   'click .previous' : function() {
     decrementFormSubsection()
-
-    // Router.go('audit.edit', {_id: auditID, _formIndex:formIndex, _sectionIndex: sectionIndex, _subSectionIndex: subSectionIndex});
   },
   'submit' : function(event, template) {
     event.preventDefault();

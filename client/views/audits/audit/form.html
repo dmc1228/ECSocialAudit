@@ -15,7 +15,7 @@
 </template>
 
 <template name="subsection">
-  {{> form_header section=sectionName form=data.formName subsection=data.display_name}}
+  {{> form_header section=this.sectionName form=this.formName subsection=data.display_name}}
   <div class="row">
     {{#if stringsAreEqual 'static_table' data.subtype}}
       {{> staticTable data=data}}
