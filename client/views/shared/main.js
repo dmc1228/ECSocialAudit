@@ -54,7 +54,6 @@ Template.title.helpers({
       Session.set('formIndex', form[0].index);
       Session.set('sectionIndex', section[0].index);
       Session.set('subsectionIndex', subsectionIndex);
-
     }
   })
 
@@ -80,8 +79,4 @@ Template.title.helpers({
     result.push({key:key, value:value});
   })
   return result;
-});
-
-Template.registerHelper('isSelected', function(string1, string2){
-    return string1 == string2;
 });

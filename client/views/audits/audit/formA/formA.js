@@ -375,7 +375,7 @@ var sense_of_security = {
     {
       id: 'safety_challenges',
       type: 'text',
-      name: 'Please discuss what you [the adminstrator] think the challenges to safety are at the school. Record their answer below'
+      label: 'Please discuss what you [the adminstrator] think the challenges to safety are at the school. Record their answer below'
     }]
 }
 

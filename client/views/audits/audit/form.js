@@ -3,6 +3,7 @@ forms = function() {
   return all_forms;
 }
 
+
 Template.form.helpers({
   'currentContext' : function() {
     var formIndex = Session.get('formIndex');
@@ -55,10 +56,23 @@ Template.form.events({
           selected.forEach(function(selection) {
             var idx = selection.id.indexOf(question.id);
             if (idx > -1) {
-              values.push(selection.id);
+              values.push(selection.value);
             }
           });
+          console.log(values);
           question.value = values;
+        } else if(question.type == 'dropdown') {
+            var selected = template.findAll("input[type=radio]:checked");
+            var values = [];
+            selected.forEach(function(selection) {
+              var idx = selection.id.indexOf(question.id);
+              if (idx > -1) {
+                values.push(selection.value);
+              }
+            });
+            console.log(values)
+            $('input#input_text, textarea#textarea1').characterCounter();
+            question.value = values;
         } else {
           var value = template.find('#' + question.id).value
           question.value = value;

@@ -9,20 +9,20 @@
 </template>
 
 <template name="dropdown_input">
-      <select id={{question.id}}>
-        <option value="" disabled selected>Please select...</option>
-        {{#each question.options}}
-            <option selected={{isSelected this ../question.value}} value={{this}}>{{this}}</option>
-        {{/each}}
-      </select>
-      <label>{{question.label}}</label>
+      <p>{{question.label}}</p>
+      {{#each key_value question.options}}
+           <p>
+            <input name={{../question.id}} type="radio" checked="{{isSelected ../question.value value ../question}}" id={{../question.id}}_{{key}} value={{value}}>
+            <label for={{../question.id}}_{{key}}>{{value}}</label>
+          </p>
+      {{/each}}
 </template>
 
 <template name="checkbox_input">
     <p>{{question.label}}</p>
         {{#each key_value question.options}}
              <p>
-              <input type="checkbox" checked={{isSelected ../question.values key}} id={{../question.id}}_{{key}} value={{value}}/>
+              <input type="checkbox" checked="{{isSelected ../question.value value}}" id={{../question.id}}_{{key}} value={{value}}>
               <label for={{../question.id}}_{{key}}>{{value}}</label>
             </p>
         {{/each}}

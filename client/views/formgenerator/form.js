@@ -6,13 +6,12 @@ Template.date_input.onRendered(function() {
      });
 });
 
-Template.dropdown_input.onRendered(function() {
-  $('select').material_select();
-});
-
 Template.chooseTemplate.onRendered(function() {
-  console.log('choose template rendered')
-});
+  this.autorun(function() {
+    Template.currentData();
+    $('input#input_text, textarea#textarea1').characterCounter();
+  })
+})
 
 
 Template.registerHelper('isActive', function(val) {
@@ -24,7 +23,6 @@ Template.registerHelper('isActive', function(val) {
 })
 
 Template.registerHelper('getValue', function(columnId, values) {
-  // console.log('getting value');
     var ret  = "";
     if (values != undefined && values.length > 0 ) {
       values.forEach(function(value) {
@@ -38,14 +36,20 @@ Template.registerHelper('getValue', function(columnId, values) {
     return ret;
 })
 
-Template.registerHelper('isSelected', function(values, val) {
-  console.log(values);
-  console.log(val)
 
+Template.registerHelper('isSelected', function(values, value, question) {
+
+  ret = false;
+  if (values != undefined && values.length > 0 ) {
+    values.forEach(function(item) {
+      if (item == value){
+        console.log("item: " + item);
+        console.log("value: " + value);
+        console.log(question.value);
+        console.log(question.label);
+        ret = true;
+      }
+    })
+  }
+  return ret;
 })
-
-Tracker.autorun(function () {
-    var num = this;
-    console.log(num);
-    console.log('Tracker autorunning');
-});
