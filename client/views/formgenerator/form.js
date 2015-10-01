@@ -38,9 +38,15 @@ Template.registerHelper('getValue', function(columnId, values) {
 })
 
 Template.registerHelper('getValueOfDynamicObject', function(obj, valueToFind) {
-  var val = obj[valueToFind]
+  var val = obj[valueToFind];
   console.log(val)
   return val
+})
+
+Template.registerHelper('findValueOfObjectAtIndex', function(objects, index, valueToFind) {
+  var ret = objects[index];
+  console.log(ret)
+  return ret[valueToFind];
 })
 
 
@@ -50,10 +56,6 @@ Template.registerHelper('isSelected', function(values, value, question) {
   if (values != undefined && values.length > 0 ) {
     values.forEach(function(item) {
       if (item == value){
-        console.log("item: " + item);
-        console.log("value: " + value);
-        console.log(question.value);
-        console.log(question.label);
         ret = true;
       }
     })
@@ -64,46 +66,44 @@ Template.registerHelper('isSelected', function(values, value, question) {
 Template.dynamicTable.events({
   'click .modal-save' : function(event, template) {
     // event.preventDefault();
-    var item = new Object()
+    var object = []
     var subsection = this.subsection;
-    var objs = [];
-    if (subsection.objects == undefined) {
-      subsection.objects = objs;
-    } else {
-      objs = subsection.objects;
-    }
+
     subsection.columns.forEach(function(col) {
-      console.log(col.id)
       if (col.type == "label") {
         return;
       }
       if (col.type == 'dropdown') {
         var values = [];
-          var selected = template.findAll("input[type=radio]:checked");
-          selected.forEach(function() {
-            selected.forEach(function(selection) {
-              var idx = selection.id.indexOf(col.id);
-              if (idx > -1) {
-                values.push(selection.value);
-              }
-            });
-        })
+        var selected = template.findAll("input[type=radio]:checked");
+        selected.forEach(function(selection) {
+          var idx = selection.id.indexOf(col.id);
+          if (idx > -1) {
+
+            values.push(selection.value);
+          }
+        });
+
+        var item = new Object();
         item.id = col.id;
         item.values = values;
-        objs.push(item)
+        object.push(item)
       } else {
         var values = [];
         values.push(template.find('#' + col.id).value)
+        var item = new Object();
         item.id = col.id;
         item.values = values;
-        objs.push(item)
-
+        object.push(item)
       }
     })
 
+    var newObjects = [];
+    if (subsection.objects == undefined) {
+      subsection.objects = newObjects;
+    }
+    subsection.objects.push(object);
     subsection.hasChanges = true;
-
-    subsection.objects = objs
 
     var audit = Audits.findOne({_id: Router.current().params._id, 'userId' : Meteor.userId()})
 

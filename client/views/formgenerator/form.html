@@ -77,17 +77,13 @@
         {{#each subsection.columns}}
           <th>{{this.label}}</th>
         {{/each}}
+
         {{#each subsection.objects}}
-        {{print this}}
-            <tr>
-            {{#each ../subsection.columns}}
-              {{#if stringsAreEqual 'label' this.type}}
-                <td>{{../values}}</td>
-                {{else}}
-              {{/if}}
+        <tr>
+          {{#each this}}
+            <td>{{this.values.[0]}}</td>
             {{/each}}
-            </tr>
-            <!-- {{/with}} -->
+          </tr>
         {{/each}}
       </table>
     </div>

@@ -7,8 +7,15 @@ forms = function() {
 Template.form.helpers({
   'currentContext' : function() {
     var formIndex = Session.get('formIndex');
+    if (formIndex == undefined) {
+      Session.set('formIndex', 0);
+      Session.set('sectionIndex', 0);
+      Session.set('subsectionIndex', 0);
+    }
+    formIndex = Session.get('formIndex');
     var sectionIndex = Session.get('sectionIndex');
     var subsectionIndex = Session.get('subsectionIndex');
+
     var audit = this.audit;
     var ret = new Object();
     var section = audit.forms[formIndex].sections[sectionIndex];
@@ -59,7 +66,6 @@ Template.form.events({
               values.push(selection.value);
             }
           });
-          console.log(values);
           question.value = values;
         } else if(question.type == 'dropdown') {
             var selected = template.findAll("input[type=radio]:checked");
@@ -70,7 +76,6 @@ Template.form.events({
                 values.push(selection.value);
               }
             });
-            console.log(values)
             question.value = values;
         } else {
           var value = template.find('#' + question.id).value
@@ -78,7 +83,6 @@ Template.form.events({
         }
       })
     }
-    console.log(template.find('#' + subsection.id))
     template.find('#' + subsection.id).reset();
 
     subsection.hasChanges = true;
