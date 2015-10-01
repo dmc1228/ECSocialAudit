@@ -65,7 +65,7 @@ Template.registerHelper('isSelected', function(values, value, question) {
 
 Template.dynamicTable.events({
   'click .modal-save' : function(event, template) {
-    // event.preventDefault();
+    event.preventDefault();
     var object = []
     var subsection = this.subsection;
 
@@ -105,7 +105,7 @@ Template.dynamicTable.events({
     subsection.objects.push(object);
     subsection.hasChanges = true;
 
-    var audit = Audits.findOne({_id: Router.current().params._id, 'userId' : Meteor.userId()})
+    var audit = Audits.findOne({_id: Router.current().params._id, 'user.id' : Meteor.userId()})
 
     var str = subsection.name;
     var navigationItems = str.split(".");

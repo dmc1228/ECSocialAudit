@@ -19,9 +19,14 @@ Template.chooseSchool.events({
     var audit = new Object();
     audit.school = this;
     audit.forms = forms();
-    audit.userId = Meteor.userId();
-
+    var user = new Object()
+    user.id = Meteor.userId();
+    user.email = Meteor.user().emails[0].address;
+    console.log(Meteor.user().emails[0])
+    audit.user = user;
+    console.log(audit);
     var auditID = Audits.insert(audit);
+    console.log(auditID);
 
     Session.set('schoolName', this.schoolDetails.INSTITUTION_NAME)
     Session.set('auditId', auditID);

@@ -9,6 +9,7 @@ Template.manageAudits.helpers({
           fields: [
             { key: 'school.schoolDetails.INSTITUTION_NAME', label: 'Name' },
             { key: 'school.schoolDetails.DISTRICT_NAME', label: 'District' },
+            { key: 'user.email', label: 'User' },
             { key: 'update', label: '', fn: function () { return new Spacebars.SafeString('<button type="button" class="editbtn">Update</button>') } },
             { key: 'delete', label: '', fn: function () { return new Spacebars.SafeString('<button type="button" class="deletebtn">Delete</button>') } }
           ]

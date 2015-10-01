@@ -26,7 +26,7 @@ Template.title.helpers({
         var paramsId = Router.current().params._id;
         var schoolName = Session.get('schoolName')
         if (schoolName == undefined || auditId != paramsId) {
-          var audit = Audits.findOne({_id : paramsId, 'userId' : Meteor.userId()}, {'school.schoolDetails.INSTITUTION_NAME' : 1, _id : 0});
+          var audit = Audits.findOne({_id : paramsId, 'user.id' : Meteor.userId()}, {'school.schoolDetails.INSTITUTION_NAME' : 1, _id : 0});
           schoolName = audit.school.schoolDetails.INSTITUTION_NAME
           Session.set('auditId', paramsId);
           Session.set('schoolName', schoolName);
