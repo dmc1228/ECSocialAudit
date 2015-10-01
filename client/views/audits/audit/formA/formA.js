@@ -138,6 +138,11 @@ var grades = {
               type: 'label',
                 id: 'grade12',
                 name: 'Grade 12'
+            },
+            {
+              type: 'label',
+                id: 'total',
+                name: 'Total'
             }
           ]
 };
@@ -200,7 +205,7 @@ var staff = {
               {
                 type: 'label',
                 id: 'number_of_maintenance_staff',
-                name: 'Number of maintenance staff'
+                name: 'Number of maintenance/cleaning/cooking staff'
               }
             ]
 }
@@ -237,7 +242,7 @@ var planning = {
               {
                 id: 'safety_committee',
                 type: 'dropdown',
-                label: 'Does the school have a safety committee?',
+                label: 'Does the school have a "Safety Committee?"',
                 options: ['Yes', 'No', 'Don\'t know']
               },
               {
@@ -255,8 +260,8 @@ var planning = {
               {
                 id: 'safety_plan_policy',
                 type: 'dropdown',
-                label: 'Are you aware of the policies of the safety plan?',
-                options: ['Yes (please describe in comments)', 'No, no plan exists', 'No, a plan exists, but I don\'t know what they do']
+                label: 'Do you know the policies of the safety plan?',
+                options: ['Yes (please describe in comments)', 'No, no plan exists', 'I don\'t know what is in the plan']
               },
               {
                 id: 'safety_officer',
