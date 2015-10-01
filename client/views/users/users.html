@@ -1,0 +1,29 @@
+
+<template name="users">
+	 <div class="container">
+		 <div class="notice">
+		 	<h3>Manage Users</h3>
+		 	<h4>User roles are saved immediately to the server.</h4>
+		 	<h4>You cannot update the currently logged in user.</h4>
+	 	</div>
+				<table class="table">
+			    <thead>
+			      <tr>
+			        <th>User Email Address</th>
+			        <th>Admin</th>
+							<th>User</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			   {{#each users}}
+				 <tr>
+				    <td>{{emails.[0].address}}</td>
+						<td><p><input type="checkbox" value="admin" checked="{{checkRole this._id 'admin'}}" id="admin_{{_id}}" disabled="{{compareUserIds this._id}}"/><label for="admin_{{_id}}"></label></p></td>
+						<td><p><input type="checkbox" value="user" checked="{{checkRole this._id 'user'}}" id="user_{{_id}}" disabled="{{compareUserIds this._id}}"/><label for="user_{{_id}}"></label></p></td>
+				  </tr>
+  			    {{/each}}
+			    </tbody>
+  			</table>
+				<!-- <button type="button" class="btn btn-primary btn-save">Save</button> -->
+  	</div>
+</template>
