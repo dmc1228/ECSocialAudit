@@ -24,16 +24,12 @@
     {{/if}}
     {{> title}}
     <ul class="right hide-on-med-and-down" style='padding-right:30px'>
-          <li><a href="/schools">Schools</a></li>
-          <li><a href="/audits">Audits</a></li>
-          <li><a href="/users">Users</a></li>
-          <li>{{> loginButtons align="right"}}</li>
-
-          <!-- {{#if currentUser}}
-            <li><a href="/account">Account</a></li>
-          {{else}}
-              <li><a href="/account/login">Not logged in</a></li>
-          {{/if}} -->
+      {{#if userIsInRole 'admin'}}
+        <li><a href="/schools">Schools</a></li>
+        <li><a href="/users">Users</a></li>
+      {{/if}}
+        <li><a href="/audits">Audits</a></li>
+        <li>{{> loginButtons align="right"}}</li>
     </ul>
 
       </nav>

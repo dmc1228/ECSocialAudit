@@ -73,6 +73,10 @@ Template.title.helpers({
     console.log(a.formA.school_demographics.general.hasChanges);
   });
 
+  Handlebars.registerHelper('userIsInRole', function(role){
+    return userIsInRole(role);
+  });
+
   Handlebars.registerHelper('key_value', function(context, options) {
   var result = [];
   _.each(context, function(value, key, list){

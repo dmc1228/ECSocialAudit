@@ -8,7 +8,6 @@ Template.registerHelper('users',function(){
 Template.registerHelper('compareUserIds',function(checkboxId){
   var currentUserId = Meteor.userId();
   var admin = Meteor.users.findOne({'emails.address' : {$in: ['carla@equaleducation.org.za']}});
-  console.log(checkboxId)
   if (currentUserId == checkboxId || admin._id == checkboxId) {
     return true;
   }
@@ -20,8 +19,6 @@ Template.registerHelper('checkRole', function(userId, roleToCheck) {
   var hasRole = false;
   if (userWithRoles.roles != undefined) {
     var index = userWithRoles.roles.indexOf(roleToCheck);
-    console.log(roleToCheck);
-    console.log(index)
     if (index > -1) {
       hasRole = true;
     }
