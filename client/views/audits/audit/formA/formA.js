@@ -2,6 +2,7 @@
 var school_demographics_general =  {
   type: 'sub_section',
   name: 'formA.school_demographics.general',
+  id: 'formA_school_demographics_general',
   display_name: '1.1 General',
   index: 0,
   questions:
@@ -41,6 +42,7 @@ var grades = {
   type: 'sub_section',
   subtype: 'static_table',
   name: 'formA.school_demographics.grades',
+  id: 'formA_school_demographics_grades',
   display_name: '1.2 Grades',
   index: 1,
   columns: [
@@ -143,6 +145,7 @@ var staff = {
   type: 'sub_section',
   subtype: 'static_table',
   name: 'formA.school_demographics.staff',
+  id: 'formA_school_demographics_staff',
   display_name: '1.3 Staff',
   index: 2,
   columns: [
@@ -204,6 +207,7 @@ var staff = {
 var infrastructure =  {
   type: 'sub_section',
   name: 'formA.security.infrastructure',
+  id: 'formA_security_infrastructure',
   display_name: '2.1 Security Infrastructure',
   index: 0,
   questions: [
@@ -224,6 +228,7 @@ var infrastructure =  {
 var planning = {
   type: 'sub_section',
   name: 'formA.security.planning',
+  id: 'formA_security_planning',
   display_name: '2.2 Security Planning',
   index: 1,
   questions:
@@ -281,6 +286,7 @@ var planning = {
 var violence = {
   type: 'sub_section',
   name: 'formA.security.violence',
+  id: 'formA_security_violence',
   display_name: '2.3 Violence and Crime in the School',
   index: 2,
   questions: [
@@ -307,6 +313,7 @@ var violence = {
 var security_staff = {
   type: 'sub_section',
   name: 'formA.security.security_staff',
+  id: 'formA_security_security_staff',
   display_name: '2.4 Security Staff',
   index: 3,
   questions:[
@@ -363,6 +370,7 @@ var security_staff = {
 var sense_of_security = {
   type: 'sub_section',
   name: 'formA.security.sense_of_security',
+  id: 'formA_security_sense_of_security',
   display_name: '2.5 Sense of Security',
   index: 4,
   questions: [

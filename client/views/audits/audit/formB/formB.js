@@ -2,6 +2,7 @@
 var school_demographics_general =  {
   type: 'sub_section',
   name: 'formB.general_information.school_demographics_general',
+  id: 'formB_general_information_school_demographics_general',
   display_name: '1.1 General',
   index: 0,
   questions:[
@@ -26,6 +27,7 @@ var school_demographics_general =  {
 var transport = {
   type: 'sub_section',
   name: 'formB.safety.transport',
+  id: 'formB_safety_transport',
   display_name: '2.1 Transport',
   index: 0,
   questions:[
@@ -71,6 +73,7 @@ var transport = {
 var school = {
   type: 'sub_section',
   name: 'formB.safety.school',
+  id: 'formB_safety_school',
   display_name: '2.2 At School',
   index: 1,
   questions:[
@@ -145,6 +148,7 @@ var school = {
 var educational_support = {
   type: 'sub_section',
   name: 'formB.infrastructure.educational_support',
+  id: 'formB_infrastructure_educational_support',
   display_name: '3.1 Educational Support Facilities',
   index: 0,
   questions:[
@@ -171,6 +175,7 @@ var educational_support = {
 var sanitation = {
   type: 'sub_section',
   name: 'formB.infrastructure.sanitation',
+  id: 'formB_infrastructure_sanitation',
   display_name: '3.2 Sanitation',
   index: 1,
   questions:[

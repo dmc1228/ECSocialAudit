@@ -31,6 +31,7 @@
 
 <template name="staticTable">
     <div class="container">
+      <form id="{{subsection.id}}">
       <table>
         {{#each subsection.columns}}
           <th>{{this.name}}</th>
@@ -48,15 +49,45 @@
           </tr>
           {{/each}}
       </table>
+    </form>
     </div>
 </template>
 
 <template name="dynamicTable">
     <div class="container">
-      <button class="btn add">Add</button>
-      <table>
+      <!-- Modal Trigger -->
+       <a class="modal-trigger btn" href="#modal1">Add Block</a>
+
+       <!-- Modal Structure -->
+       <div id="modal1" class="modal modal-fixed-footer">
+         <div class="modal-content">
+           <h4>Add Block</h4>
+           <form id="{{subsection.id}}">
+           {{#each subsection.columns}}
+              {{> chooseDynamicTableTemplate column=this col="s12"}}
+           {{/each}}
+          </form>
+         </div>
+         <div class="modal-footer">
+           <a class="modal-action modal-save btn-flat ">Save</a>
+           <a class="modal-action modal-close btn-flat ">Cancel</a>
+         </div>
+       </div>
+       <table>
         {{#each subsection.columns}}
-          <th>{{this.name}}</th>
+          <th>{{this.label}}</th>
+        {{/each}}
+        {{#each subsection.objects}}
+        {{print this}}
+            <tr>
+            {{#each ../subsection.columns}}
+              {{#if stringsAreEqual 'label' this.type}}
+                <td>{{../values}}</td>
+                {{else}}
+              {{/if}}
+            {{/each}}
+            </tr>
+            <!-- {{/with}} -->
         {{/each}}
       </table>
     </div>
@@ -79,6 +110,34 @@
                   {{else}}
                     {{#if stringsAreEqual 'number' question.type}}
                     {{> text_input question=question}}
+                  {{/if}}
+              {{/if}}
+            {{/if}}
+        {{/if}}
+      {{/if}}
+      </div>
+    </div>
+</template>
+
+<template name="chooseDynamicTableTemplate">
+  <div class="row">
+    <div class="input-field col {{col}}">
+      {{#if stringsAreEqual 'text' column.type}}
+        <input id={{column.id}} type="text" class="validate">
+        <label for={{column.id}}>{{column.label}}</label>
+      {{else}}
+        {{#if stringsAreEqual 'dropdown' column.type}}
+          {{> dropdown_input question=column}}
+        {{else}}
+          {{#if stringsAreEqual 'date' column.type}}
+            {{> date_input question=column}}
+            {{else}}
+              {{#if stringsAreEqual 'checkbox' column.type}}
+                {{> checkbox_input question=column}}
+                  {{else}}
+                    {{#if stringsAreEqual 'number' column.type}}
+                    <input id={{column.id}} type="text" class="validate">
+                    <label for={{column.id}}>{{column.label}}</label>
                   {{/if}}
               {{/if}}
             {{/if}}

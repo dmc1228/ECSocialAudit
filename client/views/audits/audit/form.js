@@ -71,7 +71,6 @@ Template.form.events({
               }
             });
             console.log(values)
-            $('input#input_text, textarea#textarea1').characterCounter();
             question.value = values;
         } else {
           var value = template.find('#' + question.id).value
@@ -79,6 +78,8 @@ Template.form.events({
         }
       })
     }
+    console.log(template.find('#' + subsection.id))
+    template.find('#' + subsection.id).reset();
 
     subsection.hasChanges = true;
     var audit = template.data.audit;

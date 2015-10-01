@@ -2,6 +2,7 @@
 var generalQuestions =  {
   type: 'sub_section',
   name: 'formC.general_information.generalQuestions',
+  id: 'formC_general_information_generalQuestions',
   display_name: '1.1 General',
   index: 0,
   questions:[
@@ -20,6 +21,7 @@ var generalQuestions =  {
 var fencing =  {
   type: 'sub_section',
   name: 'formC.general_infrastructure.fencing',
+  id: 'formC_general_infrastructure_fencing',
   display_name: '2.1 Fencing',
   index: 0,
   questions:[
@@ -58,6 +60,7 @@ var fencing =  {
 var building_condition =  {
   type: 'sub_section',
   name: 'formC.general_infrastructure.building_condition',
+  id: 'formC_general_infrastructure_building_condition',
   display_name: '2.2 Building Condition',
   index: 1,
   questions:[
@@ -76,46 +79,41 @@ var building_condition =  {
 var sanitation = {
   type: 'sub_section',
   subtype: 'dynamic_table',
+  id: 'formC_general_infrastructure_sanitation',
   name: 'formC.general_infrastructure.sanitation',
   display_name: '2.3 Sanitation',
   index: 2,
   columns: [
             {
-              id: 'block',
-              name: 'Block',
-              index: 0,
-              type: 'label',
-            },
-            {
               id: 'gender',
-              name: 'Gender',
-              index: 1,
+              label: 'Gender',
+              index: 0,
               type: 'dropdown',
               options: ['Male', 'Female', 'Both']
             },
             {
               id: 'type',
-              name: 'Type',
-              index: 2,
+              label: 'Type',
+              index: 1,
               type: 'dropdown',
               options: ['Learner', 'Staff', 'Both']
             },
             {
               id: 'numberOfToilets',
-              name: '# of toilets',
-              index: 3,
+              label: '# of toilets',
+              index: 2,
               type: 'number',
             },
             {
               id: 'numberOfBrokenToilets',
-              name: '# of broken toilets',
-              index: 4,
+              label: '# of broken toilets',
+              index: 3,
               type: 'number',
             },
             {
               id: 'numberOfDisabledToilets',
-              name: '# of toilets with wheelchair access',
-              index: 5,
+              label: '# of toilets with wheelchair access',
+              index: 4,
               type: 'number',
             },
           ]
@@ -126,6 +124,7 @@ var sanitation = {
 var atmosphere =  {
   type: 'sub_section',
   name: 'formC.atmosphere_general.atmosphere',
+  id: 'formC_atmosphere_general_atmosphere',
   display_name: '3.1 Atmosphere',
   index: 0,
   questions:[
