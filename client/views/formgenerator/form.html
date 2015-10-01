@@ -80,9 +80,10 @@
 
         {{#each subsection.objects}}
         <tr>
-          {{#each this}}
-            <td>{{this.values.[0]}}</td>
+            {{#each this}}
+              <td>{{this.values.[0]}}</td>
             {{/each}}
+            <td><a class="delete">Delete</a></td>
           </tr>
         {{/each}}
       </table>

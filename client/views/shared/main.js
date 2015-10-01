@@ -32,6 +32,9 @@ Template.title.helpers({
           Session.set('schoolName', schoolName);
         }
         return schoolName;
+      } else {
+        Session.set('auditId', null);
+        Session.set('schoolName', null);
       }
     }
   })
