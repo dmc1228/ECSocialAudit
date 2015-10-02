@@ -11,6 +11,7 @@
   <body>
     {{> header}}
     {{> yield}}
+    {{> modal}}
     {{> footer}}
   </body>
 
@@ -53,6 +54,7 @@
         {{#each this.audit.forms}}
           <li>
             <div class="collapsible-header">{{this.display_name}}</div>
+
             <div class="collapsible-body">
               <ul>
                 {{#each this.sections}}
@@ -64,9 +66,35 @@
             </div>
           </li>
         {{/each}}
+        <li><a class="btn modal-trigger" href="#modal1">Add another form</a></li>
       </ul>
       <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+
 </template>
+
+<template name="modal">
+  <!-- Modal Structure -->
+   <div id="modal1" class="modal">
+     <div class="modal-content black-text">
+       <h4>Add another form</h4>
+       <form id="addForms">
+         <div class="row">
+           <div class="input-field col s6">
+             <p>How many Form B's would you like to Add?</p>
+           </div>
+           <div class="input-field col s3">
+             <input id='numberOfFormBs' type="text" class="validate">
+           </div>
+         </div>
+      </form>
+     </div>
+     <div class="modal-footer">
+       <a class=" modal-action modal-save btn-flat">Okay</a>
+       <a class=" modal-action modal-close btn-flat">Cancel</a>
+     </div>
+   </div>
+</template>
+
 
 <template name="title">
   <a class="brand-logo center">{{currentSchoolName}}</a>

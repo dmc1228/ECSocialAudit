@@ -1,3 +1,23 @@
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+
+Template.staticTable.events({
+  'onchange input' : function(){
+    console.log(this)
+  }
+})
+
+Template.number_input.events({
+  'onchange input' : function(){
+    console.log(this)
+  }
+})
+
+
 Template.date_input.onRendered(function() {
       $('.datepicker').pickadate({
        autoclose: true,

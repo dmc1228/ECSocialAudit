@@ -3,6 +3,8 @@ Template.sideNav.onRendered(function() {
   $('.collapsible').collapsible({
     accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
   });
+  $('.modal-trigger').leanModal();
+
   $('.button-collapse').sideNav({
       menuWidth: 450, // Default is 240
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
@@ -57,6 +59,24 @@ Template.title.helpers({
       Session.set('formIndex', form[0].index);
       Session.set('sectionIndex', section[0].index);
       Session.set('subsectionIndex', subsectionIndex);
+    }
+  })
+
+  Template.modal.events({
+    'click .modal-save' : function(event, template) {
+      var numberOfForms = template.find('#numberOfFormBs').value;
+      var formToAdd = formB;
+      console.log(formB)
+      console.log(numberOfForms)
+      var audit = Audits.findOne({_id: Router.current().params._id, 'user.id' : Meteor.userId()})
+
+      for(i=0; i<numberOfForms; i++) {
+        audit.forms.push(formToAdd);
+      }
+      Audits.update({_id: audit._id}, {$set: {forms: audit.forms} });
+
+      template.find('#addForms').reset();
+
     }
   })
 

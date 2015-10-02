@@ -3,6 +3,11 @@
       <label for={{question.id}} class={{isActive question.value}}>{{question.label}}</label>
 </template>
 
+<template name="number_input">
+      <input id={{question.id}} type="text" class="validate" value={{question.value}}>
+      <label for={{question.id}} class={{isActive question.value}}>{{question.label}}</label>
+</template>
+
 <template name="date_input">
       <input id={{question.id}} type="date" class="datepicker" data-value={{question.value}}>
       <label for={{question.id}} class={{isActive question.value}}>{{question.label}}</label>
@@ -106,7 +111,7 @@
                 {{> checkbox_input question=question}}
                   {{else}}
                     {{#if stringsAreEqual 'number' question.type}}
-                    {{> text_input question=question}}
+                    {{> number_input question=question}}
                   {{/if}}
               {{/if}}
             {{/if}}
