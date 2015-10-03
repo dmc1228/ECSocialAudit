@@ -73,10 +73,6 @@ Template.title.helpers({
       });
       var totalNumberOfFormBs= formBs.length
 
-      console.log('number of form bs: ' + formBs.length)
-      console.log(numberOfFormBs)
-      console.log(totalNumberOfForms)
-
       for(i=0; i<numberOfFormBsToAdd; i++) {
         var formToAdd = JSON.parse(JSON.stringify(formB));
         var currentFormIndex = totalNumberOfFormBs + i;
