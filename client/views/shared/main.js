@@ -64,13 +64,27 @@ Template.title.helpers({
 
   Template.modal.events({
     'click .modal-save' : function(event, template) {
-      var numberOfForms = template.find('#numberOfFormBs').value;
-      var formToAdd = formB;
-      console.log(formB)
-      console.log(numberOfForms)
+      var numberOfFormBs = template.find('#numberOfFormBs').value;
       var audit = Audits.findOne({_id: Router.current().params._id, 'user.id' : Meteor.userId()})
+      var totalNumberOfForms = audit.forms.length
 
-      for(i=0; i<numberOfForms; i++) {
+      console.log(formB)
+      console.log(numberOfFormBs)
+      console.log(totalNumberOfForms)
+
+      for(i=0; i<numberOfFormBs; i++) {
+        var formToAdd = JSON.parse(JSON.stringify(formB));;
+        formToAdd.index = totalNumberOfForms + i;
+        formToAdd.name = formToAdd.name.replace('formB', 'formB' + i)
+        formToAdd.display_name = formToAdd.display_name.replace('Form B', 'Form B.' + i)
+        console.log(formToAdd.display_name)
+        formToAdd.sections.forEach(function(section) {
+          section.name = section.name.replace('formB', 'formB' + i)
+          section.sub_sections.forEach(function(subsection) {
+            subsection.name = subsection.name.replace('formB', 'formB' + i)
+          })
+        })
+
         audit.forms.push(formToAdd);
       }
       Audits.update({_id: audit._id}, {$set: {forms: audit.forms} });
