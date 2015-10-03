@@ -1,0 +1,45 @@
+<template name="sideNav">
+      <!-- <ul id="slide-out" class="side-nav collapsible black-text fixed" data-collapsible="accordion">
+        {{#each this.audit.forms}}
+          <li>
+            <div class="collapsible-header">{{this.display_name}}</div>
+
+            <div class="collapsible-body">
+              <ul>
+                {{#each this.sections}}
+                    {{#each this.sub_sections}}
+                      <li><a class='changeIndex'>{{this.display_name}}<i {{shouldShow this.hasChanges}} class="green-text material-icons">done</i></a></li>
+                    {{/each}}
+                {{/each}}
+              </ul>
+            </div>
+          </li>
+        {{/each}}
+        <li><a class="btn modal-trigger" href="#modal1">Add another form</a></li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a> -->
+
+
+
+      <ul class="collapsible" data-collapsible="accordion" style="padding: 2em; box-shadow: none; border: none;">
+        <li>
+          {{print this}}
+          <div class="collapsible-header"><a href="{{pathFor 'audit.home' _id=this.audit._id}}"><i class="material-icons">home</i>{{this.audit.school.schoolDetails.INSTITUTION_NAME}}</a></div>
+          <!-- <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> -->
+        </li>
+        {{#each this.audit.forms}}
+          <li>
+            <div class="collapsible-header">{{this.display_name}}</div>
+            <div class="collapsible-body">
+              <ul class="collection">
+                {{#each this.sections}}
+                    {{#each this.sub_sections}}
+                      <li><a class='changeIndex collection-item'>{{this.display_name}}<i {{shouldShow this.hasChanges}} class="secondary-content green-text material-icons">done</i></a></li>
+                    {{/each}}
+                {{/each}}
+              </ul>
+            </div>
+          </li>
+        {{/each}}
+        </ul>
+</template>

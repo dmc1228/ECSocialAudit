@@ -11,6 +11,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: color("grey", "lighten-2");
 }
 
 main {
@@ -726,4 +727,17 @@ nav ul a span.badge {
 
 .no-padding {
   padding: 0 !important;
+}
+
+.formContainer {
+  margin: 50px;
+  height:80%;
+  background-color: white;
+  border-radius: 2px;
+  @extend .z-depth-1;
+}
+
+.content {
+  padding-left: 240px;
+
 }

@@ -1,0 +1,27 @@
+<template name="home">
+  <div class="container">
+    <h3>{{this.audit.school.schoolDetails.INSTITUTION_NAME}}</h3>
+    <form id="addForms">
+      <div class="row">
+        <div class="input-field col s6">
+          <p>How many Form B's would you like to Add?</p>
+        </div>
+        <div class="input-field col s3">
+          <input id='numberOfFormBs' type="text" class="validate">
+        </div>
+      </div>
+   </form>
+   <a class="save btn" href="{{pathFor 'audit.edit' _id=this.audit._id}}">Start</a>
+  </div>
+</template>
+<!--
+<template name="accounts">
+  {{> audits}}
+</template>
+
+<template name="dashboard">
+  <a href="/schools" class="btn">Schools</a>
+   <a href="/audits" class="btn">Audits</a>
+{{> audits}}
+
+ </template> -->

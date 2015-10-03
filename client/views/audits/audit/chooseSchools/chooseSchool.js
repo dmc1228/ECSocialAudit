@@ -35,7 +35,7 @@ Template.chooseSchool.events({
     Session.set('sectionIndex', 0);
     Session.set('subsectionIndex', 0);
 
-    Router.go('audit.edit', {_id: auditID, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
+    Router.go('audit.home', {_id: audit._id, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
 
   }
 });
