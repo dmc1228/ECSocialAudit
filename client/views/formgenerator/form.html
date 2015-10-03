@@ -1,100 +1,3 @@
-<template name="text_input">
-      <input id={{question.id}} type="text" class="validate" value={{question.value}}>
-      <label for={{question.id}} class={{isActive question.value}}>{{question.label}}</label>
-</template>
-
-<template name="number_input">
-      <input id={{question.id}} type="text" class="validate" value={{question.value}}>
-      <label for={{question.id}} class={{isActive question.value}}>{{question.label}}</label>
-</template>
-
-<template name="date_input">
-      <input id={{question.id}} type="date" class="datepicker" data-value={{question.value}}>
-      <label for={{question.id}} class={{isActive question.value}}>{{question.label}}</label>
-</template>
-
-<template name="dropdown_input">
-      <p>{{question.label}}</p>
-      {{#each key_value question.options}}
-           <p>
-            <input name={{../question.id}} type="radio" checked="{{isSelected ../question.value value ../question}}" id={{../question.id}}_{{key}} value={{value}}>
-            <label for={{../question.id}}_{{key}}>{{value}}</label>
-          </p>
-      {{/each}}
-</template>
-
-<template name="checkbox_input">
-    <p>{{question.label}}</p>
-        {{#each key_value question.options}}
-             <p>
-              <input type="checkbox" checked="{{isSelected ../question.value value}}" id={{../question.id}}_{{key}} value={{value}}>
-              <label for={{../question.id}}_{{key}}>{{value}}</label>
-            </p>
-        {{/each}}
-</template>
-
-
-<template name="staticTable">
-    <div class="container">
-      <form id="{{subsection.id}}">
-      <table>
-        {{#each subsection.columns}}
-          <th>{{this.name}}</th>
-        {{/each}}
-        {{#each subsection.rows}}
-          <tr>
-            {{#each ../subsection.columns}}
-              {{#if stringsAreEqual 'label' this.type}}
-                <td>{{../name}}</td>
-              {{/if}}
-              {{#if stringsAreEqual 'number' this.type}}
-                <td><input id={{this.id}}_{{../id}} type="text" value={{getValue this.id ../values}}></td>
-              {{/if}}
-            {{/each}}
-          </tr>
-          {{/each}}
-      </table>
-    </form>
-    </div>
-</template>
-
-<template name="dynamicTable">
-    <div class="container">
-      <!-- Modal Trigger -->
-       <a class="modal-trigger btn" href="#modal1">Add Block</a>
-
-       <!-- Modal Structure -->
-       <div id="modal1" class="modal modal-fixed-footer">
-         <div class="modal-content">
-           <h4>Add Block</h4>
-           <form id="{{subsection.id}}">
-           {{#each subsection.columns}}
-              {{> chooseDynamicTableTemplate column=this col="s12"}}
-           {{/each}}
-          </form>
-         </div>
-         <div class="modal-footer">
-           <a class="modal-action modal-save modal-close btn-flat ">Save</a>
-           <a class="modal-action modal-close btn-flat ">Cancel</a>
-         </div>
-       </div>
-       <table>
-        {{#each subsection.columns}}
-          <th>{{this.label}}</th>
-        {{/each}}
-
-        {{#each subsection.objects}}
-        <tr>
-            {{#each this}}
-              <td>{{this.values.[0]}}</td>
-            {{/each}}
-            <td><a class="delete">Delete</a></td>
-          </tr>
-        {{/each}}
-      </table>
-    </div>
-</template>
-
 <template name="chooseTemplate">
   <div class="row">
     <div class="input-field col {{col}}">
@@ -111,9 +14,9 @@
                 {{> checkbox_input question=question}}
                   {{else}}
                     {{#if stringsAreEqual 'number' question.type}}
-                    {{> number_input question=question}}
-                  {{/if}}
-              {{/if}}
+                      {{> number_input question=question}}
+                    {{/if}}
+                {{/if}}
             {{/if}}
         {{/if}}
       {{/if}}

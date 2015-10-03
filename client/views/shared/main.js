@@ -88,12 +88,13 @@ Template.title.helpers({
       return string1 == string2;
   });
 
-  Template.registerHelper('hasChanges', function(id, section) {
+  Template.registerHelper('shouldShow', function(hasChanges) {
+    var shouldShow = "hidden";
+    if (hasChanges != undefined) {
+      shouldShow = "";
+    }
 
-    var a = Audits.findOne({_id : id}, {section : 1})
-
-    console.log(a)
-    console.log(a.formA.school_demographics.general.hasChanges);
+    return shouldShow;
   });
 
   Handlebars.registerHelper('userIsInRole', function(role){

@@ -1,0 +1,9 @@
+<template name="dropdown_input">
+      <p>{{question.label}}</p>
+      {{#each key_value question.options}}
+           <p>
+            <input name={{../question.id}} type="radio" checked="{{isSelected ../question.value value ../question}}" id={{../question.id}}_{{key}} value={{value}}>
+            <label for={{../question.id}}_{{key}}>{{value}}</label>
+          </p>
+      {{/each}}
+</template>

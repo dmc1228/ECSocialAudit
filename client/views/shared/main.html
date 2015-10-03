@@ -25,6 +25,7 @@
     {{/if}}
     {{> title}}
     <ul class="right hide-on-med-and-down" style='padding-right:30px'>
+      {{print 'header'}}
       {{#if userIsInRole 'admin'}}
         <li><a href="/schools">Schools</a></li>
         <li><a href="/users">Users</a></li>
@@ -39,6 +40,7 @@
 
 
 <template name="footer">
+  {{print 'footer'}}
   <footer class="page-footer">
     <div class="footer-copyright">
       <div class="container">
@@ -59,7 +61,7 @@
               <ul>
                 {{#each this.sections}}
                     {{#each this.sub_sections}}
-                      <li><a class='changeIndex'>{{this.display_name}}</a></li>
+                      <li><a class='changeIndex'>{{this.display_name}}<i {{shouldShow this.hasChanges}} class="green-text material-icons">done</i></a></li>
                     {{/each}}
                 {{/each}}
               </ul>

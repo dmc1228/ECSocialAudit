@@ -1,0 +1,25 @@
+<template name="staticTable">
+    <div class="container">
+      <form id="{{subsection.id}}">
+      <table>
+        {{#each subsection.columns}}
+          <th>{{this.name}}</th>
+        {{/each}}
+
+        {{#each subsection.rows}}
+          <tr>
+            {{#each ../subsection.columns}}
+              {{#if stringsAreEqual 'label' this.type}}
+                <td>{{../name}}</td>
+              {{/if}}
+              {{#if stringsAreEqual 'number' this.type}}
+              {{> number_input question=question}}
+                <td>  <input id={{this.id}}_{{../id}} class="active" type="text" value={{getValue this.id ../values}}></td>
+              {{/if}}
+            {{/each}}
+          </tr>
+        {{/each}}
+      </table>
+    </form>
+    </div>
+</template>

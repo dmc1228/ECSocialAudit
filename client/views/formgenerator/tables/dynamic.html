@@ -1,0 +1,36 @@
+<template name="dynamicTable">
+    <div class="container">
+      <!-- Modal Trigger -->
+       <a class="modal-trigger btn" href="#modal1">Add Block</a>
+
+       <!-- Modal Structure -->
+       <div id="modal1" class="modal modal-fixed-footer">
+         <div class="modal-content">
+           <h4>Add Block</h4>
+           <form id="{{subsection.id}}">
+           {{#each subsection.columns}}
+              {{> chooseDynamicTableTemplate column=this col="s12"}}
+           {{/each}}
+          </form>
+         </div>
+         <div class="modal-footer">
+           <a class="modal-action modal-save modal-close btn-flat ">Save</a>
+           <a class="modal-action modal-close btn-flat ">Cancel</a>
+         </div>
+       </div>
+       <table>
+        {{#each subsection.columns}}
+          <th>{{this.label}}</th>
+        {{/each}}
+
+        {{#each subsection.objects}}
+        <tr>
+            {{#each this}}
+              <td>{{this.values.[0]}}</td>
+            {{/each}}
+            <td><a class="delete">Delete</a></td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+</template>
