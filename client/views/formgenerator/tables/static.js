@@ -1,3 +1,0 @@
-Template.staticTableNumber.onRendered(function() {
-  
-})

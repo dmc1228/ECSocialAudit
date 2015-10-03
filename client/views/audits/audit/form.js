@@ -3,6 +3,25 @@ forms = function() {
   return all_forms;
 }
 
+// Template.dynamicTemplateWithData.chooseTemplate = function (name) {
+//   console.log(name)
+//     return Template[name];
+// };
+
+// Template.subsection.helpers({
+//     myDataHelper: function () {
+//         Session.get('myReactiveKey');
+//     }
+// });
+
+
+Template.form.onRendered(function() {
+  console.log('Rendering FORM!');
+      // this.autorun(function() {
+      //   var session = Session.get('subsectionIndex');
+      //
+      // })
+});
 
 Template.form.helpers({
   'currentContext' : function() {

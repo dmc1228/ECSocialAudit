@@ -5,26 +5,13 @@ function isNumberKey(evt){
     return true;
 }
 
-
-Template.number_input.events({
-  'onchange input' : function(){
-    console.log(this)
-  }
-})
-
-
-Template.date_input.onRendered(function() {
+Template.date.onRendered(function() {
       $('.datepicker').pickadate({
        autoclose: true,
        selectMonths: true, // Creates a dropdown to control month
        selectYears: 15 // Creates a dropdown of 15 years to control year
      });
 });
-
-Template.chooseTemplate.onRendered(function() {
-    $('input#input_text, textarea#textarea1').characterCounter();
-})
-
 
 Template.dynamicTable.onRendered(function() {
   $('.modal-trigger').leanModal();

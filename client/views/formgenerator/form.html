@@ -1,4 +1,4 @@
-<template name="chooseTemplate">
+<!-- <template name="chooseTemplate">
   <div class="row">
     <div class="input-field col {{col}}">
       {{#if stringsAreEqual 'text' question.type}}
@@ -22,7 +22,7 @@
       {{/if}}
       </div>
     </div>
-</template>
+</template> -->
 
 <template name="chooseDynamicTableTemplate">
   <div class="row">
@@ -32,13 +32,13 @@
         <label for={{column.id}}>{{column.label}}</label>
       {{else}}
         {{#if stringsAreEqual 'dropdown' column.type}}
-          {{> dropdown_input question=column}}
+          {{> dropdown question=column}}
         {{else}}
           {{#if stringsAreEqual 'date' column.type}}
-            {{> date_input question=column}}
+            {{> date question=column}}
             {{else}}
               {{#if stringsAreEqual 'checkbox' column.type}}
-                {{> checkbox_input question=column}}
+                {{> checkbox question=column}}
                   {{else}}
                     {{#if stringsAreEqual 'number' column.type}}
                     <input id={{column.id}} type="text" class="validate">
