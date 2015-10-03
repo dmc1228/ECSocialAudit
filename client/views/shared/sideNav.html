@@ -25,7 +25,6 @@
         <li>
           {{print this}}
           <div class="collapsible-header"><a href="{{pathFor 'audit.home' _id=this.audit._id}}"><i class="material-icons">home</i>{{this.audit.school.schoolDetails.INSTITUTION_NAME}}</a></div>
-          <!-- <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> -->
         </li>
         {{#each this.audit.forms}}
           <li>
@@ -34,7 +33,7 @@
               <ul class="collection">
                 {{#each this.sections}}
                     {{#each this.sub_sections}}
-                      <li><a class='changeIndex collection-item'>{{this.display_name}}<i {{shouldShow this.hasChanges}} class="secondary-content green-text material-icons">done</i></a></li>
+                      <li><a class='changeIndex collection-item'>{{this.display_name}}<i class="secondary-content green-text material-icons {{shouldShow this.hasChanges}}">done</i></a></li>
                     {{/each}}
                 {{/each}}
               </ul>

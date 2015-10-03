@@ -170,7 +170,7 @@ var atmosphere_general = {
 formC = {
           type: 'form',
           name: 'formC',
-          index: 2,
+          index: 1,
           display_name: 'Form C: Observed Conditions',
           sections:[general_information, general_infrastructure, atmosphere_general]
         };

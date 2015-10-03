@@ -21,28 +21,6 @@ Template.title.helpers({
     }
   })
 
-  Template.sideNav.events({
-    'click .changeIndex' : function(e, t) {
-      var str = this.name;
-      var names = str.split(".");
-      var audit = t.data.audit;
-      var form = audit.forms.filter(function( form ) {
-        return form.name == names[0];
-      });
-
-      var section = form[0].sections.filter(function( section ) {
-        return section.name == names[0]+'.'+names[1];
-      });
-
-      var subsectionIndex = this.index;
-
-      Session.set('formIndex', form[0].index);
-      Session.set('sectionIndex', section[0].index);
-      Session.set('subsectionIndex', subsectionIndex);
-    }
-  })
-
-
 
   Template.registerHelper('print', function(thingToPrint){
       console.log(thingToPrint);
@@ -50,15 +28,6 @@ Template.title.helpers({
 
   Template.registerHelper('stringsAreEqual', function(string1, string2){
       return string1 == string2;
-  });
-
-  Template.registerHelper('shouldShow', function(hasChanges) {
-    var shouldShow = "hidden";
-    if (hasChanges != undefined) {
-      shouldShow = "";
-    }
-
-    return shouldShow;
   });
 
   Handlebars.registerHelper('userIsInRole', function(role){
