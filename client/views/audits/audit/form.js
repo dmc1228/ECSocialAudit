@@ -38,11 +38,11 @@ Template.form.helpers({
 });
 
 Template.form.events({
-  'click .next' : function() {
-    incrementFormSubsection()
+  'click .next' : function(event, template) {
+    incrementFormSubsection(template)
   },
-  'click .previous' : function() {
-    decrementFormSubsection()
+  'click .previous' : function(event, template) {
+    decrementFormSubsection(template)
   },
   'submit' : function(event, template) {
     event.preventDefault();
@@ -91,7 +91,6 @@ Template.form.events({
         }
       })
     }
-    template.find('#' + subsection.id).reset();
 
     subsection.hasChanges = true;
     var audit = template.data.audit;
@@ -114,13 +113,17 @@ Template.form.events({
     var sectionIndex = Session.get('sectionIndex');
     var subsectionIndex = Session.get('subsectionIndex')
 
+    if (!Session.get('isLastSection')) {
+      template.find('#' + subsection.id).reset();
+    }
+
     Router.go('audit.edit', {_id: audit._id, _formIndex: formIndex, _sectionIndex: sectionIndex, _subsectionIndex: subsectionIndex});
 
   },
 });
 
 
-function incrementFormSubsection() {
+function incrementFormSubsection(template) {
   var formIndex = Session.get('formIndex');
   var sectionIndex = Session.get('sectionIndex');
   var subsectionIndex = Session.get('subsectionIndex')
@@ -147,7 +150,7 @@ function incrementFormSubsection() {
         subsectionIndex = 0;
       } else
       {
-         //last subsection of last section of last form
+          Session.set('isLastSection', true)
          return nil;
       }
     }
@@ -155,9 +158,11 @@ function incrementFormSubsection() {
   Session.set('formIndex', formIndex);
   Session.set('sectionIndex', sectionIndex);
   Session.set('subsectionIndex', subsectionIndex);
+  Session.set('isLastSection', false)
+
 }
 
-function decrementFormSubsection() {
+function decrementFormSubsection(template) {
   var formIndex = Session.get('formIndex');
   var sectionIndex = Session.get('sectionIndex');
   var subsectionIndex = Session.get('subsectionIndex')
@@ -185,6 +190,7 @@ function decrementFormSubsection() {
         subsectionIndex = 0;
       } else
       {
+        Session.set('isLastSection', true)
          //first section of first form
          return nil;
       }
@@ -193,4 +199,5 @@ function decrementFormSubsection() {
   Session.set('formIndex', formIndex);
   Session.set('sectionIndex', sectionIndex);
   Session.set('subsectionIndex', subsectionIndex);
+  Session.set('isLastSection', false)
 }
