@@ -64,24 +64,30 @@ Template.title.helpers({
 
   Template.modal.events({
     'click .modal-save' : function(event, template) {
-      var numberOfFormBs = template.find('#numberOfFormBs').value;
+      var numberOfFormBsToAdd = template.find('#numberOfFormBs').value;
       var audit = Audits.findOne({_id: Router.current().params._id, 'user.id' : Meteor.userId()})
       var totalNumberOfForms = audit.forms.length
 
-      console.log(formB)
+      var formBs = audit.forms.filter(function( form ) {
+        return form.name.indexOf("formB") > -1;
+      });
+      var totalNumberOfFormBs= formBs.length
+
+      console.log('number of form bs: ' + formBs.length)
       console.log(numberOfFormBs)
       console.log(totalNumberOfForms)
 
-      for(i=0; i<numberOfFormBs; i++) {
-        var formToAdd = JSON.parse(JSON.stringify(formB));;
-        formToAdd.index = totalNumberOfForms + i;
-        formToAdd.name = formToAdd.name.replace('formB', 'formB' + i)
-        formToAdd.display_name = formToAdd.display_name.replace('Form B', 'Form B.' + i)
+      for(i=0; i<numberOfFormBsToAdd; i++) {
+        var formToAdd = JSON.parse(JSON.stringify(formB));
+        var currentFormIndex = totalNumberOfFormBs + i;
+        formToAdd.index = totalNumberOfForms + currentFormIndex;
+        formToAdd.name = formToAdd.name.replace('formB', 'formB' + currentFormIndex)
+        formToAdd.display_name = formToAdd.display_name.replace('Form B', 'Form B.' + currentFormIndex)
         console.log(formToAdd.display_name)
         formToAdd.sections.forEach(function(section) {
-          section.name = section.name.replace('formB', 'formB' + i)
+          section.name = section.name.replace('formB', 'formB' + currentFormIndex)
           section.sub_sections.forEach(function(subsection) {
-            subsection.name = subsection.name.replace('formB', 'formB' + i)
+            subsection.name = subsection.name.replace('formB', 'formB' + currentFormIndex)
           })
         })
 
