@@ -31,7 +31,11 @@ Template.chooseSchool.events({
     Session.set('schoolName', this.schoolDetails.INSTITUTION_NAME)
     Session.set('auditId', auditID);
 
-    Router.go('audit.edit', {_id: auditID});
+    Session.set('formIndex', 0);
+    Session.set('sectionIndex', 0);
+    Session.set('subsectionIndex', 0);
+
+    Router.go('audit.edit', {_id: auditID, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
 
   }
 });

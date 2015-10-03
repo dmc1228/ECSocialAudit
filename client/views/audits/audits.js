@@ -27,12 +27,18 @@ Template.audits.events({
     }
     else if (event.target.className == "editbtn") {
       Session.set('schoolName', this.school.schoolDetails.INSTITUTION_NAME)
-      // Session.set('auditId', this._id)
-      Router.go('audit.edit', {_id: this._id });
+
+      Session.set('formIndex', 0);
+      Session.set('sectionIndex', 0);
+      Session.set('subsectionIndex', 0);
+      Router.go('audit.edit', {_id: this._id, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
     } else {
       Session.set('schoolName', this.school.schoolDetails.INSTITUTION_NAME)
-      // Session.set('auditId', this._id)
-      Router.go('audit.edit', {_id: this._id});
+
+      Session.set('formIndex', 0);
+      Session.set('sectionIndex', 0);
+      Session.set('subsectionIndex', 0);
+      Router.go('audit.edit', {_id: this._id, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
     }
   }
 

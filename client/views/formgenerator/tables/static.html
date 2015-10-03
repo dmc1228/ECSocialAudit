@@ -13,7 +13,7 @@
                 <td>{{../name}}</td>
               {{/if}}
               {{#if stringsAreEqual 'number' this.type}}
-                <td><input id={{this.id}}_{{../id}} class="active" type="text" value={{getValue this.id ../values}}></td>
+                <td><input id={{this.id}}_{{../id}} type="text" value={{getValue this.id ../values}}></td>
               {{/if}}
             {{/each}}
           </tr>

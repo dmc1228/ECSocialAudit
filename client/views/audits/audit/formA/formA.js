@@ -6,7 +6,7 @@ var school_demographics_general =  {
   display_name: '1.1 General',
   index: 0,
   questions:
-  
+
             [
               {
                 id: 'name_of_auditor',
@@ -24,12 +24,12 @@ var school_demographics_general =  {
                 label: 'Position of person being interviewed',
                 options: ['Principal', 'Dep. Principal', 'Secretary', 'Other']
               },
-              {
-                id: 'school_type',
-                type: 'dropdown',
-                label: 'Type of school',
-                options: ['Primary', 'Secondary', 'Combined']
-              },
+              // {
+              //   id: 'school_type',
+              //   type: 'dropdown',
+              //   label: 'Type of school',
+              //   options: ['Primary', 'Secondary', 'Combined']
+              // },
               {
                 id: 'school_has_disabeled_learners',
                 type: 'dropdown',
@@ -45,7 +45,7 @@ var grades = {
   name: 'formA.school_demographics.grades',
   id: 'formA_school_demographics_grades',
   display_name: '1.2 Grades',
-  index: 1,
+  index: 3,
   columns: [
             {
               id: 'grade',
@@ -147,13 +147,29 @@ var grades = {
           ]
 };
 
+var type = {
+  type: 'sub_section',
+  name: 'formA.school_demographics.school_type',
+  id: 'formA_school_demographics_school_type',
+  display_name: 'Choose school type',
+  index: 2,
+  questions:
+            [
+              {
+                id: 'school_type',
+                type: 'dropdown',
+                label: 'Is the school a primary or secondary school?',
+                options: ['Primary', 'Secondary', 'Combined']
+              }]
+};
+
 var staff = {
   type: 'sub_section',
   subtype: 'static_table',
   name: 'formA.school_demographics.staff',
   id: 'formA_school_demographics_staff',
   display_name: '1.3 Staff',
-  index: 2,
+  index: 1,
   columns: [
             {
               id: 'position',
@@ -399,7 +415,7 @@ var school_demographics = {
   name: 'formA.school_demographics',
   index: 0,
   display_name: '1. School Demographics',
-  sub_sections: [school_demographics_general, grades, staff]
+  sub_sections: [school_demographics_general, staff, type, grades]
 };
 
 var security = {

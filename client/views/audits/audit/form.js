@@ -3,17 +3,6 @@ forms = function() {
   return all_forms;
 }
 
-// Template.dynamicTemplateWithData.chooseTemplate = function (name) {
-//   console.log(name)
-//     return Template[name];
-// };
-
-// Template.subsection.helpers({
-//     myDataHelper: function () {
-//         Session.get('myReactiveKey');
-//     }
-// });
-
 
 Template.form.onRendered(function() {
   console.log('Rendering FORM!');
@@ -120,6 +109,13 @@ Template.form.events({
 
     audit.forms[form[0].index].sections[section[0].index].sub_sections[subsection.index] = subsection;
     Audits.update({_id: audit._id}, {$set: {forms: audit.forms} });
+
+    var formIndex = Session.get('formIndex');
+    var sectionIndex = Session.get('sectionIndex');
+    var subsectionIndex = Session.get('subsectionIndex')
+
+    Router.go('audit.edit', {_id: audit._id, _formIndex: formIndex, _sectionIndex: sectionIndex, _subsectionIndex: subsectionIndex});
+
   },
 });
 
