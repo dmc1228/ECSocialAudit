@@ -23,7 +23,6 @@
 
       <ul class="collapsible" data-collapsible="accordion" style="padding: 2em; box-shadow: none; border: none;">
         <li>
-          {{print this}}
           <div class="collapsible-header"><a href="{{pathFor 'audit.home' _id=this.audit._id}}"><i class="material-icons">home</i>{{this.audit.school.schoolDetails.INSTITUTION_NAME}}</a></div>
         </li>
         {{#each this.audit.forms}}
@@ -33,7 +32,7 @@
               <ul class="collection">
                 {{#each this.sections}}
                     {{#each this.sub_sections}}
-                      <li><a class='changeIndex collection-item truncate'>{{this.display_name}}<i class="secondary-content green-text material-icons {{shouldShow this.hasChanges}}">done</i></a></li>
+                      <li><a class='changeIndex collection-item truncate {{shouldHighlight this.name}}'>{{this.display_name}}<i class="secondary-content green-text material-icons {{shouldShow this.hasChanges}}">done</i></a></li>
                     {{/each}}
                 {{/each}}
               </ul>

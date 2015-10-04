@@ -33,6 +33,8 @@ Template.form.helpers({
     ret.formName = audit.forms[formIndex].display_name;
     // console.log('Currently Context: ' + formIndex + '.' + sectionIndex + '.' + subsectionIndex)
     // console.log(ret);
+    Session.set('activeSubsection', subsectionToDisplay.name)
+
     return ret;
   }
 });

@@ -40,6 +40,15 @@ Template.registerHelper('shouldShowSideNav', function(){
     return isViewingAnAudit;
 });
 
+Template.registerHelper('shouldHighlight', function(subsectionName){
+  var addClass = ""
+  var activeSubsection = Session.get('activeSubsection')
+  if (activeSubsection == subsectionName){
+      addClass= 'active'
+  }
+    return addClass;
+});
+
 Template.registerHelper('shouldShow', function(hasChanges) {
   console.log(hasChanges);
   var shouldShow = "hide";
