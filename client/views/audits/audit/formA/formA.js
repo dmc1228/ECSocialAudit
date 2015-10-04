@@ -158,7 +158,7 @@ var type = {
               {
                 id: 'school_type',
                 type: 'dropdown',
-                label: 'Is the school a primary or secondary school?',
+                label: 'What type of school is it?',
                 options: ['Primary', 'Secondary', 'Combined']
               }]
 };
@@ -221,7 +221,12 @@ var staff = {
               {
                 type: 'label',
                 id: 'number_of_maintenance_staff',
-                name: 'Number of maintenance/cleaning/cooking staff'
+                name: 'Number of maintenance/cleaning staff'
+              },
+			  {
+                type: 'label',
+                id: 'number_of_cooking_staff',
+                name: 'Number of cooking staff'
               }
             ]
 }
@@ -265,7 +270,7 @@ var planning = {
                 id: 'safety_committee_activities',
                 type: 'dropdown',
                 label: 'Are you aware of the activities of the safety committee?',
-                options: ['Yes (please describe in comments)', 'No, no committee exists', 'No, a committee exists, but I don\'t know what they do']
+                options: ['Yes (please describe in comments)', 'No, no committee exists', 'No, a committee exists, but I don\'t know what they do', 'Don\'t know']
               },
               {
                 id: 'safety_plan',
@@ -277,7 +282,7 @@ var planning = {
                 id: 'safety_plan_policy',
                 type: 'dropdown',
                 label: 'Do you know the policies of the safety plan?',
-                options: ['Yes (please describe in comments)', 'No, no plan exists', 'I don\'t know what is in the plan']
+                options: ['Yes (please describe in comments)', 'No, no plan exists', 'No, a plan exists, but I don\'t know what it is', 'Don\'t know']
               },
               {
                 id: 'safety_officer',
@@ -289,7 +294,7 @@ var planning = {
                 id: 'safety_officer_activities',
                 type: 'dropdown',
                 label: 'Are you aware of the activities of the school safety officer?',
-                options: ['Yes (please describe in comments)', 'No, there is no school safety officer', 'No, there is an officer, but I don\'t know what they do']
+                options: ['Yes (please describe in comments)', 'No, there is no school safety officer', 'No, there is an officer, but I don\'t know what they do', 'Don\'t know']
               },
               {
                 id: 'conduct_code',
@@ -301,7 +306,7 @@ var planning = {
                 id: 'code_policies',
                 type: 'dropdown',
                 label: 'Are you aware of the policies of the code of conduct?',
-                options: ['Yes (please describe in comments)', 'No, no code exists', 'No, a code exists, but I don\'t know what they do']
+                options: ['Yes (please describe in comments)', 'No, no code exists', 'No, a code exists, but I don\'t know what it is', 'Don\'t know']
               }]
 }
 
@@ -316,7 +321,7 @@ var violence = {
       id: 'violence_3months',
       type: 'checkbox',
       label: 'In the last 3 months, which of the following events have taken place at the school and been reported to the administration?',
-      options: ['Theft of personal property', 'Gang violence', 'Sexual harassment', 'Alcohol use', 'Drug use', 'Physical violence against an educator', 'Physical violence against a learner', 'Not answered']
+      options: ['Theft of personal property', 'Gang violence', 'Sexual harassment', 'Alcohol use', 'Drug use', 'Physical violence against an educator', 'Physical violence against a learner', 'Other' 'Not answered']
     },
     {
       id: 'violence_1year',
@@ -328,7 +333,7 @@ var violence = {
       id: 'reported',
       type: 'dropdown',
       label: 'How regularly are there reported cases of burglaries and significant vandalism?',
-      options: ['Never Almost Never', 'Once a year', 'Every 6 months', 'Once a month', 'Weekly', 'Daily', 'Don\’t know']
+      options: ['Never', 'Almost Never', 'Once a year', 'Every 6 months', 'Once a month', 'Weekly', 'Daily', 'Don\’t know']
     }]
 }
 

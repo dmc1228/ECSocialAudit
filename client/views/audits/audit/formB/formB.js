@@ -53,7 +53,7 @@ var transport = {
                 id: 'safe_travel',
                 type: 'dropdown',
                 label: 'How safe do you feel on your way to school?',
-                options: ['Very Safe', 'Safe', 'Neither Safe Nor Unsafe', 'Unsafe', 'Very Unsafe', 'Not Answered']
+                options: ['Very Safe', 'Safe', 'Unsafe', 'Very Unsafe', 'Not Answered']
               },
               {
                 id: 'violence_travel_self',
@@ -81,19 +81,19 @@ var school = {
             id: 'safe_school',
             type: 'dropdown',
             label: 'How safe do you feel at school?',
-            options: ['Very Safe', 'Safe', 'Neither Safe Nor Unsafe', 'Unsafe', 'Very Unsafe', 'Not Answered']
+            options: ['Very Safe', 'Safe', 'Very Unsafe', 'Not Answered']
           },
           {
             id: 'violence_school_self',
             type: 'checkbox',
             label: 'Have you ever been a victim of any of the following at school?',
-            options: ['Threatened with violence', 'Pickpocketed', 'Mugged', 'Physically assaulted without a weapon', 'Physically assaulted with a weapon (excluding guns)', 'Physically assaulted with a gun', 'Verbally harassed', 'Sexually harassed', 'Raped', 'Abstain', 'Other']
+            options: ['Threatened with violence', 'Pickpocketed', 'Mugged', 'Physically assaulted without a weapon', 'Physically assaulted with a weapon (excluding guns)', 'Physically assaulted with a gun', 'Verbally harassed', 'Sexually harassed', 'Raped', 'Other']
           },
           {
             id: 'violence_school_other',
             type: 'checkbox',
             label: 'Have you ever seen any of the following happen to another learner at school?',
-            options: ['Threatened with violence', 'Pickpocketed', 'Mugged', 'Physically assaulted without a weapon', 'Physically assaulted with a weapon (excluding guns)', 'Physically assaulted with a gun', 'Verbally harassed', 'Sexually harassed', 'Raped', 'Abstain', 'Other']
+            options: ['Threatened with violence', 'Pickpocketed', 'Mugged', 'Physically assaulted without a weapon', 'Physically assaulted with a weapon (excluding guns)', 'Physically assaulted with a gun', 'Verbally harassed', 'Sexually harassed', 'Raped', 'Other']
           },
           {
             id: 'corporal_punishment',

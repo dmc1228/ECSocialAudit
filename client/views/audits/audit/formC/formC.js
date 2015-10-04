@@ -47,13 +47,13 @@ var fencing =  {
                 id: 'secure_fence',
                 type: 'dropdown',
                 label: 'Do you think that someone, including learners, would be able to get through the fence?',
-                options: ['Yes', 'No', 'Maybe', 'Don\'t know']
+                options: ['Yes', 'Maybe', 'No', 'Don\'t know']
               },
               {
                 id: 'secure_fence',
                 type: 'checkbox',
                 label: 'What is the fence made out of?',
-                options: ['Concrete', 'Brick', 'Wood', 'Wire', 'Metal, with a flat top', 'Metal, with spike', 'Other']
+                options: ['Concrete', 'Brick', 'Wood', 'Wire', 'Metal, with a flat top', 'Metal, with spikes', 'Other']
               }]
 };
 
