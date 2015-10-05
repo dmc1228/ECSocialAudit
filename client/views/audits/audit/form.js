@@ -4,14 +4,6 @@ forms = function() {
 }
 
 
-Template.form.onRendered(function() {
-  console.log('Rendering FORM!');
-      // this.autorun(function() {
-      //   var session = Session.get('subsectionIndex');
-      //
-      // })
-});
-
 Template.form.helpers({
   'currentContext' : function() {
     var formIndex = Session.get('formIndex');
@@ -28,6 +20,7 @@ Template.form.helpers({
     var ret = new Object();
     var section = audit.forms[formIndex].sections[sectionIndex];
     var subsectionToDisplay = section.sub_sections[subsectionIndex];
+    ret.audit = this.audit;
     ret.sectionName = section.display_name;
     ret.subsection = subsectionToDisplay;
     ret.formName = audit.forms[formIndex].display_name;
@@ -39,7 +32,7 @@ Template.form.helpers({
   }
 });
 
-Template.form.events({
+Template.subsection.events({
   'click .next' : function(event, template) {
     incrementFormSubsection(template)
   },
@@ -50,7 +43,7 @@ Template.form.events({
     event.preventDefault();
     console.log("SAVING")
     var subsection = this.subsection;
-    if (subsection.subtype == 'static_table'){
+    if (subsection.subtype == 'grades' || subsection.subtype == 'staff'){
       subsection.rows.forEach(function(row){
         var rowValues = [];
         subsection.columns.forEach(function(col){
@@ -68,6 +61,12 @@ Template.form.events({
       })
     } else {
       subsection.questions.forEach(function(question){
+        if(question.hasComment) {
+            var value = template.find('#' + question.id + '_comment').value
+            question.comment = value;
+            console.log(value);
+        }
+
         if (question.type == 'checkbox') {
           var selected = template.findAll( "input[type=checkbox]:checked");
           var values = [];
@@ -96,7 +95,7 @@ Template.form.events({
     }
 
     subsection.hasChanges = true;
-    var audit = template.data.audit;
+    var auditId = this.audit;
 
     var str = subsection.name;
     var navigationItems = str.split(".");
@@ -110,7 +109,9 @@ Template.form.events({
     });
 
     audit.forms[form[0].index].sections[section[0].index].sub_sections[subsection.index] = subsection;
-    Audits.update({_id: audit._id}, {$set: {forms: audit.forms} });
+    var updated = Audits.update({_id: audit._id}, {$set: {forms: audit.forms} });
+    console.log("Updated: " + updated);
+
 
     var formIndex = Session.get('formIndex');
     var sectionIndex = Session.get('sectionIndex');

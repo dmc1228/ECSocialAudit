@@ -1,4 +1,6 @@
 <template name="dropdown">
+  <div class="row">
+    <div class="input-field col s12">
       <p>{{label}}</p>
       {{#each key_value options}}
            <p>
@@ -6,4 +8,6 @@
             <label for={{../id}}_{{key}}>{{value}}</label>
           </p>
       {{/each}}
+    </div>
+  </div>
 </template>

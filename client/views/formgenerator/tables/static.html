@@ -1,4 +1,4 @@
-<template name="staticTable">
+<template name="grades">
     <div class="container">
       <form id="{{subsection.id}}">
       <table>
@@ -13,7 +13,32 @@
                 <td>{{../name}}</td>
               {{/if}}
               {{#if stringsAreEqual 'number' this.type}}
-                <td><input id={{this.id}}_{{../id}} type="text" value={{getValue this.id ../values}}></td>
+                <td><input id={{this.id}}_{{../id}} type="text" value={{getValue this.id ../id ../values}} autocomplete="off"></td>
+              {{/if}}
+            {{/each}}
+          </tr>
+        {{/each}}
+      </table>
+    </form>
+    </div>
+</template>
+
+<template name="staff">
+    <div class="container">
+      <form id="{{subsection.id}}">
+      <table>
+        {{#each subsection.columns}}
+          <th>{{this.name}}</th>
+        {{/each}}
+
+        {{#each subsection.rows}}
+          <tr>
+            {{#each ../subsection.columns}}
+              {{#if stringsAreEqual 'label' this.type}}
+                <td>{{../name}}</td>
+              {{/if}}
+              {{#if stringsAreEqual 'number' this.type}}
+                <td><input id={{this.id}}_{{../id}} type="text" value={{getValue this.id ../id ../values}} autocomplete="off"></td>
               {{/if}}
             {{/each}}
           </tr>

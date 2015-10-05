@@ -10,29 +10,15 @@
   <div class="row">
 
         <div class="col s12 m4 l3" style="padding: 0px; border-right:1px; "> <!-- Note that "m4 l3" was added -->
-          <!-- Grey navigation panel
-
-                This content will be:
-            3-columns-wide on large screens,
-            4-columns-wide on medium screens,
-            12-columns-wide on small screens  -->
-
             {{#if shouldShowSideNav}}
               {{> sideNav}}
             {{/if}}
         </div>
 
         <div class="col s12 m8 l9" style="border-left:1px; border-left-style:solid; border-color:gray"> <!-- Note that "m8 l9" was added -->
-
-          <!-- Teal page content
-
-                This content will be:
-            9-columns-wide on large screens,
-            8-columns-wide on medium screens,
-            12-columns-wide on small screens  -->
             {{print 'form'}}
             {{#with currentContext}}
-              {{> subsection subsection=this.subsection formName=this.formName sectionName=this.sectionName}}
+              {{> subsection subsection=this.subsection formName=this.formName sectionName=this.sectionName audit=this.audit}}
             {{/with}}
         </div>
 
@@ -43,20 +29,28 @@
   {{> form_header section=this.sectionName form=this.formName subsection=this.subsection.display_name}}
   <div class="row">
         <form id={{subsection.id}} class="col s12">
-          {{#if stringsAreEqual 'static_table' subsection.subtype}}
-              {{> staticTable subsection=subsection}}
+          {{#if stringsAreEqual 'grades' subsection.subtype}}
+              {{> grades subsection=subsection}}
             {{else}}
-              {{#if stringsAreEqual 'dynamic_table' subsection.subtype}}
-                {{> dynamicTable subsection=subsection}}
-              {{else}}
-                {{#each subsection.questions}}
-                  {{> Template.dynamic template=this.type data=this}}
-                {{/each}}
+              {{#if stringsAreEqual 'staff' subsection.subtype}}
+                  {{> staff subsection=subsection}}
+                {{else}}
+                {{#if stringsAreEqual 'dynamic_table' subsection.subtype}}
+                  {{> dynamicTable subsection=subsection}}
+                {{else}}
+                  {{#each subsection.questions}}
+                    {{> Template.dynamic template=this.type data=this}}
+                    {{#if this.hasComment}}
+                      {{> comment comment=this.comment id=this.id}}
+                    {{/if}}
+                  {{/each}}
+              {{/if}}
             {{/if}}
           {{/if}}
-          {{this.type}}
+          <br/>
+          <button type="submit" class="btn previous">Previous</button>
+          <button type="submit" class="btn next">Next</button>
+          <button type="submit" class="btn">Save</button>
         </form>
-        <button type="submit" class="btn previous">Previous</button>
-        <button type="submit" class="btn next">Next</button>
     </div>
 </template>

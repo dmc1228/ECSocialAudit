@@ -24,12 +24,12 @@ var school_demographics_general =  {
                 label: 'Position of person being interviewed',
                 options: ['Principal', 'Dep. Principal', 'Secretary', 'Other']
               },
-              // {
-              //   id: 'school_type',
-              //   type: 'dropdown',
-              //   label: 'Type of school',
-              //   options: ['Primary', 'Secondary', 'Combined']
-              // },
+              {
+                id: 'school_type',
+                type: 'dropdown',
+                label: 'Type of school',
+                options: ['Primary', 'Secondary', 'Combined']
+              },
               {
                 id: 'school_has_disabeled_learners',
                 type: 'dropdown',
@@ -41,11 +41,11 @@ var school_demographics_general =  {
 
 var grades = {
   type: 'sub_section',
-  subtype: 'static_table',
+  subtype: 'grades',
   name: 'formA.school_demographics.grades',
   id: 'formA_school_demographics_grades',
   display_name: '1.2 Grades',
-  index: 3,
+  index: 1,
   columns: [
             {
               id: 'grade',
@@ -147,29 +147,13 @@ var grades = {
           ]
 };
 
-var type = {
-  type: 'sub_section',
-  name: 'formA.school_demographics.school_type',
-  id: 'formA_school_demographics_school_type',
-  display_name: 'Choose school type',
-  index: 2,
-  questions:
-            [
-              {
-                id: 'school_type',
-                type: 'dropdown',
-                label: 'What type of school is it?',
-                options: ['Primary', 'Secondary', 'Combined']
-              }]
-};
-
 var staff = {
   type: 'sub_section',
-  subtype: 'static_table',
+  subtype: 'staff',
   name: 'formA.school_demographics.staff',
   id: 'formA_school_demographics_staff',
   display_name: '1.3 Staff',
-  index: 1,
+  index: 2,
   columns: [
             {
               id: 'position',
@@ -264,49 +248,57 @@ var planning = {
                 id: 'safety_committee',
                 type: 'dropdown',
                 label: 'Does the school have a "Safety Committee?"',
-                options: ['Yes', 'No', 'Don\'t know']
+                options: ['Yes', 'No', 'Don\'t know'],
+                hasComment: true,
               },
               {
                 id: 'safety_committee_activities',
                 type: 'dropdown',
                 label: 'Are you aware of the activities of the safety committee?',
-                options: ['Yes (please describe in comments)', 'No, no committee exists', 'No, a committee exists, but I don\'t know what they do', 'Don\'t know']
+                options: ['Yes (please describe in comments)', 'No, no committee exists', 'No, a committee exists, but I don\'t know what they do', 'Don\'t know'],
+                hasComment: true,
               },
               {
                 id: 'safety_plan',
                 type: 'dropdown',
                 label: 'Does the school have a safety plan?',
-                options: ['Yes', 'No', 'Don\'t know']
+                options: ['Yes', 'No', 'Don\'t know'],
+                comment: "",
               },
               {
                 id: 'safety_plan_policy',
                 type: 'dropdown',
                 label: 'Do you know the policies of the safety plan?',
-                options: ['Yes (please describe in comments)', 'No, no plan exists', 'No, a plan exists, but I don\'t know what it is', 'Don\'t know']
+                options: ['Yes (please describe in comments)', 'No, no plan exists', 'No, a plan exists, but I don\'t know what it is', 'Don\'t know'],
+                hasComment: true,
               },
               {
                 id: 'safety_officer',
                 type: 'dropdown',
                 label: 'Does the school have a school safety officer?',
-                options: ['Yes', 'No', 'Don\'t know']
+                options: ['Yes', 'No', 'Don\'t know'],
+                hasComment: true,
               },
               {
                 id: 'safety_officer_activities',
                 type: 'dropdown',
                 label: 'Are you aware of the activities of the school safety officer?',
-                options: ['Yes (please describe in comments)', 'No, there is no school safety officer', 'No, there is an officer, but I don\'t know what they do', 'Don\'t know']
+                options: ['Yes (please describe in comments)', 'No, there is no school safety officer', 'No, there is an officer, but I don\'t know what they do', 'Don\'t know'],
+                hasComment: true,
               },
               {
                 id: 'conduct_code',
                 type: 'dropdown',
                 label: 'Does the school have a code of conduct"?',
-                options: ['Yes', 'No', 'Don\'t know']
+                options: ['Yes', 'No', 'Don\'t know'],
+                hasComment: true,
               },
               {
                 id: 'code_policies',
                 type: 'dropdown',
                 label: 'Are you aware of the policies of the code of conduct?',
-                options: ['Yes (please describe in comments)', 'No, no code exists', 'No, a code exists, but I don\'t know what it is', 'Don\'t know']
+                options: ['Yes (please describe in comments)', 'No, no code exists', 'No, a code exists, but I don\'t know what it is', 'Don\'t know'],
+                hasComment: true,
               }]
 }
 
@@ -409,7 +401,7 @@ var sense_of_security = {
     },
     {
       id: 'safety_challenges',
-      type: 'text',
+      type: 'textarea',
       label: 'Please discuss what you [the adminstrator] think the challenges to safety are at the school. Record their answer below'
     }]
 }
@@ -420,7 +412,7 @@ var school_demographics = {
   name: 'formA.school_demographics',
   index: 0,
   display_name: '1. School Demographics',
-  sub_sections: [school_demographics_general, staff, type, grades]
+  sub_sections: [school_demographics_general, grades, staff]
 };
 
 var security = {

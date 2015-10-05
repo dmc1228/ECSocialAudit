@@ -10,22 +10,11 @@ Template.registerHelper('isActive', function(val) {
   if (val != undefined) {
     classes = "active"
   }
+  console.log('classes: ' + classes);
   return classes;
 })
 
-Template.registerHelper('getValue', function(columnId, values) {
-    var ret  = "";
-    if (values != undefined && values.length > 0 ) {
-      values.forEach(function(value) {
-        if (value.id == columnId)
-          if (value.value != undefined) {
-            // console.log('setting value: ' + value.value)
-            ret = value.value;
-          }
-      })
-    }
-    return ret;
-})
+
 
 Template.registerHelper('getValueOfDynamicObject', function(obj, valueToFind) {
   var val = obj[valueToFind];

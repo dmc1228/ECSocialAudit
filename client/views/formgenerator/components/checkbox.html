@@ -1,9 +1,13 @@
 <template name="checkbox">
-    <p>{{label}}</p>
-        {{#each key_value options}}
-             <p>
-              <input type="checkbox" checked="{{isSelected ../value value}}" id={{../id}}_{{key}} value={{value}}>
-              <label for={{../id}}_{{key}}>{{value}}</label>
-            </p>
-        {{/each}}
+  <div class="row">
+    <div class="input-field col s12">
+      <p>{{label}}</p>
+          {{#each key_value options}}
+               <p>
+                <input type="checkbox" checked="{{isSelected ../value value}}" id={{../id}}_{{key}} value={{value}}>
+                <label for={{../id}}_{{key}}>{{value}}</label>
+              </p>
+          {{/each}}
+      </div>
+    </div>
 </template>
