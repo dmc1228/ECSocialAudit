@@ -205,12 +205,7 @@ var staff = {
               {
                 type: 'label',
                 id: 'number_of_maintenance_staff',
-                name: 'Number of maintenance/cleaning staff'
-              },
-			  {
-                type: 'label',
-                id: 'number_of_cooking_staff',
-                name: 'Number of cooking staff'
+                name: 'Number of maintenance/cleaning/cooking staff'
               }
             ]
 }

@@ -44,8 +44,14 @@ Template.subsection.events({
   },
   'submit' : function(event, template) {
     event.preventDefault();
+    console.log('SAVING')
     var subsection = this.subsection;
     if (subsection.subtype == 'grades' || subsection.subtype == 'staff'){
+      if (subsection.subtype == 'staff') {
+        var value = template.find('#' + subsection.id + '_comment').value
+        subsection.comment = value;
+      }
+
       subsection.rows.forEach(function(row){
         var rowValues = [];
         subsection.columns.forEach(function(col){

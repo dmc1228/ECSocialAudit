@@ -27,10 +27,10 @@
 <template name="subsection">
   {{> form_header section=this.sectionName form=this.formName subsection=this.subsection.display_name}}
   <div class="row">
-    <button type="submit" class="btn">Save</button>
-    <br/>
-    <br/>
         <form id={{subsection.id}} class="col s12">
+           <button type="submit" class="btn">Save</button>
+            <br/>
+            <br/>
           {{#if stringsAreEqual 'grades' subsection.subtype}}
               {{> grades subsection=subsection}}
             {{else}}
