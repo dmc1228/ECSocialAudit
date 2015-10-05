@@ -9,13 +9,13 @@
 <template name="form">
   <div class="row">
 
-        <div class="col s12 m4 l3" style="padding: 0px; border-right:1px; "> <!-- Note that "m4 l3" was added -->
+        <div class="col s12 m4 l3" style="padding: 0px; border-right:1px; width:22%; "> <!-- Note that "m4 l3" was added -->
             {{#if shouldShowSideNav}}
               {{> sideNav}}
             {{/if}}
         </div>
 
-        <div class="col s12 m8 l9" style="border-left:1px; border-left-style:solid; border-color:gray"> <!-- Note that "m8 l9" was added -->
+        <div class="col s12 m8 l9" style="border-left:1px; border-left-style:solid; border-color:gray;  width:78%;"> <!-- Note that "m8 l9" was added -->
             {{print 'form'}}
             {{#with currentContext}}
               {{> subsection subsection=this.subsection formName=this.formName sectionName=this.sectionName audit=this.audit}}

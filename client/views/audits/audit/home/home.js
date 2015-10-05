@@ -9,13 +9,13 @@ Template.home.events({
     });
     var totalNumberOfFormBs= formBs.length
 
-    for(i=1; i<=numberOfFormBsToAdd; i++) {
+    for(i=0; i<numberOfFormBsToAdd; i++) {
       var formToAdd = JSON.parse(JSON.stringify(formB));
       var currentFormIndex = totalNumberOfFormBs + i;
       formToAdd.index = totalNumberOfForms + currentFormIndex;
       formToAdd.name = formToAdd.name.replace('formB', 'formB' + currentFormIndex)
-      formToAdd.display_name = formToAdd.display_name.replace('Form B', 'Form B.' + currentFormIndex)
-      console.log(formToAdd.display_name)
+      var display_index = currentFormIndex + 1;
+      formToAdd.display_name = formToAdd.display_name.replace('Form B', 'Form B.' + display_index)
       formToAdd.sections.forEach(function(section) {
         section.name = section.name.replace('formB', 'formB' + currentFormIndex)
         section.sub_sections.forEach(function(subsection) {

@@ -10,7 +10,6 @@ Template.registerHelper('isActive', function(val) {
   if (val != undefined) {
     classes = "active"
   }
-  console.log('classes: ' + classes);
   return classes;
 })
 
@@ -18,13 +17,11 @@ Template.registerHelper('isActive', function(val) {
 
 Template.registerHelper('getValueOfDynamicObject', function(obj, valueToFind) {
   var val = obj[valueToFind];
-  console.log(val)
   return val
 })
 
 Template.registerHelper('findValueOfObjectAtIndex', function(objects, index, valueToFind) {
   var ret = objects[index];
-  console.log(ret)
   return ret[valueToFind];
 })
 

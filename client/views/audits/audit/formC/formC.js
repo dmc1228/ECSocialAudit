@@ -85,36 +85,100 @@ var sanitation = {
   index: 2,
   columns: [
             {
+              id: 'block',
+              label: 'Block',
+              index: 0,
+              type: 'text',
+            },
+            {
               id: 'gender',
               label: 'Gender',
-              index: 0,
+              index: 1,
               type: 'dropdown',
               options: ['Male', 'Female', 'Both']
             },
             {
               id: 'type',
               label: 'Type',
-              index: 1,
+              index: 2,
               type: 'dropdown',
               options: ['Learner', 'Staff', 'Both']
             },
             {
               id: 'numberOfToilets',
               label: '# of toilets',
-              index: 2,
+              index: 3,
               type: 'number',
             },
             {
               id: 'numberOfBrokenToilets',
               label: '# of broken toilets',
-              index: 3,
+              index: 4,
               type: 'number',
             },
             {
               id: 'numberOfDisabledToilets',
-              label: '# of toilets with wheelchair access',
-              index: 4,
+              label: '# with wheelchair access',
+              index: 5,
               type: 'number',
+            },
+            {
+              id: 'numberOfUrinals',
+              label: '# of urinals',
+              index: 6,
+              type: 'number',
+            },
+            {
+              id: 'numberOfUrinalsBroken',
+              label: '# of urinals broken',
+              index: 7,
+              type: 'number',
+            },
+            {
+              id: 'numberOfTaps',
+              label: '# of taps',
+              index: 8,
+              type: 'number',
+            },
+            {
+              id: 'numberOfTapsBroken',
+              label: '# of taps broken',
+              index: 9,
+              type: 'number',
+            },
+            {
+              id: 'hasSoap',
+              label: 'Soap',
+              index: 10,
+              type: 'dropdown',
+              options: ['Yes', 'No', 'Unknown']
+            },
+            {
+              id: 'hasSaniBin',
+              label: 'Sani bin',
+              index: 11,
+              type: 'dropdown',
+              options: ['Yes', 'No', 'Unknown']
+            },
+            {
+              id: 'hasToiletPaper',
+              label: 'Toilet Paper',
+              index: 12,
+              type: 'dropdown',
+              options: ['Yes', 'No', 'Unknown']
+            },
+            {
+              id: 'condition',
+              label: 'Overall Conditions',
+              index: 13,
+              type: 'dropdown',
+              options: ['Good', 'Fair', 'Poor']
+            },
+            {
+              id: 'comment',
+              label: 'Comments',
+              index: 14,
+              type: 'textarea',
             },
           ]
 }

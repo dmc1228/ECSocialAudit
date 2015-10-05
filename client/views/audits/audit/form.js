@@ -41,7 +41,6 @@ Template.subsection.events({
   },
   'submit' : function(event, template) {
     event.preventDefault();
-    console.log("SAVING")
     var subsection = this.subsection;
     if (subsection.subtype == 'grades' || subsection.subtype == 'staff'){
       subsection.rows.forEach(function(row){
@@ -64,7 +63,6 @@ Template.subsection.events({
         if(question.hasComment) {
             var value = template.find('#' + question.id + '_comment').value
             question.comment = value;
-            console.log(value);
         }
 
         if (question.type == 'checkbox') {

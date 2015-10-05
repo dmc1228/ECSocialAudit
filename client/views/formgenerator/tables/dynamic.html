@@ -1,5 +1,4 @@
 <template name="dynamicTable">
-    <div class="container">
       <!-- Modal Trigger -->
        <a class="modal-trigger btn" href="#modal1">Add Block</a>
 
@@ -9,7 +8,7 @@
            <h4>Add Block</h4>
            <form id="{{subsection.id}}">
            {{#each subsection.columns}}
-              {{> chooseDynamicTableTemplate column=this col="s12"}}
+              {{> Template.dynamic template=this.type data=this}}
            {{/each}}
           </form>
          </div>
@@ -18,11 +17,18 @@
            <a class="modal-action modal-close btn-flat ">Cancel</a>
          </div>
        </div>
-       <table>
-        {{#each subsection.columns}}
-          <th>{{this.label}}</th>
-        {{/each}}
 
+       <table class="striped responsive-table centered">
+
+        <thead>
+          <tr>
+            {{#each subsection.columns}}
+              <th data-field="{{this.ID}}">{{this.label}}</th>
+            {{/each}}
+          </tr>
+        </thead>
+
+        <tbody>
         {{#each subsection.objects}}
         <tr>
             {{#each this}}
@@ -31,11 +37,11 @@
             <td><a class="delete">Delete</a></td>
           </tr>
         {{/each}}
+      </tbody>
       </table>
-    </div>
 </template>
 
-<template name="chooseDynamicTableTemplate">
+<!-- <template name="chooseDynamicTableTemplate">
   <div class="row">
     <div class="input-field col {{col}}">
       {{#if stringsAreEqual 'text' column.type}}
@@ -61,4 +67,4 @@
       {{/if}}
       </div>
     </div>
-</template>
+</template> -->
