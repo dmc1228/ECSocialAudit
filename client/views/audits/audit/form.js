@@ -102,7 +102,7 @@ Template.subsection.events({
     }
 
     subsection.hasChanges = true;
-    var auditId = this.audit;
+    var audit = this.audit;
 
     var str = subsection.name;
     var navigationItems = str.split(".");
@@ -139,7 +139,7 @@ function incrementFormSubsection(template) {
   var formIndex = Session.get('formIndex');
   var sectionIndex = Session.get('sectionIndex');
   var subsectionIndex = Session.get('subsectionIndex')
-  var audit = this.audit;
+  var audit = template.data.audit;
   var totalNumberOfForms = audit.forms.length;
   var totalNumberOfSectionsInCurrentForm = audit.forms[formIndex].sections.length;
   var totalNumberOfSubsectionsInCurrentSection = audit.forms[formIndex].sections[sectionIndex].sub_sections.length;
@@ -178,7 +178,7 @@ function decrementFormSubsection(template) {
   var formIndex = Session.get('formIndex');
   var sectionIndex = Session.get('sectionIndex');
   var subsectionIndex = Session.get('subsectionIndex')
-  var audit = this.audit;
+  var audit = template.data.audit;
   var totalNumberOfForms = audit.forms.length;
   var totalNumberOfSectionsInCurrentForm = audit.forms[formIndex].sections.length;
   var totalNumberOfSubsectionsInCurrentSection = audit.forms[formIndex].sections[sectionIndex].sub_sections.length;

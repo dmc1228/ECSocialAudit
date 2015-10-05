@@ -1,7 +1,7 @@
 Template.home.events({
   'click .save' : function(event, template) {
     var numberOfFormBsToAdd = template.find('#numberOfFormBs').value;
-    var audit = Audits.findOne({_id: Router.current().params._id, 'user.id' : Meteor.userId()})
+    var audit = this.audit;
     var totalNumberOfForms = audit.forms.length
 
     var formBs = audit.forms.filter(function( form ) {
@@ -30,5 +30,16 @@ Template.home.events({
     template.find('#addForms').reset();
     Router.go('audit.home', {_id: audit._id, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
 
-  }
+  },
+  'keypress' : function(evt){
+      var theEvent = evt;
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode( key );
+      var regex = /[0-9]|\./;
+      if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault)
+          theEvent.preventDefault();
+      }
+    }
 })
