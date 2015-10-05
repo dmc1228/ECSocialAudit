@@ -44,7 +44,6 @@ Template.subsection.events({
   },
   'submit' : function(event, template) {
     event.preventDefault();
-    console.log('SAVING')
     var subsection = this.subsection;
     if (subsection.subtype == 'grades' || subsection.subtype == 'staff'){
       if (subsection.subtype == 'staff') {
@@ -117,8 +116,6 @@ Template.subsection.events({
 
     audit.forms[form[0].index].sections[section[0].index].sub_sections[subsection.index] = subsection;
     var updated = Audits.update({_id: audit._id}, {$set: {forms: audit.forms} });
-    console.log("Updated: " + updated);
-
 
     var formIndex = Session.get('formIndex');
     var sectionIndex = Session.get('sectionIndex');

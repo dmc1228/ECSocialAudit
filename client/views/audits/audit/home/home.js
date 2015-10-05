@@ -11,8 +11,8 @@ Template.home.events({
 
     for(i=0; i<numberOfFormBsToAdd; i++) {
       var formToAdd = JSON.parse(JSON.stringify(formB));
-      var currentFormIndex = totalNumberOfFormBs + i;
-      formToAdd.index = totalNumberOfForms + currentFormIndex;
+      var currentFormIndex = totalNumberOfForms + i;
+      formToAdd.index = currentFormIndex;
       formToAdd.name = formToAdd.name.replace('formB', 'formB' + currentFormIndex)
       var display_index = currentFormIndex + 1;
       formToAdd.display_name = formToAdd.display_name.replace('Form B', 'Form B.' + display_index)

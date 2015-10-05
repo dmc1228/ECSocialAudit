@@ -5,12 +5,10 @@ Template.registerHelper('getValue', function(columnId, subsectionId, values) {
       values.forEach(function(value) {
         if (value.id == columnId)
           if (value.value != undefined) {
-            // console.log('setting value: ' + value.value)
             ret = value.value;
           }
       })
     }
-    console.log('setting: ' + ret)
     return ret;
 })
 

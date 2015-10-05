@@ -28,7 +28,6 @@ Template.registerHelper('checkRole', function(userId, roleToCheck) {
 
 Template.users.events({
   'click .checkbox': function(event, template) {
-    console.log('Updating user: ' + event.target.value)
     Meteor.call('toggleUserRole', this._id, event.target.value, function(error, result) {
       if (error) {
         FlashMessages.sendError("Failed to update users");
