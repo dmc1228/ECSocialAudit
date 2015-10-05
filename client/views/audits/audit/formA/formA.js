@@ -221,13 +221,15 @@ var infrastructure =  {
                 id: 'cctv',
                 type: 'dropdown',
                 label: 'Does the school have CCTV?',
-                options: ['Yes, and it works', 'Yes, but it doesn\'t work', 'No', 'Don\'t know']
+                options: ['Yes, and it works', 'Yes, but it doesn\'t work', 'No', 'Don\'t know'],
+                hasComment: true,
               },
               {
                 id: 'alarm',
                 type: 'dropdown',
                 label: 'Does the school have an alarm?',
-                options: ['Yes, and it works', 'Yes, but it doesn\'t work', 'No', 'Don\'t know']
+                options: ['Yes, and it works', 'Yes, but it doesn\'t work', 'No', 'Don\'t know'],
+                hasComment: true,
               }]
 };
 
@@ -308,19 +310,22 @@ var violence = {
       id: 'violence_3months',
       type: 'checkbox',
       label: 'In the last 3 months, which of the following events have taken place at the school and been reported to the administration?',
-      options: ['Theft of personal property', 'Gang violence', 'Sexual harassment', 'Alcohol use', 'Drug use', 'Physical violence against an educator', 'Physical violence against a learner', 'Other', 'Not answered']
+      options: ['Theft of personal property', 'Gang violence', 'Sexual harassment', 'Alcohol use', 'Drug use', 'Physical violence against an educator', 'Physical violence against a learner', 'Other', 'Not answered'],
+      hasComment: true,
     },
     {
       id: 'violence_1year',
       type: 'checkbox',
       label: 'In the last year, which of the following events have taken place at the school and been reported to the administration?',
-      options: ['Physical violence resulting in significant injury of an educator', 'Physical violence resulting in signficant injury of a learner', 'A rape', 'A shooting', 'A stabbing', 'Significant vandalism', 'Burglary', 'Not answered']
+      options: ['Physical violence resulting in significant injury of an educator', 'Physical violence resulting in signficant injury of a learner', 'A rape', 'A shooting', 'A stabbing', 'Significant vandalism', 'Burglary', 'Not answered'],
+      hasComment: true,
     },
     {
       id: 'reported',
       type: 'dropdown',
       label: 'How regularly are there reported cases of burglaries and significant vandalism?',
-      options: ['Never', 'Almost Never', 'Once a year', 'Every 6 months', 'Once a month', 'Weekly', 'Daily', 'Don\’t know']
+      options: ['Never', 'Almost Never', 'Once a year', 'Every 6 months', 'Once a month', 'Weekly', 'Daily', 'Don\’t know'],
+      hasComment: true,
     }]
 }
 
@@ -341,43 +346,50 @@ var security_staff = {
                 'More than 2 years ago',
                 'Never',
                 'Don\'t know'
-              ]
+              ],
+      hasComment: true,
     },
     {
       id: 'hired_guards',
       type: 'dropdown',
       label: 'Who hires the security guard(s)?',
-      options: ['There is no security guard', 'WCED', 'SGB', 'Principal', 'Don\'t know', 'Other']
+      options: ['There is no security guard', 'WCED', 'SGB', 'Principal', 'Don\'t know', 'Other'],
+      hasComment: true,
     },
     {
       id: 'guard_trained',
       type: 'dropdown',
       label: 'Are the security guards trained?',
-      options: ['There is no security guard', 'Yes', 'No', 'Don\’t know']
+      options: ['There is no security guard', 'Yes', 'No', 'Don\’t know'],
+      hasComment: true,
     },
     {
       id: 'defensive_instrument',
       type: 'checkbox',
       label: 'What type of defensive instrument does the security guard have?',
-      options: ['There is no security guard', 'The security guard does not have a defensive instrument', 'Gun', 'Baton', 'Knobkerrie', 'Sjambok', 'Don\t know', 'Other']
+      options: ['There is no security guard', 'The security guard does not have a defensive instrument', 'Gun', 'Baton', 'Knobkerrie', 'Sjambok', 'Don\t know', 'Other'],
+      hasComment: true,
     },
     {
       id: 'body_search',
       type: 'dropdown',
       label: 'Does the school conduct body searches?',
-      options: ['Yes, they are conducted by police with police dogs', 'Yes, they are conducted by police without dogs', 'Yes, they are conducted by staff', 'No', 'Don\’t know']
+      options: ['Yes, they are conducted by police with police dogs', 'Yes, they are conducted by police without dogs', 'Yes, they are conducted by staff', 'No', 'Don\’t know'],
+      hasComment: true,
     },
     {
       id: 'body_search_gender',
       type: 'dropdown',
       label: 'If body searches are conducted, is it required that they are they done by an official of the same gender as the learner being searched (e.g. men search boys and women search girls)?',
-      options: ['Yes, it is required and searches are always done by the same gender', 'Yes, it is required but searches are not always done by the same gender', 'No, it is not required', 'No, we do not conduct body searches', 'Don\’t know']
+      options: ['Yes, it is required and searches are always done by the same gender', 'Yes, it is required but searches are not always done by the same gender', 'No, it is not required', 'No, we do not conduct body searches', 'Don\’t know'],
+      hasComment: true,
     },
     {
       id: 'bag_search',
       type: 'dropdown',
       label: 'Does the school conduct bag searches?',
-      options: ['Yes, they are conducted by police with police dogs', 'Yes, they are conducted by police without dogs', 'Yes, they are conducted by staff', 'No', 'Don\’t know']
+      options: ['Yes, they are conducted by police with police dogs', 'Yes, they are conducted by police without dogs', 'Yes, they are conducted by staff', 'No', 'Don\’t know'],
+      hasComment: true,
     }]
 }
 
@@ -392,7 +404,8 @@ var sense_of_security = {
       id: 'safe_feel',
       type: 'dropdown',
       label: 'How safe do you feel learners and educators are at the school',
-      options: ['Very Safe','Safe', 'Neither Safe Nor Unsafe', 'Unsafe', 'Very Unsafe']
+      options: ['Very Safe','Safe', 'Neither Safe Nor Unsafe', 'Unsafe', 'Very Unsafe'],
+      hasComment: true,
     },
     {
       id: 'safety_challenges',
