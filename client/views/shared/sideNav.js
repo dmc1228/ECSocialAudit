@@ -13,8 +13,11 @@ Template.sideNav.onRendered(function() {
 });
 
 
-Template.sideNav.events({
+Template.form.events({
   'click .changeIndex' : function(e, t) {
+    console.log('change index');
+    t.find('#' + Session.get('currentSubsectionId', this.id)).reset();
+
     var str = this.name;
     var names = str.split(".");
     var audit = t.data.audit;
@@ -31,6 +34,7 @@ Template.sideNav.events({
     Session.set('formIndex', form[0].index);
     Session.set('sectionIndex', section[0].index);
     Session.set('subsectionIndex', subsectionIndex);
+    Session.set('currentSubsectionId', this.id);
   }
 })
 

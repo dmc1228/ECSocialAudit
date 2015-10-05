@@ -20,6 +20,8 @@ Template.form.helpers({
     var ret = new Object();
     var section = audit.forms[formIndex].sections[sectionIndex];
     var subsectionToDisplay = section.sub_sections[subsectionIndex];
+    Session.set('currentSubsectionId', subsectionToDisplay.id);
+
     ret.audit = this.audit;
     ret.sectionName = section.display_name;
     ret.subsection = subsectionToDisplay;
@@ -29,6 +31,8 @@ Template.form.helpers({
     return ret;
   }
 });
+
+
 
 Template.subsection.events({
   'click .next' : function(event, template) {
@@ -113,11 +117,12 @@ Template.subsection.events({
     var sectionIndex = Session.get('sectionIndex');
     var subsectionIndex = Session.get('subsectionIndex')
 
-    if (!Session.get('isLastSection')) {
-      template.find('#' + subsection.id).reset();
+    if (formIndex != form[0].index || sectionIndex != section[0].index || subsectionIndex != subsection.index) {
+      if (!Session.get('isLastSection')) {
+        template.find('#' + subsection.id).reset();
+      }
+      Router.go('audit.edit', {_id: audit._id, _formIndex: formIndex, _sectionIndex: sectionIndex, _subsectionIndex: subsectionIndex});
     }
-
-    Router.go('audit.edit', {_id: audit._id, _formIndex: formIndex, _sectionIndex: sectionIndex, _subsectionIndex: subsectionIndex});
 
   },
 });

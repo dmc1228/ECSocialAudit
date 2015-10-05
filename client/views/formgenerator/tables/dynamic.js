@@ -99,6 +99,7 @@ Template.dynamicTable.events({
     audit.forms[form[0].index].sections[section[0].index].sub_sections[subsection.index] = subsection;
     Audits.update({_id: audit._id}, {$set: {forms: audit.forms} });
 
+    console.log('Saving toilet block')
     template.find('#' + this.subsection.id).reset();
 
   }
