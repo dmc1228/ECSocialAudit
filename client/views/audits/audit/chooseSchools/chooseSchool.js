@@ -16,7 +16,14 @@ Template.chooseSchool.events({
   'click .reactive-table tbody tr': function (event) {
     // set the blog post we'll display details and news for
     var post = this;
-    var audit = new Object();
+    var audit = Audits.findOne({'school.schoolDetails.INSTITUTION_NAME' : this.schoolDetails.INSTITUTION_NAME})
+
+    if (audit != undefined) {
+      alert('There is already an audit for this school. Please contact ' + audit.user.email)
+      return;
+    }
+    audit = new Object();
+
     audit.school = this;
     audit.forms = forms();
     var user = new Object()
