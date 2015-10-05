@@ -9,7 +9,7 @@ Template.home.events({
     });
     var totalNumberOfFormBs= formBs.length
 
-    for(i=0; i<numberOfFormBsToAdd; i++) {
+    for(i=1; i<=numberOfFormBsToAdd; i++) {
       var formToAdd = JSON.parse(JSON.stringify(formB));
       var currentFormIndex = totalNumberOfFormBs + i;
       formToAdd.index = totalNumberOfForms + currentFormIndex;

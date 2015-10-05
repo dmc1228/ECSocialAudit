@@ -321,7 +321,7 @@ var violence = {
       id: 'violence_3months',
       type: 'checkbox',
       label: 'In the last 3 months, which of the following events have taken place at the school and been reported to the administration?',
-      options: ['Theft of personal property', 'Gang violence', 'Sexual harassment', 'Alcohol use', 'Drug use', 'Physical violence against an educator', 'Physical violence against a learner', 'Other' 'Not answered']
+      options: ['Theft of personal property', 'Gang violence', 'Sexual harassment', 'Alcohol use', 'Drug use', 'Physical violence against an educator', 'Physical violence against a learner', 'Other', 'Not answered']
     },
     {
       id: 'violence_1year',

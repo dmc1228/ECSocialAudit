@@ -48,6 +48,7 @@ Template.form.events({
   },
   'submit' : function(event, template) {
     event.preventDefault();
+    console.log("SAVING")
     var subsection = this.subsection;
     if (subsection.subtype == 'static_table'){
       subsection.rows.forEach(function(row){
