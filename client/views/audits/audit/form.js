@@ -27,8 +27,8 @@ Template.form.helpers({
     ret.subsection = subsectionToDisplay;
     ret.formName = audit.forms[formIndex].display_name;
 
+    Session.set('activeForm',  audit.forms[formIndex].name)
     Session.set('activeSubsection', subsectionToDisplay.name)
-
     return ret;
   }
 });
@@ -176,35 +176,30 @@ function decrementFormSubsection(template) {
   var sectionIndex = Session.get('sectionIndex');
   var subsectionIndex = Session.get('subsectionIndex')
   var audit = template.data.audit;
-  var totalNumberOfForms = audit.forms.length;
-  var totalNumberOfSectionsInCurrentForm = audit.forms[formIndex].sections.length;
-  var totalNumberOfSubsectionsInCurrentSection = audit.forms[formIndex].sections[sectionIndex].sub_sections.length;
+  // var totalNumberOfForms = audit.forms.length;
+  // var totalNumberOfSectionsInCurrentForm = audit.forms[formIndex].sections.length;
+  // var totalNumberOfSubsectionsInCurrentSection = audit.forms[formIndex].sections[sectionIndex].sub_sections.length;
 
 
-  if (subsectionIndex > 0)
-  {
+  if (subsectionIndex > 0) {
     subsectionIndex--;
-  } else
-  {
-    if (sectionIndex > 0)
-    {
+  } else if (sectionIndex > 0) {
       sectionIndex--;
-      subsectionIndex = 0;
-    } else
-    {
-      if (formIndex > 0)
-      {
-        formIndex--;
-        sectionIndex = 0;
-        subsectionIndex = 0;
-      } else
-      {
-        Session.set('isLastSection', true)
-         //first section of first form
-         return nil;
-      }
-    }
+      var totalNumberOfSubsectionsInCurrentSection = audit.forms[formIndex].sections[sectionIndex].sub_sections.length;
+      subsectionIndex = totalNumberOfSubsectionsInCurrentSection -1;
+  } else if (formIndex > 0) {
+    formIndex--;
+    var totalNumberOfSectionsInCurrentForm = audit.forms[formIndex].sections.length;
+    sectionIndex = totalNumberOfSectionsInCurrentForm -1;
+
+    var totalNumberOfSubsectionsInCurrentSection = audit.forms[formIndex].sections[sectionIndex].sub_sections.length;
+    subsectionIndex = totalNumberOfSubsectionsInCurrentSection -1;
+  } else {
+    Session.set('isLastSection', true)
+    return nil;
   }
+
+
   Session.set('formIndex', formIndex);
   Session.set('sectionIndex', sectionIndex);
   Session.set('subsectionIndex', subsectionIndex);

@@ -14,7 +14,7 @@ Template.home.events({
       var currentFormIndex = totalNumberOfForms + i;
       formToAdd.index = currentFormIndex;
       formToAdd.name = formToAdd.name.replace('formB', 'formB' + currentFormIndex)
-      var display_index = currentFormIndex + 1;
+      var display_index = totalNumberOfFormBs + i + 1;
       formToAdd.display_name = formToAdd.display_name.replace('Form B', 'Form B.' + display_index)
       formToAdd.sections.forEach(function(section) {
         section.name = section.name.replace('formB', 'formB' + currentFormIndex)

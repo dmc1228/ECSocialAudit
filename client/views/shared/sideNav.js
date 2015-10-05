@@ -45,14 +45,24 @@ Template.registerHelper('shouldShowSideNav', function(){
     return isViewingAnAudit;
 });
 
-Template.registerHelper('shouldHighlight', function(subsectionName){
+Template.registerHelper('shouldHighlightForm', function(name){
+  // var addClass = ""
+  // var activeForm = Session.get('activeForm')
+  // if (activeForm == name){
+  //     addClass= 'active'
+  // }
+  // console.log(activeForm + ' : ' + name + ' - ' + addClass)
+  // return addClass;
+});
+
+Template.registerHelper('shouldHighlightSubsection', function(name){
   var addClass = ""
   var activeSubsection = Session.get('activeSubsection')
-  if (activeSubsection == subsectionName){
+  if (activeSubsection == name){
       addClass= 'active'
   }
-
-    return addClass;
+  console.log(activeSubsection + ' : ' + name + ' - ' + addClass)
+  return addClass;
 });
 
 Template.registerHelper('shouldShow', function(hasChanges) {
