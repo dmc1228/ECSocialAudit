@@ -16,7 +16,6 @@ Template.sideNav.onRendered(function() {
 Template.sideNav.events({
   'click .changeIndex' : function(e, t) {
     var str = this.name;
-    console.log(str)
     var names = str.split(".");
     var audit = t.data.audit;
     var form = audit.forms.filter(function( form ) {
@@ -50,7 +49,6 @@ Template.registerHelper('shouldHighlight', function(subsectionName){
 });
 
 Template.registerHelper('shouldShow', function(hasChanges) {
-  console.log(hasChanges);
   var shouldShow = "hide";
   if (hasChanges != undefined) {
     if (hasChanges == true) {

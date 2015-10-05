@@ -18,8 +18,8 @@
 			   {{#each users}}
 				 <tr>
 				    <td>{{emails.[0].address}}</td>
-						<td><p><input type="checkbox" value="admin" checked="{{checkRole this._id 'admin'}}" id="admin_{{_id}}" disabled="{{compareUserIds this._id}}"/><label for="admin_{{_id}}"></label></p></td>
-						<td><p><input type="checkbox" value="user" checked="{{checkRole this._id 'user'}}" id="user_{{_id}}" disabled="{{compareUserIds this._id}}"/><label for="user_{{_id}}"></label></p></td>
+						<td><p><input class="checkbox" type="checkbox" value="admin" checked="{{checkRole this._id 'admin'}}" id="admin_{{_id}}" disabled="{{compareUserIds this._id}}"/><label for="admin_{{_id}}"></label></p></td>
+						<td><p><input class="checkbox" type="checkbox" value="user" checked="{{checkRole this._id 'user'}}" id="user_{{_id}}" disabled="{{compareUserIds this._id}}"/><label for="user_{{_id}}"></label></p></td>
 				  </tr>
   			    {{/each}}
 			    </tbody>

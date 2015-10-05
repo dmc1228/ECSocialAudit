@@ -24,8 +24,6 @@ Template.form.helpers({
     ret.sectionName = section.display_name;
     ret.subsection = subsectionToDisplay;
     ret.formName = audit.forms[formIndex].display_name;
-    // console.log('Currently Context: ' + formIndex + '.' + sectionIndex + '.' + subsectionIndex)
-    // console.log(ret);
     Session.set('activeSubsection', subsectionToDisplay.name)
 
     return ret;

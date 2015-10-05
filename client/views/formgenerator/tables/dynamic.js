@@ -1,9 +1,6 @@
 Template.dynamicTable.events({
   'click .delete' : function(event, template) {
     var subsection = template.data.subsection;
-    console.log(subsection)
-
-    console.log(subsection.objects)
 
     subsection.objects.pop(this)
     // subsection.pop(this);
