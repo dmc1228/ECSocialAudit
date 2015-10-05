@@ -1,33 +1,11 @@
 <template name="sideNav">
-      <!-- <ul id="slide-out" class="side-nav collapsible black-text fixed" data-collapsible="accordion">
-        {{#each this.audit.forms}}
-          <li>
-            <div class="collapsible-header">{{this.display_name}}</div>
-
-            <div class="collapsible-body">
-              <ul>
-                {{#each this.sections}}
-                    {{#each this.sub_sections}}
-                      <li><a class='changeIndex'>{{this.display_name}}<i {{shouldShow this.hasChanges}} class="green-text material-icons">done</i></a></li>
-                    {{/each}}
-                {{/each}}
-              </ul>
-            </div>
-          </li>
-        {{/each}}
-        <li><a class="btn modal-trigger" href="#modal1">Add another form</a></li>
-      </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a> -->
-
-
-
       <ul class="collapsible" data-collapsible="accordion" style="padding: 2em; box-shadow: none; border: none;">
         <li>
-          <div class="collapsible-header"><a href="{{pathFor 'audit.home' _id=this.audit._id}}"><i class="material-icons">home</i>{{this.audit.school.schoolDetails.INSTITUTION_NAME}}</a></div>
+          <a style="color:black;" href="{{pathFor 'audit.home' _id=this.audit._id}}"><div class="collapsible-header"><h5><!--<i class="secondary-content material-icons">home</i>-->{{this.audit.school.schoolDetails.INSTITUTION_NAME}}</h5></div></a>
         </li>
         {{#each this.audit.forms}}
           <li>
-            <div class="collapsible-header">{{this.display_name}}</div>
+            <div class="collapsible-header active">{{this.display_name}}</div>
             <div class="collapsible-body">
               <ul class="collection">
                 {{#each this.sections}}

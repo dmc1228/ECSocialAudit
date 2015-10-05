@@ -22,7 +22,6 @@
 
 <template name="header">
   <nav>
-
     {{> title}}
     <ul class="right hide-on-med-and-down" style='padding-right:30px'>
       {{#if userIsInRole 'admin'}}
@@ -32,8 +31,7 @@
         <li><a href="/audits">Audits</a></li>
         <li>{{> loginButtons align="right"}}</li>
     </ul>
-
-      </nav>
+  </nav>
     {{> flashMessages}}
 </template>
 
@@ -51,5 +49,6 @@
 
 
 <template name="title">
-  <a class="brand-logo center">{{currentSchoolName}}</a>
+  <a class="brand-logo"><img src="logo.png" style="padding:5px"></a>
+  <!-- <a class="brand-logo center">{{currentSchoolName}}</a> -->
 </template>

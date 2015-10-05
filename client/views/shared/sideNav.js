@@ -49,6 +49,7 @@ Template.registerHelper('shouldHighlight', function(subsectionName){
   if (activeSubsection == subsectionName){
       addClass= 'active'
   }
+
     return addClass;
 });
 

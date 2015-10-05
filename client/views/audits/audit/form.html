@@ -1,8 +1,8 @@
 <template name="form_header">
-    <h4 class="center-align">{{this.school.schoolDetails.INSTITUTION_NAME}} </h4>
-    <h4 class="center-align">{{form}}</h4>
-    <h4 class="center-align">{{section}}</h4>
-    <h3 class="teal-text">{{subsection}}</h3>
+    <h5 class="center-align">{{this.school.schoolDetails.INSTITUTION_NAME}} </h5>
+    <h5 class="center-align">{{form}}</h5>
+    <h5 class="center-align">{{section}}</h5>
+    <h4 class="ee-yellow-text">{{subsection}}</h4>
 </template>
 
 
@@ -27,6 +27,9 @@
 <template name="subsection">
   {{> form_header section=this.sectionName form=this.formName subsection=this.subsection.display_name}}
   <div class="row">
+    <button type="submit" class="btn">Save</button>
+    <br/>
+    <br/>
         <form id={{subsection.id}} class="col s12">
           {{#if stringsAreEqual 'grades' subsection.subtype}}
               {{> grades subsection=subsection}}
@@ -49,7 +52,6 @@
           <br/>
           <button type="submit" class="btn previous">Previous</button>
           <button type="submit" class="btn next">Next</button>
-          <button type="submit" class="btn">Save</button>
         </form>
     </div>
 </template>

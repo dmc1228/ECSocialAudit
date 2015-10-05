@@ -1,9 +1,9 @@
 /*** Colors ***/
-$primary-color: color("ee-yellow", "lighten-2") !default;
+$primary-color: color("grey", "lighten-4") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: color("teal", "lighten-1") !default;
+$secondary-color: color("ee-yellow", "lighten-1") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
@@ -97,7 +97,7 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 /*** Navbar ***/
 $navbar-height: 64px !default;
 $navbar-height-mobile: 56px !default;
-$navbar-font-color: #fff !default;
+$navbar-font-color: #000 !default;
 $navbar-brand-font-size: 2.1rem !default;
 
 /*** SideNav ***/
@@ -148,7 +148,7 @@ $interval-size: $range / $intervals !default;
 $collection-border-color: #e0e0e0 !default;
 $collection-bg-color: #fff !default;
 $collection-active-bg-color: $secondary-color !default;
-$collection-active-color: lighten($secondary-color, 55%) !default;
+$collection-active-color: #000;
 $collection-hover-bg-color: #ddd !default;
 
 /* Progress Bar */
