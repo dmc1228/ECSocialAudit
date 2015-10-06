@@ -1,5 +1,5 @@
 Template.number.events({
-  'keypress' : function(evt){
+  'keypress .number' : function(evt){
     var theEvent = evt;
     var key = theEvent.keyCode || theEvent.which;
     key = String.fromCharCode( key );

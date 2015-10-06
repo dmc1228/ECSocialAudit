@@ -13,7 +13,7 @@
                 <td>{{../name}}</td>
               {{/if}}
               {{#if stringsAreEqual 'number' this.type}}
-                <td><input id={{this.id}}_{{../id}} type="text" value={{getValue this.id ../id ../values}} autocomplete="off"></td>
+                <td><input id={{this.id}}_{{../id}} type="text" class='number' value={{getValue this.id ../id ../values}} autocomplete="off"></td>
               {{/if}}
             {{/each}}
           </tr>
@@ -38,7 +38,7 @@
                 <td>{{../name}}</td>
               {{/if}}
               {{#if stringsAreEqual 'number' this.type}}
-                <td><input id={{this.id}}_{{../id}} type="text" value={{getValue this.id ../id ../values}} autocomplete="off"></td>
+                <td><input id={{this.id}}_{{../id}} class='number' type="text" value={{getValue this.id ../id ../values}} autocomplete="off"></td>
               {{/if}}
             {{/each}}
           </tr>

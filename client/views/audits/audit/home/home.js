@@ -31,7 +31,7 @@ Template.home.events({
     Router.go('audit.home', {_id: audit._id, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
 
   },
-  'keypress' : function(evt){
+  'keypress .number' : function(evt){
       var theEvent = evt;
       var key = theEvent.keyCode || theEvent.which;
       key = String.fromCharCode( key );

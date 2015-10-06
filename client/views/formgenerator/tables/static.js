@@ -13,7 +13,7 @@ Template.registerHelper('getValue', function(columnId, subsectionId, values) {
 })
 
 Template.grades.events({
-  'keypress' : function(evt){
+  'keypress .number' : function(evt){
     var theEvent = evt;
     var key = theEvent.keyCode || theEvent.which;
     key = String.fromCharCode( key );
@@ -27,7 +27,7 @@ Template.grades.events({
 })
 
 Template.staff.events({
-  'keypress' : function(evt){
+  'keypress .number' : function(evt){
     var theEvent = evt;
     var key = theEvent.keyCode || theEvent.which;
     key = String.fromCharCode( key );
