@@ -123,6 +123,7 @@ Template.subsection.events({
 
     if (formIndex != form[0].index || sectionIndex != section[0].index || subsectionIndex != subsection.index) {
       if (!Session.get('isLastSection')) {
+        console.log('clearing form')
         template.find('#' + subsection.id).reset();
       }
       Router.go('audit.edit', {_id: audit._id, _formIndex: formIndex, _sectionIndex: sectionIndex, _subsectionIndex: subsectionIndex});

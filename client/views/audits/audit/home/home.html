@@ -4,14 +4,55 @@
     <form id="addForms">
       <div class="row">
         <div class="input-field col s6">
-          <p>How many Form B's would you like to Add?</p>
+          <h5>How many Form B's would you like to add?</h5>
         </div>
-        <div class="input-field col s3">
+        <div class="input-field col s1">
           <input id='numberOfFormBs' type="text" class="validate number">
         </div>
       </div>
+      <div class="row">
+        <div class="col s3"><b>Province</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.PROVINCE_NAME}}</div>
+      </div>
+      <div class="row">
+        <div class="col s3"><b>District</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.DISTRICT_NAME}}</div>
+      </div>
+      <div class="row">
+        <div class="col s3"><b>Telephone No.</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.TELEPHONE_NO}}</div>
+      </div>
+      <div class="row">
+        <div class="col s3"><b>Street No.</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.STREET_NO}}</div>
+      </div>
+      <div class="row">
+        <div class="col s3"><b>Street Name</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.STREET_NAME}}</div>
+      </div>
+      <div class="row">
+        <div class="col s3"><b>Township or Village</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.TOWNSHIP_OR_VILLAGE_NAME}}</div>
+      </div>
+      <div class="row">
+        <div class="col s3"><b>Suburb</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.SUBURB}}</div>
+      </div>
+      <div class="row">
+        <div class="col s3"><b>Town or City</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.TOWN_OR_CITY}}</div>
+      </div>
+      <div class="row">
+        <div class="col s3"><b>Postal Code</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.POSTAL_CODE}}</div>
+      </div>
+      <div class="row">
+        <div class="col s3"><b>NEIMS number</b></div>
+        <div class="col s9">{{this.audit.school.schoolDetails.NEIMS_NUMBER}}</div>
+      </div>
+      <a class="save btn" href="{{pathFor 'audit.edit' _id=this.audit._id}}">Go to Form</a>
    </form>
-   <a class="save btn" href="{{pathFor 'audit.edit' _id=this.audit._id}}">Start</a>
+   <br/>
   </div>
 </template>
 <!--

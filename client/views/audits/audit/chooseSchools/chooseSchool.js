@@ -4,7 +4,7 @@ Template.searchSchools.helpers({
     // },
     settings: function () {
         return {
-            collection: Schools,
+            collection: 'all-schools',
             rowsPerPage: 10,
             showFilter: true,
             fields: [{ key: 'schoolDetails.INSTITUTION_NAME', label: 'Name' },{ key: 'schoolDetails.DISTRICT_NAME', label: 'Disctrict' }]

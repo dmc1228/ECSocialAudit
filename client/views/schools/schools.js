@@ -3,7 +3,7 @@ Template.manageSchools.helpers({
     settings: function ()
     {
       return {
-          collection: Schools,
+          collection: 'all-schools',
           rowsPerPage: 10,
           showFilter: true,
           fields: [

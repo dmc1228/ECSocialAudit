@@ -1,4 +1,32 @@
 Meteor.methods({
+  insertSchools: function(schools) {
+
+    var count = schools.length;
+    var i = 0;
+    var uploaded = 0;
+
+
+    schools.forEach(function(entry){
+      i++;
+
+      // var existingSchool = Schools.find({'schoolDetails.NEIMS_NUMBER' : entry.NEIMS_NUMBER});
+      // if (typeof existingSchool === 'undefined') {
+
+        Schools.insert({schoolDetails: entry});
+        uploaded++;
+      // } else {
+      //   alert('School already exists! NEIMS: ' + entry.NEIMS_NUMBER);
+      // }
+      console.log(i + ' out of ' + count);
+      if (i == count) {
+        var message = ' schools were added to the database';
+        if (uploaded == 1){
+            message = ' school was added to the database';
+        }
+        return 'Upload complete! ' + uploaded + message
+      }
+    });
+  },
 
   toggleUserRole: function (targetUserId, role) {
     var loggedInUser = Meteor.user()

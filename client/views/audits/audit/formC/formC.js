@@ -28,35 +28,35 @@ var fencing =  {
               {
                 id: 'have_fence',
                 type: 'dropdown',
-                label: 'Does the school have a fence?',
+                label: '2.1.1 Does the school have a fence?',
                 options: ['Yes', 'No', 'Don\'t know'],
                 hasComment: true,
               },
               {
                 id: 'fence_holes',
                 type: 'dropdown',
-                label: 'Does the fence have holes in it?',
+                label: '2.1.2 Does the fence have holes in it?',
                 options: ['Yes', 'No', 'Don\'t know'],
                 hasComment: true,
               },
               {
                 id: 'tall_fence',
                 type: 'dropdown',
-                label: 'Is the fence at least 1.8 meters tall?',
+                label: '2.1.3 Is the fence at least 1.8 meters tall?',
                 options: ['Yes', 'No', 'Don\'t know'],
                 hasComment: true,
               },
               {
                 id: 'secure_fence',
                 type: 'dropdown',
-                label: 'Do you think that someone, including learners, would be able to get through the fence?',
+                label: '2.1.4 Do you think that someone, including learners, would be able to get through the fence?',
                 options: ['Yes', 'Maybe', 'No', 'Don\'t know'],
                 hasComment: true,
               },
               {
                 id: 'secure_fence',
                 type: 'checkbox',
-                label: 'What is the fence made out of?',
+                label: '2.1.5 What is the fence made out of?',
                 options: ['Concrete', 'Brick', 'Wood', 'Wire', 'Metal, with a flat top', 'Metal, with spikes', 'Other'],
                 hasComment: true,
               }]
@@ -72,13 +72,13 @@ var building_condition =  {
               {
                 type: 'number',
                 id: 'total_number_of_structures',
-                label: 'Total number of structures',
+                label: '2.2.1 Total number of structures',
                 hasComment: true,
               },
               {
                 type: 'number',
                 id: 'number_of_inappropriate_structures',
-                label: 'Number of structures made out of inappropriate material',
+                label: '2.2.2 Number of structures made out of inappropriate material',
                 hasComment: true,
               }]
 }
@@ -202,14 +202,14 @@ var atmosphere =  {
               {
                 id: 'feel_safe',
                 type: 'dropdown',
-                label: 'How safe did you feel at the school?',
+                label: '3.1.1 How safe did you feel at the school?',
                 options: ['Very Safe', 'Safe', 'Neither Safe Nor Unsafe', 'Unsafe', 'Very Unsafe'],
                 hasComment: true,
               },
               {
                 id: 'cooperative',
                 type: 'dropdown',
-                label: 'How cooperative was the school administration?',
+                label: '3.1.2 How cooperative was the school administration?',
                 options: ['Very cooperative', 'Cooperative', 'Somewhat cooperative', 'Not cooperative', 'Very uncooperative'],
                 hasComment: true,
               }]

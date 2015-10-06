@@ -12,30 +12,17 @@ Template.upload.events({
           var all = $.csv.toObjects(text);
           console.log(all);
 
-          var count = all.length;
-          var i = 0;
-          var uploaded = 0;
 
-          _.each(all, function (entry) {
-            i++;
-
-            // var existingSchool = Schools.find({'schoolDetails.NEIMS_NUMBER' : entry.NEIMS_NUMBER});
-            // if (typeof existingSchool === 'undefined') {
-
-              Schools.insert({schoolDetails: entry});
-              uploaded++;
-            // } else {
-            //   alert('School already exists! NEIMS: ' + entry.NEIMS_NUMBER);
-            // }
-
-            if (i == count) {
-              var message = ' schools were added to the database';
-              if (uploaded == 1){
-                  message = ' school was added to the database';
-              }
-              FlashMessages.sendInfo('Upload complete! ' + uploaded + message);
+          Meteor.call('insertSchools', all, function(error, result) {
+            if (error) {
+              FlashMessages.sendError("Failed to update users");
+              console.log(error);
+            } else {
+              FlashMessages.sendInfo(result);
             }
-          });
+          })
+
+
         }
         reader.readAsText(file);
       }
