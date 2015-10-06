@@ -87,7 +87,7 @@ var school = {
             id: 'safe_school',
             type: 'dropdown',
             label: '2.2.1 How safe do you feel at school?',
-            options: ['Very Safe', 'Safe', 'Very Unsafe', 'Not Answered'],
+            options: ['Very Safe', 'Safe', 'Unsafe','Very Unsafe', 'Not Answered'],
             hasComment: true,
           },
           {
