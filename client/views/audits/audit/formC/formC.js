@@ -54,7 +54,7 @@ var fencing =  {
                 hasComment: true,
               },
               {
-                id: 'secure_fence',
+                id: 'fence_material',
                 type: 'checkbox',
                 label: '2.1.5 What is the fence made out of?',
                 options: ['Concrete', 'Brick', 'Wood', 'Wire', 'Metal, with a flat top', 'Metal, with spikes', 'Other'],
@@ -124,67 +124,73 @@ var sanitation = {
               type: 'number',
             },
             {
+              id: 'numberOfLockingDoors',
+              label: '# with locking doors',
+              index: 5,
+              type: 'number',
+            },
+            {
               id: 'numberOfDisabledToilets',
               label: '# with wheelchair access',
-              index: 5,
+              index: 6,
               type: 'number',
             },
             {
               id: 'numberOfUrinals',
               label: '# of urinals',
-              index: 6,
+              index: 7,
               type: 'number',
             },
             {
               id: 'numberOfUrinalsBroken',
               label: '# of urinals broken',
-              index: 7,
+              index: 8,
               type: 'number',
             },
             {
               id: 'numberOfTaps',
               label: '# of taps',
-              index: 8,
+              index: 9,
               type: 'number',
             },
             {
               id: 'numberOfTapsBroken',
               label: '# of taps broken',
-              index: 9,
+              index: 10,
               type: 'number',
             },
             {
               id: 'hasSoap',
               label: 'Soap',
-              index: 10,
+              index: 11,
               type: 'dropdown',
               options: ['Yes', 'No', 'Unknown']
             },
             {
               id: 'hasSaniBin',
               label: 'Sani bin',
-              index: 11,
+              index: 12,
               type: 'dropdown',
               options: ['Yes', 'No', 'Unknown']
             },
             {
               id: 'hasToiletPaper',
               label: 'Toilet Paper',
-              index: 12,
+              index: 13,
               type: 'dropdown',
               options: ['Yes', 'No', 'Unknown']
             },
             {
               id: 'condition',
               label: 'Overall Conditions',
-              index: 13,
+              index: 14,
               type: 'dropdown',
               options: ['Good', 'Fair', 'Poor']
             },
             {
               id: 'comment',
               label: 'Comments',
-              index: 14,
+              index: 15,
               type: 'textarea',
             },
           ]

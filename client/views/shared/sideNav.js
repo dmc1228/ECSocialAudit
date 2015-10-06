@@ -61,7 +61,7 @@ Template.registerHelper('shouldHighlightSubsection', function(name){
   if (activeSubsection == name){
       addClass= 'active'
   }
-  console.log(activeSubsection + ' : ' + name + ' - ' + addClass)
+  // console.log(activeSubsection + ' : ' + name + ' - ' + addClass)
   return addClass;
 });
 
