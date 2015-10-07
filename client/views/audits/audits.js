@@ -26,15 +26,15 @@ Template.audits.events({
       Audits.remove(this._id)
     }
     else if (event.target.className == "editbtn") {
-      Session.set('schoolName', this.school.schoolDetails.INSTITUTION_NAME)
 
+      Session.set('schoolName', this.school.schoolDetails.INSTITUTION_NAME)
       Session.set('formIndex', 0);
       Session.set('sectionIndex', 0);
       Session.set('subsectionIndex', 0);
-      Router.go('audit.home', {_id: auditID, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
+      Router.go('audit.edit', {_id: this._id, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
     } else {
-      Session.set('schoolName', this.school.schoolDetails.INSTITUTION_NAME)
 
+      Session.set('schoolName', this.school.schoolDetails.INSTITUTION_NAME)
       Session.set('formIndex', 0);
       Session.set('sectionIndex', 0);
       Session.set('subsectionIndex', 0);
