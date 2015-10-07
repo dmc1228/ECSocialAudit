@@ -181,7 +181,6 @@ function decrementFormSubsection(template) {
   // var totalNumberOfSectionsInCurrentForm = audit.forms[formIndex].sections.length;
   // var totalNumberOfSubsectionsInCurrentSection = audit.forms[formIndex].sections[sectionIndex].sub_sections.length;
 
-
   if (subsectionIndex > 0) {
     subsectionIndex--;
   } else if (sectionIndex > 0) {
@@ -199,7 +198,6 @@ function decrementFormSubsection(template) {
     Session.set('isLastSection', true)
     return nil;
   }
-
 
   Session.set('formIndex', formIndex);
   Session.set('sectionIndex', sectionIndex);
