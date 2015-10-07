@@ -1,4 +1,48 @@
 Meteor.methods({
+  download: function() {
+    var audits = Audits.find().fetch();
+
+    var allBlocks = [];
+    audits.forEach(function(audit){
+      var blocksArray = [];
+      audit.forms.forEach(function(form) {
+        if (form.name == 'formC') {
+          form.sections.forEach(function(section) {
+            if (section.name == 'formC.general_infrastructure') {
+              section.sub_sections.forEach(function(subsection) {
+
+                if (subsection.name == 'formC.general_infrastructure.sanitation'){
+                  var blocks = subsection.objects
+                  blocks.forEach(function(blockAsArray) {
+                    var block = new Object();
+                    block.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
+                    block.neims = audit.school.schoolDetails.NEIMS_NUMBER;
+                    if (audit.user != undefined){
+                      block.audited_by = audit.user.email;
+                    }
+                    blockAsArray.forEach(function(detail) {
+                      if (detail.values[0] != undefined) {
+                        block[detail.id] = detail.values[0];
+                      } else {
+                        block[detail.id] = "";
+                      }
+                    })
+                    allBlocks.push(block);
+                    // console.log(block)
+                  })
+                }
+              })
+            }
+          })
+        }
+      })
+    })
+
+    // console.log(allBlocks)
+    var heading = true; // Optional, defaults to true
+    var delimiter = "," // Optional, defaults to ",";
+    return exportcsv.exportToCSV(allBlocks, heading, delimiter);
+  },
   insertSchools: function(schools) {
 
     var count = schools.length;
