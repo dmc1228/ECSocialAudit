@@ -37,8 +37,8 @@
               {{#if stringsAreEqual 'staff' subsection.subtype}}
                   {{> staff subsection=subsection}}
                 {{else}}
-                {{#if stringsAreEqual 'dynamic_table' subsection.subtype}}
-                  {{> dynamicTable subsection=subsection}}
+                {{#if stringsAreEqual 'sanitation' subsection.subtype}}
+                  {{> sanitation subsection=subsection}}
                 {{else}}
                   {{#each subsection.questions}}
                     {{> Template.dynamic template=this.type data=this}}

@@ -85,11 +85,33 @@ var building_condition =  {
 
 var sanitation = {
   type: 'sub_section',
-  subtype: 'dynamic_table',
+  subtype: 'sanitation',
   id: 'formC_general_infrastructure_sanitation',
   name: 'formC.general_infrastructure.sanitation',
   display_name: '2.3 Sanitation',
   index: 2,
+  questions: [
+    {
+      id: 'total_number_of_toilet_blocks',
+      label: 'Total number of blocks',
+      type: 'number'
+    },
+    {
+      id: 'total_number_of_toilet_blocks_locked',
+      label: 'Total number of locked blocks',
+      type: 'number'
+    },
+    {
+      id: 'total_number_of_taps',
+      label: 'Total number of taps outside of toilet blocks',
+      type: 'number'
+    },
+    {
+      id: 'total_number_of_taps_broken',
+      label: 'Total number of non-working taps outside of toilet blocks',
+      type: 'number'
+    },
+  ],
   columns: [
             {
               id: 'block',
