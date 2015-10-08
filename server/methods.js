@@ -1,5 +1,44 @@
 Meteor.methods({
-  download: function() {
+  downloadFormA: function() {
+    var audits = Audits.find().fetch();
+
+    var formAs = [];
+
+    audits.forEach(function(audit){
+      var formA = [];
+      audit.forms.forEach(function(form) {
+        if (form.name == 'formA') {
+          form.sections.forEach(function(section) {
+              section.sub_sections.forEach(function(subsection) {
+                if (subsection.questions != undefined && subsection.name != 'formA.school_demographics.grades' && section.name !='formA.school_demographics.staff')
+                {
+                  subsection.questions.forEach(function(question){
+                    var questionObject = new Object();
+                    if (question.value != undefined) {
+                      formA[question.id] = question.value;
+                    } else {
+                      formA[question.id] = "";
+                    }
+                  })
+                }
+              })
+            })
+            if (audit.user != undefined){
+              formA.audited_by = audit.user.email;
+            }
+            formA.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
+            formA.neims = audit.school.schoolDetails.NEIMS_NUMBER;
+            formAs.push(formA);
+          }
+        })
+      })
+
+      console.log(formAs)
+      var heading = true; // Optional, defaults to true
+      var delimiter = "," // Optional, defaults to ",";
+      return exportcsv.exportToCSV(formAs, heading, delimiter);
+  },
+  downloadFormCSanitationBlocks: function() {
     var audits = Audits.find().fetch();
 
     var allBlocks = [];
@@ -15,18 +54,21 @@ Meteor.methods({
                   var blocks = subsection.objects
                   blocks.forEach(function(blockAsArray) {
                     var block = new Object();
-                    block.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
-                    block.neims = audit.school.schoolDetails.NEIMS_NUMBER;
+
+                    if (blocksArray != undefined) {
+                      blockAsArray.forEach(function(detail) {
+                        if (detail.values[0] != undefined) {
+                          block[detail.id] = detail.values[0];
+                        } else {
+                          block[detail.id] = "";
+                        }
+                      })
+                    }
                     if (audit.user != undefined){
                       block.audited_by = audit.user.email;
                     }
-                    blockAsArray.forEach(function(detail) {
-                      if (detail.values[0] != undefined) {
-                        block[detail.id] = detail.values[0];
-                      } else {
-                        block[detail.id] = "";
-                      }
-                    })
+                    block.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
+                    block.neims = audit.school.schoolDetails.NEIMS_NUMBER;
                     allBlocks.push(block);
                     // console.log(block)
                   })
@@ -38,7 +80,7 @@ Meteor.methods({
       })
     })
 
-    // console.log(allBlocks)
+    console.log(allBlocks)
     var heading = true; // Optional, defaults to true
     var delimiter = "," // Optional, defaults to ",";
     return exportcsv.exportToCSV(allBlocks, heading, delimiter);
