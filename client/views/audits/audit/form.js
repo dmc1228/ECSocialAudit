@@ -1,5 +1,5 @@
 forms = function() {
-  var all_forms = [formA, formC];
+  var all_forms = [formA];
   return all_forms;
 }
 
