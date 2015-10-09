@@ -20,7 +20,7 @@ Template.manageAudits.helpers({
 
 update =  function(audit) {
   var forms = audit.forms
-  var version = 1;
+  var version = 2;
   if (audit.version != version){
     console.log('Updating '+ audit._id + ' to version ' + version);
 
@@ -30,6 +30,26 @@ update =  function(audit) {
         //fixing Form A, 2.5.1
         form.sections[1].sub_sections[4].questions[0].label = '2.5.1 How safe do you feel learners and educators are at the school?';
         form.sections[1].sub_sections[4].questions[0].options = ['Very Safe','Safe', 'Neither Safe Nor Unsafe', 'Unsafe', 'Very Unsafe'];
+
+        var index = 0;
+        var newRows = [];
+        form.sections[0].sub_sections[1].rows.forEach(function(row) {
+          if (row.id == 'total') {
+            var newRow = new Object();
+
+            console.log(row)
+            newRow.id = 'specialEd';
+            newRow.name = 'Special Ed. Students';
+            newRow.type = 'label';
+            newRows[index] = newRow;
+            newRows[index + 1] = row;
+          } else {
+            newRows[index] = row;
+          }
+          index++;
+        })
+
+        form.sections[0].sub_sections[1].rows = newRows;
       }
 
       if (form.name.indexOf('formB') > -1) {
