@@ -1,7 +1,7 @@
 Meteor.methods({
   downloadForm: function(formName) {
     console.log('downloading ' + formName);
-    var audits = Audits.find().fetch();
+    var audits = Audits.find({'isDeleted' : false}).fetch();
 
     var forms = [];
 
@@ -31,10 +31,6 @@ Meteor.methods({
                         val = val.replace(/,/g, "; ")
                         val = val.replace(/\n/g, "; ")
 
-                        if (question.id =='defensive_instrument') {
-                          console.log(question.value.toString());
-                          console.log(val);
-                        }
                         formValues[question.id] = val;
 
                       } else {
@@ -75,7 +71,7 @@ Meteor.methods({
       return exportcsv.exportToCSV(forms, heading, delimiter);
   },
   downloadFormCSanitationBlocks: function() {
-    var audits = Audits.find().fetch();
+    var audits = Audits.find({'isDeleted' : false}).fetch();
 
     var allBlocks = [];
     audits.forEach(function(audit){
