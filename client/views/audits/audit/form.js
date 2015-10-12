@@ -77,8 +77,8 @@ Template.subsection.events({
           var selected = template.findAll( "input[type=checkbox]:checked");
           var values = [];
           selected.forEach(function(selection) {
-            var idx = selection.id.indexOf(question.id);
-            if (idx > -1) {
+            if (selection.name == question.id) {
+              console.log(selection.name + ' ---- ' + question.id);
               values.push(selection.value);
             }
           });
@@ -87,8 +87,9 @@ Template.subsection.events({
             var selected = template.findAll("input[type=radio]:checked");
             var values = [];
             selected.forEach(function(selection) {
-              var idx = selection.id.indexOf(question.id);
-              if (idx > -1) {
+
+              if (selection.name == question.id) {
+                console.log(selection.name + ' ---- ' + question.id);
                 values.push(selection.value);
               }
             });

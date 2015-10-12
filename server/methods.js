@@ -25,19 +25,46 @@ Meteor.methods({
 
                     if (question.value != undefined) {
                       if(question.value.constructor === Array) {
-                        var values = question.value.join();
-                        formValues[question.id] = values;
+
+                        var val = question.value.toString();
+
+                        val = val.replace(/,/g, "; ")
+                        val = val.replace(/\n/g, "; ")
+
+                        if (question.id =='defensive_instrument') {
+                          console.log(question.value.toString());
+                          console.log(val);
+                        }
+                        formValues[question.id] = val;
+
                       } else {
-                        formValues[question.id] = question.value;
+                        var val = question.value;
+                        val = val.replace(/,/g, "")
+                        val = val.replace(/\n/g, "; ")
+
+                        formValues[question.id] = val;
                       }
                     } else {
                       formValues[question.id] = "";
+                    }
+
+                    if(question.hasComment) {
+                      if (question.comment != undefined) {
+
+                        var val = question.comment
+                        val = val.replace(/,/g, "")
+                        val = val.replace(/\n/g, "; ")
+                        console.log(val);
+                        formValues[question.id + '_comment'] = val;
+
+                      } else {
+                        formValues[question.id + '_comment'] = "";
+                      }
                     }
                   })
                 }
               })
             })
-            console.log(formValues);
             forms.push(formValues);
           }
         })

@@ -360,7 +360,7 @@ var security_staff = {
       id: 'guard_trained',
       type: 'dropdown',
       label: '2.4.3 Are the security guards trained?',
-      options: ['There is no security guard', 'Yes', 'No', 'Don\’t know'],
+      options: ['There is no security guard', 'Yes', 'No', 'Don\'t know'],
       hasComment: true,
     },
     {
