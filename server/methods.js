@@ -1,42 +1,51 @@
 Meteor.methods({
-  downloadFormA: function() {
+  downloadForm: function(formName) {
+    console.log('downloading ' + formName);
     var audits = Audits.find().fetch();
 
-    var formAs = [];
+    var forms = [];
 
     audits.forEach(function(audit){
-      var formA = [];
       audit.forms.forEach(function(form) {
-        if (form.name == 'formA') {
+        if (form.name.indexOf(formName) > -1) {
+          var formValues = [];
+          formValues.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
+          formValues.neims = audit.school.schoolDetails.NEIMS_NUMBER;
+          if (audit.user != undefined){
+            formValues.audited_by = audit.user.email;
+          }
+          formValues.name = form.name;
+
           form.sections.forEach(function(section) {
               section.sub_sections.forEach(function(subsection) {
                 if (subsection.questions != undefined && subsection.name != 'formA.school_demographics.grades' && section.name !='formA.school_demographics.staff')
                 {
-                  subsection.questions.forEach(function(question){
+                  subsection.questions.forEach(function(question) {
                     var questionObject = new Object();
+
                     if (question.value != undefined) {
-                      formA[question.id] = question.value;
+                      if(question.value.constructor === Array) {
+                        var values = question.value.join();
+                        formValues[question.id] = values;
+                      } else {
+                        formValues[question.id] = question.value;
+                      }
                     } else {
-                      formA[question.id] = "";
+                      formValues[question.id] = "";
                     }
                   })
                 }
               })
             })
-            if (audit.user != undefined){
-              formA.audited_by = audit.user.email;
-            }
-            formA.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
-            formA.neims = audit.school.schoolDetails.NEIMS_NUMBER;
-            formAs.push(formA);
+            console.log(formValues);
+            forms.push(formValues);
           }
         })
       })
 
-      console.log(formAs)
       var heading = true; // Optional, defaults to true
       var delimiter = "," // Optional, defaults to ",";
-      return exportcsv.exportToCSV(formAs, heading, delimiter);
+      return exportcsv.exportToCSV(forms, heading, delimiter);
   },
   downloadFormCSanitationBlocks: function() {
     var audits = Audits.find().fetch();
@@ -51,27 +60,29 @@ Meteor.methods({
               section.sub_sections.forEach(function(subsection) {
 
                 if (subsection.name == 'formC.general_infrastructure.sanitation'){
-                  var blocks = subsection.objects
-                  blocks.forEach(function(blockAsArray) {
-                    var block = new Object();
+                  if (subsection.objects != undefined) {
+                    var blocks = subsection.objects
+                    blocks.forEach(function(blockAsArray) {
+                      var block = new Object();
 
-                    if (blocksArray != undefined) {
-                      blockAsArray.forEach(function(detail) {
-                        if (detail.values[0] != undefined) {
-                          block[detail.id] = detail.values[0];
-                        } else {
-                          block[detail.id] = "";
-                        }
-                      })
-                    }
-                    if (audit.user != undefined){
-                      block.audited_by = audit.user.email;
-                    }
-                    block.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
-                    block.neims = audit.school.schoolDetails.NEIMS_NUMBER;
-                    allBlocks.push(block);
-                    // console.log(block)
-                  })
+                      if (blocksArray != undefined) {
+                        blockAsArray.forEach(function(detail) {
+                          if (detail.values[0] != undefined) {
+                            block[detail.id] = detail.values[0];
+                          } else {
+                            block[detail.id] = "";
+                          }
+                        })
+                      }
+                      if (audit.user != undefined){
+                        block.audited_by = audit.user.email;
+                      }
+                      block.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
+                      block.neims = audit.school.schoolDetails.NEIMS_NUMBER;
+                      allBlocks.push(block);
+                      // console.log(block)
+                    })
+                  }
                 }
               })
             }
@@ -80,7 +91,6 @@ Meteor.methods({
       })
     })
 
-    console.log(allBlocks)
     var heading = true; // Optional, defaults to true
     var delimiter = "," // Optional, defaults to ",";
     return exportcsv.exportToCSV(allBlocks, heading, delimiter);

@@ -18,10 +18,11 @@ Template.manageAudits.helpers({
 });
 
 
-update =  function(audit) {
+versionUpdate =  function(audit) {
   var forms = audit.forms
-  var version = 2;
+  var version = 3;
   if (audit.version != version){
+
     console.log('Updating '+ audit._id + ' to version ' + version);
 
     forms.forEach(function(form) {
@@ -71,7 +72,9 @@ Template.audits.events({
 
     // checks if the actual clicked element has the class `delete`
     if (event.target.className == "deletebtn") {
-      Audits.remove(this._id)
+      this.isDeleted = true;
+      Audits.update({_id: this._id}, {$set: {isDeleted: true} })
+
     }
     else if (event.target.className == "editbtn") {
       Session.set('schoolName', this.school.schoolDetails.INSTITUTION_NAME)
@@ -80,7 +83,7 @@ Template.audits.events({
       Session.set('subsectionIndex', 0);
 
       //update
-      update(this);
+      versionUpdate(this);
 
       Router.go('audit.edit', {_id: this._id, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
     } else {
@@ -91,7 +94,7 @@ Template.audits.events({
       Session.set('subsectionIndex', 0);
 
       //update
-      update(this);
+      versionUpdate(this);
 
       Router.go('audit.edit', {_id: this._id, _formIndex: 0, _sectionIndex: 0, _subsectionIndex: 0});
     }

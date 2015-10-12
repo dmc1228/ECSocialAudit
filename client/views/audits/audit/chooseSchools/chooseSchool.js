@@ -26,6 +26,7 @@ Template.chooseSchool.events({
 
     audit.school = this;
     audit.forms = forms();
+    audit.isDeleted = false;
     var user = new Object()
     user.id = Meteor.userId();
     user.email = Meteor.user().emails[0].address;
