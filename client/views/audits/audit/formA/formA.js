@@ -260,7 +260,7 @@ var planning = {
                 type: 'dropdown',
                 label: '2.2.3 Does the school have a safety plan?',
                 options: ['Yes', 'No', 'Don\'t know'],
-                comment: "",
+                hasComment: true
               },
               {
                 id: 'safety_plan_policy',
