@@ -8,6 +8,15 @@ Template.export.events({
         }
       })
   },
+  'click .formA_grades' : function() {
+      var nameFile = 'Grades.csv';
+      Meteor.call('downloadGrades', function(err, fileContent) {
+        if(fileContent){
+          var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+          saveAs(blob, nameFile);
+        }
+      })
+  },
   'click .formB_all' : function() {
       var nameFile = 'FormB.csv';
       Meteor.call('downloadForm', 'formB', function(err, fileContent) {

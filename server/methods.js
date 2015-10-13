@@ -70,6 +70,61 @@ Meteor.methods({
       var delimiter = "," // Optional, defaults to ",";
       return exportcsv.exportToCSV(forms, heading, delimiter);
   },
+  downloadGrades: function() {
+    console.log('downloading all grades');
+
+    var audits = Audits.find({'isDeleted' : false}).fetch();
+
+    var allSchoolGrades = [];
+    audits.forEach(function(audit){
+      audit.forms.forEach(function(form) {
+        if (form.name == 'formA') {
+          form.sections.forEach(function(section) {
+            if (section.name == 'formA.school_demographics') {
+              section.sub_sections.forEach(function(subsection) {
+                if (subsection.name == 'formA.school_demographics.grades'){
+                  var grades = new Object();
+                  grades.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
+                  grades.neims = audit.school.schoolDetails.NEIMS_NUMBER;
+                  subsection.rows.forEach(function(row){
+                    var rowValues = row.values;
+                    // console.log(rowValues);
+                    if (rowValues != undefined) {
+                      subsection.columns.forEach(function(col){
+                        if (col.type != 'label'){
+                            var rowValue = rowValues.filter(function(rowValue){
+                                                                return rowValue.id == col.id;
+                                                            });
+                            if (rowValue.length > 0) {
+                              grades[row.id + '_' + col.id] = rowValue[0].value;
+
+                            } else {
+                              grades[row.id + '_' + col.id] = "";
+                            }
+                          }
+                      })
+                    } else {
+                      subsection.columns.forEach(function(col){
+                          grades[row.id + '_' + col.id] = "";
+                      })
+                    }
+                  })
+                  if (audit.user != undefined){
+                    grades.audited_by = audit.user.email;
+                  }
+                  allSchoolGrades.push(grades);
+                }
+              })
+            }
+          })
+        }
+      })
+    })
+
+    var heading = true; // Optional, defaults to true
+    var delimiter = "," // Optional, defaults to ",";
+    return exportcsv.exportToCSV(allSchoolGrades, heading, delimiter);
+  },
   downloadFormCSanitationBlocks: function() {
     var audits = Audits.find({'isDeleted' : false}).fetch();
 
