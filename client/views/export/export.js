@@ -1,4 +1,16 @@
 Template.export.events({
+  'click .questionStructure' : function() {
+      var nameFile = 'questionStructure.csv';
+
+      var all_forms = [formA, formB, formC];
+
+      Meteor.call('downloadFormConstruction', all_forms, function(err, fileContent) {
+        if(fileContent){
+          var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+          saveAs(blob, nameFile);
+        }
+      })
+  },
   'click .formA_all' : function() {
       var nameFile = 'FormA.csv';
       Meteor.call('downloadForm', 'formA', function(err, fileContent) {

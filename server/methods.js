@@ -1,4 +1,41 @@
 Meteor.methods({
+  downloadFormConstruction: function(forms) {
+    console.log('downloading question structure');
+    var audits = Audits.find({'isDeleted' : false}).fetch();
+
+    var flattenedQuestions = [];
+
+      forms.forEach(function(form) {
+        form.sections.forEach(function(section) {
+          section.sub_sections.forEach(function(subsection) {
+            if (subsection.questions != undefined) {
+              subsection.questions.forEach(function (question) {
+                var newQ = new Object();
+                newQ.id = question.id;
+                newQ.type = question.type;
+
+                var text = question.label;
+                text = text.replace(/,/g, "");
+                newQ.label = text;
+                if (question.options != undefined) {
+                  var options = question.options.toString();
+                  options = options.replace(/,/g, "; ")
+                  newQ.options = options;
+                } else {
+                  newQ.options = "";
+                }
+                flattenedQuestions.push(newQ);
+              })
+            }
+          })
+        })
+      })
+
+    var heading = true; // Optional, defaults to true
+    var delimiter = "," // Optional, defaults to ",";
+    return exportcsv.exportToCSV(flattenedQuestions, heading, delimiter);
+
+  },
   downloadForm: function(formName) {
     console.log('downloading ' + formName);
     var audits = Audits.find({'isDeleted' : false}).fetch();
