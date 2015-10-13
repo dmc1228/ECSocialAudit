@@ -13,13 +13,13 @@ Meteor.methods({
                 var newQ = new Object();
                 newQ.id = question.id;
                 newQ.type = question.type;
-
+                newQ.form = form.name;
                 var text = question.label;
                 text = text.replace(/,/g, "");
                 newQ.label = text;
                 if (question.options != undefined) {
                   var options = question.options.toString();
-                  options = options.replace(/,/g, "; ")
+                  // options = options.replace(/,/g, "; ")
                   newQ.options = options;
                 } else {
                   newQ.options = "";

@@ -1,8 +1,13 @@
 <template name="sideNav">
       <ul class="collapsible" data-collapsible="accordion" style="padding: 2em; box-shadow: none; border: none;">
         <li>
-          <a style="color:black;" href="{{pathFor 'audit.home' _id=this.audit._id}}"><div class="collapsible-header"><h5><!--<i class="secondary-content material-icons">home</i>-->{{this.audit.school.schoolDetails.INSTITUTION_NAME}}</h5></div></a>
-        </li>
+          <!-- <a style="color:black;" href="{{pathFor 'audit.home' _id=this.audit._id}}"> -->
+          <!-- <a style="color:black;"> -->
+            <div class="collapsible-header">
+              <h5><!--<i class="secondary-content material-icons">home</i>-->{{this.audit.school.schoolDetails.INSTITUTION_NAME}}</h5>
+              <p><a class="btn modal-trigger" href="#modal1">Add Form B's</a></p>
+            </div>
+          </li>
         {{#each this.audit.forms}}
           <li>
             <div class="collapsible-header active">{{this.display_name}}</div>
@@ -18,4 +23,27 @@
           </li>
         {{/each}}
         </ul>
+
+        <!-- Modal Structure -->
+       <div id="modal1" class="modal">
+         <div class="modal-content">
+           <form id="addForms">
+           <div class="row">
+             <div class="input-field col s6">
+               <h5>How many Form B's would you like to add?</h5>
+             </div>
+             <div class="input-field col s1">
+               <input id='numberOfFormBs' type="text" class="validate number">
+             </div>
+           </div>
+         </form>
+           <!-- <h4>Modal Header</h4>
+           <p>A bunch of text</p> -->
+         </div>
+         <div class="modal-footer">
+           <a href="#!" class=" modal-action modal-close save btn-flat">Add</a>
+           <a href="#!" class=" modal-action modal-close cancel btn-flat">Cancel</a>
+         </div>
+       </div>
+
 </template>

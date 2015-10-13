@@ -3,7 +3,6 @@ forms = function() {
   return all_forms;
 }
 
-
 Template.form.helpers({
   'currentContext' : function() {
     var formIndex = Session.get('formIndex');
@@ -33,7 +32,30 @@ Template.form.helpers({
   }
 });
 
+Template.subsection.helpers({
+  'nextOrFinish' : function() {
+    var formIndex = Session.get('formIndex');
+    if (formIndex == undefined) {
+      Session.set('formIndex', 0);
+      Session.set('sectionIndex', 0);
+      Session.set('subsectionIndex', 0);
+    }
+    formIndex = Session.get('formIndex');
+    var sectionIndex = Session.get('sectionIndex');
+    var subsectionIndex = Session.get('subsectionIndex');
 
+    var audit = this.audit;
+    var totalNumberOfForms = audit.forms.length;
+    var totalNumberOfSectionsInCurrentForm = audit.forms[formIndex].sections.length;
+    var totalNumberOfSubsectionsInCurrentSection = audit.forms[formIndex].sections[sectionIndex].sub_sections.length;
+
+    if (formIndex == totalNumberOfForms-1 && sectionIndex == totalNumberOfSectionsInCurrentForm-1 && subsectionIndex == totalNumberOfSubsectionsInCurrentSection-1){
+      return 'Save and Finish';
+    } else {
+      return 'Next';
+    }
+  },
+})
 
 Template.subsection.events({
   'click .next' : function(event, template) {
@@ -128,6 +150,8 @@ Template.subsection.events({
         template.find('#' + subsection.id).reset();
       }
       Router.go('audit.edit', {_id: audit._id, _formIndex: formIndex, _sectionIndex: sectionIndex, _subsectionIndex: subsectionIndex});
+    } else {
+      Router.go('audits');
     }
 
   },
