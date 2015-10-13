@@ -146,7 +146,9 @@ Meteor.methods({
                       if (blocksArray != undefined) {
                         blockAsArray.forEach(function(detail) {
                           if (detail.values[0] != undefined) {
-                            block[detail.id] = detail.values[0];
+                            var val = detail.values[0];
+                            val = val.replace(/,/g, "; ")
+                            block[detail.id] = val;
                           } else {
                             block[detail.id] = "";
                           }
