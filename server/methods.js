@@ -70,19 +70,18 @@ Meteor.methods({
       var delimiter = "," // Optional, defaults to ",";
       return exportcsv.exportToCSV(forms, heading, delimiter);
   },
-  downloadGrades: function() {
-    console.log('downloading all grades');
+  downloadStaticTable: function(formName, subtype) {
+    console.log('downloading all ' + subtype);
 
     var audits = Audits.find({'isDeleted' : false}).fetch();
 
-    var allSchoolGrades = [];
+    var allSchools = [];
     audits.forEach(function(audit){
       audit.forms.forEach(function(form) {
-        if (form.name == 'formA') {
+        if (form.name == formName) {
           form.sections.forEach(function(section) {
-            if (section.name == 'formA.school_demographics') {
               section.sub_sections.forEach(function(subsection) {
-                if (subsection.name == 'formA.school_demographics.grades'){
+                if (subsection.subtype == subtype){
                   var grades = new Object();
                   grades.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
                   grades.neims = audit.school.schoolDetails.NEIMS_NUMBER;
@@ -112,10 +111,9 @@ Meteor.methods({
                   if (audit.user != undefined){
                     grades.audited_by = audit.user.email;
                   }
-                  allSchoolGrades.push(grades);
+                  allSchools.push(grades);
                 }
               })
-            }
           })
         }
       })
@@ -123,7 +121,7 @@ Meteor.methods({
 
     var heading = true; // Optional, defaults to true
     var delimiter = "," // Optional, defaults to ",";
-    return exportcsv.exportToCSV(allSchoolGrades, heading, delimiter);
+    return exportcsv.exportToCSV(allSchools, heading, delimiter);
   },
   downloadFormCSanitationBlocks: function() {
     var audits = Audits.find({'isDeleted' : false}).fetch();

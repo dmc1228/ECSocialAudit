@@ -10,7 +10,16 @@ Template.export.events({
   },
   'click .formA_grades' : function() {
       var nameFile = 'Grades.csv';
-      Meteor.call('downloadGrades', function(err, fileContent) {
+      Meteor.call('downloadStaticTable','formA','grades', function(err, fileContent) {
+        if(fileContent){
+          var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+          saveAs(blob, nameFile);
+        }
+      })
+  },
+  'click .formA_staff' : function() {
+      var nameFile = 'Staff.csv';
+      Meteor.call('downloadStaticTable','formA','staff', function(err, fileContent) {
         if(fileContent){
           var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
           saveAs(blob, nameFile);
