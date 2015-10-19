@@ -124,7 +124,6 @@ Meteor.methods({
                   grades.neims = audit.school.schoolDetails.NEIMS_NUMBER;
                   subsection.rows.forEach(function(row){
                     var rowValues = row.values;
-                    // console.log(rowValues);
                     if (rowValues != undefined) {
                       subsection.columns.forEach(function(col){
                         if (col.type != 'label'){
@@ -133,7 +132,6 @@ Meteor.methods({
                                                             });
                             if (rowValue.length > 0) {
                               grades[row.id + '_' + col.id] = rowValue[0].value;
-
                             } else {
                               grades[row.id + '_' + col.id] = "";
                             }
@@ -141,10 +139,13 @@ Meteor.methods({
                       })
                     } else {
                       subsection.columns.forEach(function(col){
+                        if (col.type != 'label'){
                           grades[row.id + '_' + col.id] = "";
+                        }
                       })
                     }
                   })
+
                   if (audit.user != undefined){
                     grades.audited_by = audit.user.email;
                   }
