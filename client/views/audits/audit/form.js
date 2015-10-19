@@ -59,12 +59,15 @@ Template.subsection.helpers({
 
 Template.subsection.events({
   'click .next' : function(event, template) {
+    console.log('event7')
     incrementFormSubsection(template)
   },
   'click .previous' : function(event, template) {
+    console.log('event6')
     decrementFormSubsection(template)
   },
   'submit' : function(event, template) {
+    console.log('event5')
     event.preventDefault();
     var subsection = this.subsection;
     if (subsection.subtype == 'grades' || subsection.subtype == 'staff'){
@@ -144,16 +147,14 @@ Template.subsection.events({
     var sectionIndex = Session.get('sectionIndex');
     var subsectionIndex = Session.get('subsectionIndex')
 
-    if (formIndex != form[0].index || sectionIndex != section[0].index || subsectionIndex != subsection.index) {
-      if (!Session.get('isLastSection')) {
+    if (Session.get('isLastSection')) {
+      Router.go('audits');
+    } else if (formIndex != form[0].index || sectionIndex != section[0].index || subsectionIndex != subsection.index) {
         console.log('clearing form')
         template.find('#' + subsection.id).reset();
-      }
-      Router.go('audit.edit', {_id: audit._id, _formIndex: formIndex, _sectionIndex: sectionIndex, _subsectionIndex: subsectionIndex});
-    } else {
-      Router.go('audits');
-    }
 
+      Router.go('audit.edit', {_id: audit._id, _formIndex: formIndex, _sectionIndex: sectionIndex, _subsectionIndex: subsectionIndex});
+    }
   },
 });
 
