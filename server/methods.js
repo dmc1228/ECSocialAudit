@@ -126,7 +126,15 @@ Meteor.methods({
                     var rowValues = row.values;
                     if (rowValues != undefined) {
                       subsection.columns.forEach(function(col){
-                        if (col.type != 'label'){
+                        if (col.type != 'label') {
+                          if (col.id == 'calculated') {
+                            var calculated_total = 0;
+                            col.indices.forEach(function(index){
+                              var rowValue = rowValues[index].value;
+                              console.log(rowValue);
+                              calculated_total = calculated_total + rowValue;
+                            })
+                          } else {
                             var rowValue = rowValues.filter(function(rowValue){
                                                                 return rowValue.id == col.id;
                                                             });
@@ -136,6 +144,7 @@ Meteor.methods({
                               grades[row.id + '_' + col.id] = "";
                             }
                           }
+                        }
                       })
                     } else {
                       subsection.columns.forEach(function(col){

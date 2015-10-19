@@ -71,6 +71,14 @@ var grades = {
               index: 3,
               type: 'number'
             },
+            {
+              id: 'calculated',
+              name: 'calculated',
+              index: 4,
+              type: 'calculated',
+              operator: 'sum',
+              fields: ['numberOfGirls', 'numberOfBoys'],
+            },
   ],
   rows:
            [
@@ -178,6 +186,14 @@ var staff = {
               name: 'Total',
               index: 3,
               type: 'number'
+            },
+            {
+              id: 'calculated',
+              name: 'calculated',
+              index: 4,
+              type: 'calculated',
+              operator: 'sum',
+              fields: ['male', 'female'],
             },
   ],
   rows:

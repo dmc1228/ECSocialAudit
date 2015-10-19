@@ -79,13 +79,15 @@ Template.subsection.events({
       subsection.rows.forEach(function(row){
         var rowValues = [];
         subsection.columns.forEach(function(col){
-          if (col.type != 'label') {
+          if (col.type == 'calculated'){
+            var calculatedObj = col;
+            calculateTotals(subsection, calculatedObj);
+          } else if (col.type != 'label') {
             var itemId = col.id + '_' + row.id;
             var item = new Object();
             item.id = col.id;
             var value = template.find('#' + itemId).value
             item.value = value;
-
             rowValues.push(item);
           }
         })
