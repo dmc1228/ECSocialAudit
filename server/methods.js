@@ -128,12 +128,12 @@ Meteor.methods({
                       subsection.columns.forEach(function(col){
                         if (col.type != 'label') {
                           if (col.id == 'calculated') {
-                            var calculated_total = 0;
-                            col.indices.forEach(function(index){
-                              var rowValue = rowValues[index].value;
-                              console.log(rowValue);
-                              calculated_total = calculated_total + rowValue;
-                            })
+                            var total = calculateTotals(subsection, col);
+                            console.log(row.id + '_' + col.id + ' - ' + total)
+                            if (total == undefined) {
+                              total = "";
+                            }
+                            grades[row.id + '_' + col.id] = total;
                           } else {
                             var rowValue = rowValues.filter(function(rowValue){
                                                                 return rowValue.id == col.id;

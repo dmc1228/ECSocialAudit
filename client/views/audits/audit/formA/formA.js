@@ -73,7 +73,7 @@ var grades = {
             },
             {
               id: 'calculated',
-              name: 'calculated',
+              name: 'Calculated',
               index: 4,
               type: 'calculated',
               operator: 'sum',
@@ -189,7 +189,7 @@ var staff = {
             },
             {
               id: 'calculated',
-              name: 'calculated',
+              name: 'Calculated',
               index: 4,
               type: 'calculated',
               operator: 'sum',
