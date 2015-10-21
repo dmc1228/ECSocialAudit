@@ -119,30 +119,31 @@ Meteor.methods({
           form.sections.forEach(function(section) {
               section.sub_sections.forEach(function(subsection) {
                 if (subsection.subtype == subtype){
+                  var calculatedCol = subsection.columns.filter(function(col){
+                                                      return col.id == 'calculated';
+                                                  });
+
+                  if (calculatedCol.length > 0) {
+                    calculateTotals(subsection, calculatedCol[0]);
+                  }
+
                   var grades = new Object();
                   grades.school_name = audit.school.schoolDetails.INSTITUTION_NAME;
                   grades.neims = audit.school.schoolDetails.NEIMS_NUMBER;
                   subsection.rows.forEach(function(row){
                     var rowValues = row.values;
+
+
                     if (rowValues != undefined) {
                       subsection.columns.forEach(function(col){
                         if (col.type != 'label') {
-                          if (col.id == 'calculated') {
-                            var total = calculateTotals(subsection, col);
-                            console.log(row.id + '_' + col.id + ' - ' + total)
-                            if (total == undefined) {
-                              total = "";
-                            }
-                            grades[row.id + '_' + col.id] = total;
+                          var rowValue = rowValues.filter(function(rowValue){
+                                                              return rowValue.id == col.id;
+                                                          });
+                          if (rowValue.length > 0) {
+                            grades[row.id + '_' + col.id] = rowValue[0].value;
                           } else {
-                            var rowValue = rowValues.filter(function(rowValue){
-                                                                return rowValue.id == col.id;
-                                                            });
-                            if (rowValue.length > 0) {
-                              grades[row.id + '_' + col.id] = rowValue[0].value;
-                            } else {
-                              grades[row.id + '_' + col.id] = "";
-                            }
+                            grades[row.id + '_' + col.id] = "";
                           }
                         }
                       })
