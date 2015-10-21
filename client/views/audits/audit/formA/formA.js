@@ -79,6 +79,12 @@ var grades = {
               operator: 'sum',
               fields: ['numberOfGirls', 'numberOfBoys'],
             },
+            {
+              id: 'difference',
+              name: 'Difference',
+              index: 5,
+              type: 'number'
+            },
   ],
   rows:
            [
@@ -194,6 +200,12 @@ var staff = {
               type: 'calculated',
               operator: 'sum',
               fields: ['male', 'female'],
+            },
+            {
+              id: 'difference',
+              name: 'Difference',
+              index: 5,
+              type: 'number'
             },
   ],
   rows:
