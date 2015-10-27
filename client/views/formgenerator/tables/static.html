@@ -15,9 +15,6 @@
               {{#if stringsAreEqual 'number' this.type}}
                 <td><input id={{this.id}}_{{../id}} type="text" class='number' value={{getValue this.id ../id ../values}} autocomplete="off"></td>
               {{/if}}
-              {{#if stringsAreEqual 'calculated' this.type}}
-                <td>{{getValue this.id ../id ../values}}</td>
-              {{/if}}
             {{/each}}
           </tr>
         {{/each}}
@@ -42,9 +39,6 @@
               {{/if}}
               {{#if stringsAreEqual 'number' this.type}}
                 <td><input id={{this.id}}_{{../id}} class='number' type="text" value={{getValue this.id ../id ../values}} autocomplete="off"></td>
-              {{/if}}
-              {{#if stringsAreEqual 'calculated' this.type}}
-                <td>{{getValue this.id ../id ../values}}</td>
               {{/if}}
             {{/each}}
           </tr>
