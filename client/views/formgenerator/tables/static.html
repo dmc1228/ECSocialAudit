@@ -3,7 +3,12 @@
       <form id="{{subsection.id}}">
       <table>
         {{#each subsection.columns}}
-          <th>{{this.name}}</th>
+          {{#if stringsAreEqual 'number' this.type}}
+            <th>{{this.name}}</th>
+          {{/if}}
+          {{#if stringsAreEqual 'label' this.type}}
+            <th>{{this.name}}</th>
+          {{/if}}
         {{/each}}
 
         {{#each subsection.rows}}
@@ -28,7 +33,12 @@
       <form id="{{subsection.id}}">
       <table>
         {{#each subsection.columns}}
-          <th>{{this.name}}</th>
+          {{#if stringsAreEqual 'number' this.type}}
+            <th>{{this.name}}</th>
+          {{/if}}
+          {{#if stringsAreEqual 'label' this.type}}
+            <th>{{this.name}}</th>
+          {{/if}}
         {{/each}}
 
         {{#each subsection.rows}}
