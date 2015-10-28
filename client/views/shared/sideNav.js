@@ -15,11 +15,9 @@ Template.sideNav.onRendered(function() {
 
 Template.form.events({
   'click .cancel_formbs' : function(event, template) {
-    console.log('event1')
     event.preventDefault();
   },
   'click .save_formbs' : function(event, template) {
-    console.log('event2')
     event.preventDefault();
     var numberOfFormBsToAdd = template.find('#numberOfFormBs').value;
     var audit = this.audit;
@@ -51,7 +49,6 @@ Template.form.events({
     template.find('#addForms').reset();
   },
   'keypress .number' : function(evt){
-      console.log('event3')
       var theEvent = evt;
       var key = theEvent.keyCode || theEvent.which;
       key = String.fromCharCode( key );
@@ -63,7 +60,6 @@ Template.form.events({
       }
     },
   'click .changeIndex' : function(e, t) {
-    console.log('event4')
     var str = this.name;
     var names = str.split(".");
     var audit = t.data.audit;

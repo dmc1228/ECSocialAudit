@@ -11,7 +11,10 @@ Template.manageAudits.helpers({
             { key: 'school.schoolDetails.DISTRICT_NAME', label: 'District' },
             { key: 'user.email', label: 'User' },
             { key: 'update', label: '', fn: function () { return new Spacebars.SafeString('<button type="button" class="editbtn">Update</button>') } },
-            { key: 'delete', label: '', fn: function () { return new Spacebars.SafeString('<button type="button" class="deletebtn">Delete</button>') } }
+            { key: 'delete', label: '', fn: function () {
+              if (userIsInRole('admin')) {
+                return new Spacebars.SafeString('<button type="button" class="deletebtn">Delete</button>') } }
+              }
           ]
       };
     }

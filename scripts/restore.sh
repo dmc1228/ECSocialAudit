@@ -11,7 +11,8 @@ if [ $env != "local" ]; then
 	echo "";
 else
 	echo "local"
-	host=127.0.0.1:3001
+	host=127.0.0.1
+  port=3001
 	mongo_db=meteor
 	user="ee"
 	pass="ee"
@@ -21,24 +22,25 @@ if [ $env != "staging" ]; then
 	echo "";
 else
 	echo "staging"
-	host=production-db-a2.meteor.io:27017
-	mongo_db=wc_audit_equaleducation_org_za
+	host=production-db-a2.meteor.io
+  port=27017
+	mongo_db=test_wcaudit_equaleducation_org_za
 	user="ee"
 	pass="ee"
 fi;
+#
+# if [ $env != "production" ]; then
+# 	echo "";
+# else
+# 	echo "production";
+#   host=production-db-a2.meteor.io:27017
+# 	mongo_db=wc_audit_equaleducation_org_za
+# 	user="ee"
+# 	pass="ee"
+# fi;
 
-if [ $env != "production" ]; then
-	echo "";
-else
-	echo "production";
-  host=production-db-a2.meteor.io:27017
-	mongo_db=wc_audit_equaleducation_org_za
-	user="ee"
-	pass="ee"
-fi;
 
-
-mongorestore -h 127.0.0.1 --port 3001 -d meteor dump/wc_audit_equaleducation_org_za
+mongorestore -h $host --port $port -d $mongo_db -u $user -p $pass dump/wc_audit_equaleducation_org_za
 
 
 # mongoimport -h $host -d $mongo_db -c videos -u $user -p $pass --file videos.json --jsonArray
