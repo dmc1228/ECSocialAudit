@@ -1,6 +1,5 @@
 Meteor.methods({
   downloadFormConstruction: function(forms) {
-    console.log('downloading question structure');
     var audits = Audits.find({'isDeleted' : false}).fetch();
 
     var flattenedQuestions = [];
@@ -37,7 +36,6 @@ Meteor.methods({
 
   },
   downloadForm: function(formName) {
-    console.log('downloading ' + formName);
     var audits = Audits.find({'isDeleted' : false}).fetch();
 
     var forms = [];
@@ -87,7 +85,6 @@ Meteor.methods({
                         var val = question.comment
                         val = val.replace(/,/g, "")
                         val = val.replace(/\n/g, "; ")
-                        console.log(val);
                         formValues[question.id + '_comment'] = val;
 
                       } else {
@@ -108,8 +105,6 @@ Meteor.methods({
       return exportcsv.exportToCSV(forms, heading, delimiter);
   },
   downloadStaticTable: function(formName, subtype) {
-    console.log('downloading all ' + subtype);
-
     var audits = Audits.find({'isDeleted' : false}).fetch();
 
     var allSchools = [];
