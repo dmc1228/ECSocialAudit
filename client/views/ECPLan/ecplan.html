@@ -3,9 +3,95 @@
 
 <template name='ecplan'>
   <div class="container">
-    <h2>Your School</h2>
+    <h2>Eastern Cape Norms and Standards Implementation Plan</h2>
+    <h5>To find what the Department of Education has committed to your school, please type your school name here:</h5>
  
- 
- 
+
+  <div class="row">
+    <div class="input-field col s6">
+      <input value="" id="first_name2" type="text" class="validate schoolSearch">
+      <label class="active" for="first_name2">E.g. Mandela Primary School</label>
+    </div>
   </div>
+
+   
+ <div class="yourSchool">
+   <p>According to the Eastern Cape Provincial Plan,</p>
+   
+
+     {{#each schoolsInPlan}}
+       {{> schoolInPlan}}
+     {{/each}}
+
+ 
+</div>
+ 
+ <div class="contactDept">
+   <p>Here are the contact numbers for your government officials:</p>
+   <div class="collection">
+          <a href="" target="_blank" class="collection-item deptContact">Acting HOD Ray Tywakawdi</a>
+          <a href="" target="_blank" class="collection-item deptContact">Circuit Manager</a>
+          <a href="" target="_blank" class="collection-item deptContact">District Manager</a>
+        </div>
+ </div>
+ 
+
+ 
+ <div class="deptDocs">
+   
+   <h5>To view the official Eastern Cape Department of Education Documents, please select the following:</h5>
+   
+   <div class="collection">
+          <a href="http://www.education.gov.za/LinkClick.aspx?fileticket=ibIphhew3Eo%3D&tabid=759&mid=3094" target="_blank" class="collection-item ECDoc">Eastern Cape Norms and Standards Implementation Plan</a>
+          <a href="http://www.education.gov.za/LinkClick.aspx?fileticket=P2PXp%2b%2bRskA%3d&tabid=759&mid=3094" target="_blank" class="collection-item ECDoc">Eastern Cape Infrastructure Plan</a>
+          <a href="http://www.education.gov.za/LinkClick.aspx?fileticket=wEBI6jpG%2b7k%3d&tabid=615&mid=2034" target="_blank" class="collection-item ECDoc">ASIDI Eastern Cape Plan</a>
+        </div>
+        
+        
+        
+        <div class="contact">
+          <p>If you have any questions or would like to submit information on you school, please contact
+            <a href=mailto:david@equaleducation.org.za class="contactinfo">david@equaleducation.org.za</a>
+          </p>
+        </div>
+        
+        
+
+ </div>
+  </div>
+</template>
+
+<template name="schoolInPlan">
+  
+
+   <div class="row">
+           <div class="col s12 m6">
+             <div class="card blue-grey darken-1">
+               <div class="card-content white-text">
+                 <span class="card-title">{{schoolName}}</span>
+              <ul>
+                <li>{{projectID}}</li>
+                <li>{{agent}}</li>
+                <li>{{source}}</li>
+                <li>{{description}}</li>
+                <li>{{stage}}</li>
+                <li>{{start}}</li>
+                <li>{{end}}</li>
+                <li>{{totalcost}}</li>
+                <li>{{budgetYear}}</li>
+                <li>{{comments}}</li>
+              </ul>
+               </div>
+               <div class="card-action">
+                 <a href="#">This is a link</a>
+                 <a href="#">This is a link</a>
+               </div>
+             </div>
+           </div>
+         </div>
+         
+   
+   
+   
+ 
 </template>
