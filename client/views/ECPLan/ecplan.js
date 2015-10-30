@@ -1,46 +1,31 @@
-Template.ecplan.helpers({
+if (Meteor.isClient) {
   
-  schoolsInPlan: [
+  Meteor.subscribe("ecplans");
+
+  Template.ecplan.helpers({
     
-    { 
-      schoolName:"School 1",
-      projectID: "ID123" ,
-      agent: "coega" ,
-      source: "Infrastructure Grant" ,
-      description: "toilet",
-      stage:"year",
-      start:"July",
-      end:"August",
-      totalcost:"R2000",
-      budgetYear:2015,
-      comments:"test comment"
+    ecplans: function () {
+      return ECPlans.find();
     }
     
-      ]
-    
-});
+  });
 
 
 
-Template.ecplan.events({
+  Template.ecplan.events({
   
 
-  "submit .schoolSearch": function (event) {
-    // Prevent default browser form submit
-    event.preventDefault();
+    "submit .schoolSearch": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
 
-    // Get value from form element
-    var text = event.target.text.value;
+      // Get value from input
+      var text = event.target.text.value;
 
-    // Insert a task into the collection
-    Tasks.insert({
-      text: text,
-      createdAt: new Date() // current time
-    });
+   
+    }
 
-    // Clear form
-    event.target.text.value = "";
-  }
+  });
 
-});
+}
 

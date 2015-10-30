@@ -10,21 +10,18 @@
   <div class="row">
     <div class="input-field col s6">
       <input value="" id="first_name2" type="text" class="validate schoolSearch">
-      <label class="active" for="first_name2">E.g. Mandela Primary School</label>
+      <label class="" for="first_name2">E.g. Mandela Primary School</label>
     </div>
   </div>
 
    
- <div class="yourSchool">
-   <p>According to the Eastern Cape Provincial Plan,</p>
-   
+  <div class="yourSchool">
 
-     {{#each schoolsInPlan}}
-       {{> schoolInPlan}}
-     {{/each}}
+       {{#each ecplans}}
+         {{> schoolInPlan}}
+       {{/each}}
 
- 
-</div>
+  </div>
  
  <div class="contactDept">
    <p>Here are the contact numbers for your government officials:</p>
@@ -70,15 +67,15 @@
                <div class="card-content white-text">
                  <span class="card-title">{{schoolName}}</span>
               <ul>
-                <li>{{projectID}}</li>
-                <li>{{agent}}</li>
-                <li>{{source}}</li>
+                <li>Your project ID is {{projectID}}</li>
+                <li>The project is being implemented by {{agent}}</li>
+                <li>The project is funded by {{source}}</li>
                 <li>{{description}}</li>
                 <li>{{stage}}</li>
-                <li>{{start}}</li>
-                <li>{{end}}</li>
-                <li>{{totalcost}}</li>
-                <li>{{budgetYear}}</li>
+                <li>The start date is {{start}}</li>
+                <li>The end date is {{end}}</li>
+                <li>The total cost of the project is {{totalcost}}</li>
+                <li>It was budgeted for {{budgetYear}}</li>
                 <li>{{comments}}</li>
               </ul>
                </div>
