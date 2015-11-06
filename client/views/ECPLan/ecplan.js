@@ -23,9 +23,7 @@ if (Meteor.isClient) {
     searchResults: function () { 
         var keyword  = Session.get("search-query");
         var query = new RegExp( keyword, 'i' );
-        console.log(query);
         var results = ECPlans.find( { 'schoolName':query } );
-        console.log(results);
         return {results: results};
       }
 
