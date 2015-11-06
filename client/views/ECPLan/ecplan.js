@@ -13,19 +13,14 @@ if (Meteor.isClient) {
 
 
   Template.ecplan.events({
+     
   
+ // Meteor.methods({    
+//    checkSchool: function (school) {            
+    
+  //});
 
-    "submit .schoolSearch": function (event) {
-      // Prevent default browser form submit
-      event.preventDefault();
-
-      // Get value from input
-      var text = event.target.text.value;
-
-   
-    }
-
-  });
+});
 
 }
 
