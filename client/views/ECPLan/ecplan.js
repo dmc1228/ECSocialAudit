@@ -35,13 +35,3 @@ Template.schoolInPlan.helpers({
 
     
   });
-
-  
-}
-
-
-
-
-
-
- 
