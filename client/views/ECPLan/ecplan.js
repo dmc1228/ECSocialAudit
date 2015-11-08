@@ -1,12 +1,10 @@
 Meteor.subscribe("ecplans");
 
-
-
 Template.ecplan.helpers({
     
-  /*  ecplans: function () {
+    ecplans: function () {
       return ECPlans.find();
-    },*/
+    }
     
     inputAttributes: function () {
       return { 'class': 'easy-search-input', 'placeholder': 'Type your school name here' };
@@ -30,7 +28,6 @@ Template.ecplan.helpers({
 
 
 Template.ecplan.events({
-    
   
     
   

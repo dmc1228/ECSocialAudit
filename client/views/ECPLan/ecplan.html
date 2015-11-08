@@ -1,49 +1,19 @@
-
-
-
 <template name='ecplan'>
   <div class="container">
     <h2>Eastern Cape Norms and Standards Implementation Plan</h2>
-    <h5>To see what the Department of Education has planned for your school, please type your school name here:</h5>
-      <div class="row">
-        <div class="input-field col s6">
-          
-        </div>
-      </div>
-      
-      
-    {{> EasySearch.Input index=index attributes=inputAttributes }}
-
-    {{#EasySearch.IfInputEmpty index=index }}
-      <div class="">For example "Mandela Elementary School"</div>
-    {{else}}
-      {{#if resultsCount}}
-        <div class="count-results">{{resultsCount}} results found.</div>
-      {{/if}}
-    {{/EasySearch.IfInputEmpty}}
-
-
-    {{#EasySearch.IfSearching index=index }}
-      <div>Searching...</div>
-    {{/EasySearch.IfSearching }}
-
-    <ol class="allSchoolCards">
-      {{#EasySearch.Each index=index }}
-        {{> schoolInPlan}}
-      {{/EasySearch.Each}}
-    </ol>
-
-    {{#EasySearch.IfNoResults index=index }}
-      <div class="no-results">No results found. Your school is not in the provincial infrastructure plan.</div>
+    <h5>To see what the Department of Education has planned for your school, please type your school name here:</h5>      
+   
     
-    {{/EasySearch.IfNoResults }}
-
-    
-    
+    {{#each ecplans}}
+      {{> schooInPlan}}
+    {{/each}}
+   
+   <div class="divider">
+   </div>
    
      <div class="deptDocs">
   
-        <h5>These are the the official Eastern Cape Department of Education Documents:</h5>
+        <h5>The official Eastern Cape Department of Education Documents:</h5>
     
        <div class="collection">
           <a href="http://www.education.gov.za/LinkClick.aspx?fileticket=ibIphhew3Eo%3D&tabid=759&mid=3094" target="_blank" class="collection-item        ECDoc">Eastern Cape Norms and Standards Implementation Plan</a>
@@ -55,9 +25,10 @@
       
       
     <div class="contact">
-      <p>Is your school struggling with water, electricity or sanitation, or are your class structures inappropriate? Contact Equal Education</p>
-      <p> <a href=mailto:joineeec@equaleducation.org.za class="waves-effect waves-light btn-large white-text">Email: joineeec@equaleducation.org.za</a></p>
-      <p> <a href=tel:+27436421616 class="waves-effect waves-light btn-large white-text">Phone: +27 43 642 1616</a></p>
+      <h2>Contact Equal Education</h2>
+      <p>If your school is struggling with water, electricity, sanitation, inappropriate structures, or if you have any other questions: </p>
+      <p> <a href=mailto:joineeec@equaleducation.org.za class="waves-effect waves-light btn-large white-text">Email us: joineeec@equaleducation.org.za</a></p>
+      <p> <a href=tel:+27436421616 class="waves-effect waves-light btn-large white-text">Phone us: +27 43 642 1616</a></p>
          
     </div>
         
