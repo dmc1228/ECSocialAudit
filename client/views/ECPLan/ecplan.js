@@ -1,37 +1,45 @@
 Meteor.subscribe("ecplans");
 
+
+
 Template.ecplan.helpers({
     
-    ecplans: function () {
+  /*  ecplans: function () {
       return ECPlans.find();
-    }
+    },*/
+    
+    inputAttributes: function () {
+      return { 'class': 'easy-search-input', 'placeholder': 'Type your school name here' };
+    },
+    schools: function () {
+      return ECPlan.find({}, { sort: { schoolName: 1 } });
+    },
+    index: function () {
+      return ecPlansIndex;
+    },
+    resultsCount: function () {
+      return ecPlansIndex.getComponentDict().get('count');
+    },
+    showMore: function () {
+      return false;
+    },
+    
+    
     
   });
 
 
 Template.ecplan.events({
     
-  'submit': function(event){
-      event.preventDefault();
-    },
+  
     
-  'keyup input.schoolSearch': function (evt) {
-      var search = evt.currentTarget.value;
-      Session.set("search-query", search);
-    }
-    
+  
   });
 
 
 
 Template.schoolInPlan.helpers({
     
-  searchResults: function () { 
-      var keyword  = Session.get("search-query");
-      var query = new RegExp( keyword, 'i' );
-      var results = ECPlans.find( { 'schoolName':query } );
-        return {results: results};
-      }
-
+ 
     
   });
