@@ -1,42 +1,23 @@
-Meteor.subscribe("ecplans");
+Meteor.subscribe("ecschools");
 
 Template.ecplan.helpers({
-    
-    ecplans: function () {
-      return ECPlans.find();
-    }
-    
-    inputAttributes: function () {
-      return { 'class': 'easy-search-input', 'placeholder': 'Type your school name here' };
-    },
-    schools: function () {
-      return ECPlan.find({}, { sort: { schoolName: 1 } });
-    },
-    index: function () {
-      return ecPlansIndex;
-    },
-    resultsCount: function () {
-      return ecPlansIndex.getComponentDict().get('count');
-    },
-    showMore: function () {
-      return false;
-    },
-    
-    
-    
-  });
 
-
-Template.ecplan.events({
   
-    
-  
-  });
+  inputAttributes: function () {
+    return { 'class': 'easy-search-input', 'placeholder': 'Example: Mandela Primary' };
+  },
+  schools: function () {
+    return ECSchools.find({}, { sort: { schoolName: -1, name: 1 } });
+  },
+  index: function () {
+    return ECSchoolsIndex;
+  },
+  resultsCount: function () {
+    return ECSchoolsIndex.getComponentDict().get('count');
+  },
+  showMore: function () {
+    return false;
+  },
+  renderTmpl: () => Template.renderTemplate
+});
 
-
-
-Template.schoolInPlan.helpers({
-    
- 
-    
-  });

@@ -4,10 +4,44 @@
     <h5>To see what the Department of Education has planned for your school, please type your school name here:</h5>      
    
     
-    {{#each ecplans}}
-      {{> schooInPlan}}
-    {{/each}}
-   
+   {{> EasySearch.Input index=index attributes=inputAttributes }}
+
+   {{#EasySearch.IfInputEmpty index=index }}
+   {{else}}
+     {{#if resultsCount}}
+       <div class="count-results">{{resultsCount}} results found.</div>
+     {{/if}}
+   {{/EasySearch.IfInputEmpty}}
+
+   {{#EasySearch.IfSearching index=index }}
+     <div>Searching...</div>
+   {{/EasySearch.IfSearching }}
+
+   <ol>
+     {{#EasySearch.Each index=index }}
+       {{> schoolCard}}
+     {{/EasySearch.Each}}
+   </ol>
+
+   {{#EasySearch.IfNoResults index=index }}
+     <div class="no-results">No results found</div>
+    
+   {{/EasySearch.IfNoResults }}
+
+   {{> EasySearch.Pagination index=index maxPages=6 }}
+   {{! > EasySearch.LoadMore index=index }}
+
+   {{#if showMore}}
+     {{> EasySearch.Input name="mini-index" index=index attributes=inputAttributes }}
+
+     <ul>
+       {{#EasySearch.Each name="mini-index" index=index }}
+         <li>{{schoolName}}</li>
+       {{/EasySearch.Each}}
+     </ul>
+   {{/if}}
+
+    
    <div class="divider">
    </div>
    
@@ -33,43 +67,111 @@
     </div>
         
         
-
-      
   </div>
 </template> 
 
-<template name="schoolInPlan"> 
-                
-            <div class="row">
-                <div class="col s12 m10">
-                  <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                      <span class="card-title">{{schoolName}}</span>
-                      <p>Here is the information found in the Eastern Cape's provincial infrastructure priority list:</p>
-                      <ul>
-                          <li> Implementing agent: <span class="yellow-text">{{agent}}  </span></li>
-                          <li> Programme: <span class="yellow-text">{{programme}} </span> </li>
-                          <li> Funding: <span class="yellow-text">{{source}} </span> </li>
-                          <li> Strategic Priority: <span class="yellow-text">{{strategic}}  </span></li>
-                          <li> Bidding Status: <span class="yellow-text">{{bid}} </span> </li>
-                          <li> Parent Priority: <span class="yellow-text">{{parent}} </span> </li>
-                          <li> Description: <span class="yellow-text">{{description}}</span></li>
-                          <li> Nature of Investment: <span class="yellow-text">{{nature}}  </span></li>
-                          <li> Stage: <span class="yellow-text">{{projectStage}}  </span></li>
-                          <li> Start date: <span class="yellow-text">{{startDate}} </span> </li>
-                          <li> End date: <span class="yellow-text">{{endDate}}</span>  </li>
-                          <li> Total cost: <span class="yellow-text">{{totalCost}}  </span></li>
-                          <li> Comments: <span class="yellow-text">{{ecplanComments}} </span></li>
-                    </ul>
-                    
-                
-                    </div>
-             
-                    
-                  </div>
-                </div>
-              </div>
-     
+
+<template name="schoolCard">
+
+  <div class="schoolCard">
+    <h2>School Information</h2>
+
+      {{> schoolInfo}}
+
+    <h2>Government Infrastructure Plans</h2>
+
+      {{> ECPlan}}
+
+      {{> ASIDI}}
+
+  </div>
+  
+</template>
+
+
+<template name="schoolInfo">
+    <ul>
+      <li>School name: {{schoolName}}</li>
+      <li>District: {{districtName}}</li>
+      <li>Principal: {{managerName}}</li>
+      <li>Phone number: {{phoneNum}}</li>
+      <li>Cell phone number: {{cellno}}</li>
+      <li>Email Address: {{email}}</li>
+      <li>Fax number: {{faxNum}}</li>
+      <li>GPS: {{GIS_Lat}}, {{GIS_Long}}</li>  
+      <li>Address: {{address_old}}</li>
+      <li>Enrollment: {{snapEnrol}}</li>
+      <li>Grade R enrollment: {{gradeREnrol}}</li>
+            
+    </ul>
+</template>
+
+<template name="ECPlan">
+  <h4>EC Provincial Infrastructure Priority List</h4>
+  
+
+        <ul>
+            <li> Implementing agent: <span class="yellow-text">{{agent}}  </span></li>
+            <li> Programme: <span class="yellow-text">{{programme}} </span> </li>
+            <li> Funding: <span class="yellow-text">{{source}} </span> </li>
+            <li> Strategic Priority: <span class="yellow-text">{{strategic}}  </span></li>
+            <li> Bidding Status: <span class="yellow-text">{{bid}} </span> </li>
+            <li> Parent Priority: <span class="yellow-text">{{parent}} </span> </li>
+            <li> Description: <span class="yellow-text">{{description}}</span></li>
+            <li> Nature of Investment: <span class="yellow-text">{{nature}}  </span></li>
+            <li> Stage: <span class="yellow-text">{{projectStage}}  </span></li>
+            <li> Start date: <span class="yellow-text">{{startDate}} </span> </li>
+            <li> End date: <span class="yellow-text">{{endDate}}</span>  </li>
+            <li> Total cost: <span class="yellow-text">{{totalCost}}  </span></li>
+            <li> Comments: <span class="yellow-text">{{ecplanComments}} </span></li>
+      </ul>
+      
+
+</template>
+
+<template name="PAIA">
+  <h4>EE's PAIA Request</h4>
+  
+    <p> {{schoolName}} is on the PAIA list for {{PAIAvar}}  </p>
+       
+</template>
+
+<template name="ASIDI">
+  
+  <h4>ASIDI Master List</h4>
+  
+     <ul>
+
+       <li> Financial Year: {{asidiYear}}  </li>
+       <li> Status: {{asidiStatus}}  </li>
+       <li> Comments: {{asidiCommentsA}}  {{asidiCommentsB}}</li>
+
+    
+   </ul>
+       
+</template>
+
+        
+      
+<template name="EEVisits">
+      <ul>
+        {{#each visits}}
+          <li>We visited them on:{{visitDate}}</li>
+          <li>Our notes from this visit:{{visitNotes}}</li>
+        {{/each}}
+      </ul>
+      {{> addVisit}}
+    
+</template>
+
+
+<template name="addVisit">
+  <h4>Add visit</h4>
+  <p>Please fill in the following form for a new school visit:</p>
+      <form class="addVisit">
+        <textarea> </textarea>
+        <input type="date" name="visitDate" class="visitDate"/>
+      </form>
 </template>
 
 
